@@ -8,6 +8,46 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/ClientHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/ClientNetwork.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/InClientHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/OutClientHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/CloudServer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/InServerHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/MainServerHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/OutServerHandler.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/gb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/gui/ControllerGUI.java">
           <value>
             <set />

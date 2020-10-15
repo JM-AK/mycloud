@@ -1,58 +1,61 @@
 package com.geekbrains.gb.mycloud;
 
-import com.geekbraind.gb.mycloud.AbstractMessage;
-import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
-import io.netty.handler.codec.serialization.ObjectEncoderOutputStream;
 
-import java.io.IOException;
-import java.net.Socket;
+
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioSocketChannel;
+
+import java.net.InetSocketAddress;
+import java.util.concurrent.CountDownLatch;
 
 public class ClientNetwork {
-    private static Socket socket;
-    private static ObjectEncoderOutputStream out;
-    private static ObjectDecoderInputStream in;
+    private String host;
+    private int port;
+    private Channel currentChannel;
 
-    public static void start() {
+    public ClientNetwork(String host, int port) {
+        this.host = host;
+        this.port = port;
+    }
+
+    public Channel getCurrentChannel() {
+        return currentChannel;
+    }
+
+    public void start(CountDownLatch countDownLatch) throws InterruptedException {
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
-            socket = new Socket("localhost", 8189);
-            out = new ObjectEncoderOutputStream(socket.getOutputStream());
-            in = new ObjectDecoderInputStream(socket.getInputStream(), 50 * 1024 * 1024);
-        } catch (IOException e) {
-            e.printStackTrace();
+            Bootstrap b = new Bootstrap();
+            b.group(workerGroup);
+            b.channel(NioSocketChannel.class);
+            b.remoteAddress(new InetSocketAddress(host, port));
+//            b.option(ChannelOption.SO_KEEPALIVE, true);
+            b.handler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                public void initChannel(SocketChannel socketChannel) throws Exception {
+                    socketChannel.pipeline().addLast();
+                    currentChannel = socketChannel;
+                }
+            });
+            ChannelFuture channelFuture = b.connect().sync();
+            countDownLatch.countDown();
+            channelFuture.channel().closeFuture().sync();
+        } finally {
+            try {
+                workerGroup.shutdownGracefully().sync();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public static void stop() {
-        try {
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            in.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void stop() {
+        currentChannel.close();
     }
-
-    public static boolean sendMsg(AbstractMessage msg) {
-        try {
-            out.writeObject(msg);
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public static AbstractMessage readObject() throws ClassNotFoundException, IOException {
-        Object obj = in.readObject();
-        return (AbstractMessage) obj;
-    }
-
 }

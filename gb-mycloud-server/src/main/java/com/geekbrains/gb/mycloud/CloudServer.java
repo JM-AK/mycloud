@@ -26,8 +26,8 @@ public class CloudServer {
                     .channel(NioServerSocketChannel.class)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new OutHandler(), new AuthHandler(), new MainHandler());
+                        public void initChannel(SocketChannel socketChannel) throws Exception {
+                            socketChannel.pipeline().addLast(new OutServerHandler(), new AuthHandler(), new InServerHandler());
                         }
                     })
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
