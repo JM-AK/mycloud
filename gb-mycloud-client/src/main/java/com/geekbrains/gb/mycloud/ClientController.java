@@ -1,4 +1,4 @@
-package com.geekbrains.gb.mycloud.gui;
+package com.geekbrains.gb.mycloud;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,7 +25,7 @@ public class ClientController {
     }
 
     @FXML
-    public void loadFile(ActionEvent actionEvent) {
+    public void downloadFile(ActionEvent actionEvent) {
         System.out.println("load file");
     }
 

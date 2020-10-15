@@ -1,4 +1,4 @@
-package com.geekbrains.gb.mycloud.gui;
+package com.geekbrains.gb.mycloud;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
