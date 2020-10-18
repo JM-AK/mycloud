@@ -4,11 +4,9 @@ package com.geekbraind.gb.mycloud;
 * for command transfer
 * types of command
 *
-* auth##login##password
-* deletefile##file name
-* renamefile##file name
-* down/uploadfile##file name
-* info##message
+* 2 конструктора
+* пустой для приходящих сообщений
+* с командой для отправки сообщения
 *
 * */
 
@@ -18,9 +16,11 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
+
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-public class CommandMessage extends AbstractMessage{
+public abstract class CommandMessage extends AbstractMessage{
     public enum State {
         IDLE, COMMAND_LENGTH, COMMAND
     }
@@ -29,12 +29,15 @@ public class CommandMessage extends AbstractMessage{
     private int commandLength;
     private String command;
 
+    public CommandMessage (){
+
+    }
     public CommandMessage (String command){
         this.command = command;
         this.commandLength = command.getBytes().length;
     }
 
-    public void receiveCommand(ChannelHandlerContext ctx, ByteBuf buf) {
+    public void receiveCommand(ChannelHandlerContext ctx, ByteBuf buf) throws IOException {
         while (buf.readableBytes() > 0) {
             if (currentState == State.IDLE){
                 currentState = State.COMMAND_LENGTH;
@@ -54,12 +57,11 @@ public class CommandMessage extends AbstractMessage{
                     command = new String(commandByteArr, StandardCharsets.UTF_8);
                     System.out.println("STATE: Command received - " + command);
                     currentState = State.IDLE;
+                    //ссылка на метод, который должен быть переопределен
+                    parseCommand(ctx, command);
                     break;
                 }
             }
-        }
-        if (buf.readableBytes() == 0) {
-            buf.release();
         }
     }
 
@@ -71,7 +73,7 @@ public class CommandMessage extends AbstractMessage{
         // 1 + 4 + commandLength
         ByteBuf buf = null;
         buf = ByteBufAllocator.DEFAULT.directBuffer(1 + 4 + commandLength);
-        buf.writeByte(MessageLibrary.CMD_SYGNAL_BYTE);
+        buf.writeByte(CommandLibrary.CMD_SIGNAL_BYTE);
         buf.writeInt(commandLength);
         buf.writeBytes(command.getBytes(StandardCharsets.UTF_8));
 
@@ -81,7 +83,6 @@ public class CommandMessage extends AbstractMessage{
         }
     }
 
-    public String [] parseCommand() {
-        return command.split(MessageLibrary.DELIMITER);
-    }
+    //method to be override
+    public abstract void parseCommand(ChannelHandlerContext ctx, String command) throws IOException;
 }

@@ -12,9 +12,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class CloudServer {
 
     private int port;
+    private String rootDir;
 
-    public CloudServer (int port) {
+    public CloudServer (int port, String rootDir) {
         this.port = port;
+        this.rootDir = rootDir;
     }
 
     public void run() throws InterruptedException {
@@ -27,7 +29,7 @@ public class CloudServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(new OutServerHandler(), new AuthHandler(), new InServerHandler());
+                            socketChannel.pipeline().addLast(new OutServerHandler(), new AuthHandler(), new ServerHandler(rootDir, new ServerCommandMessage(rootDir)));
                         }
                     })
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
@@ -41,8 +43,12 @@ public class CloudServer {
 
     public static void main(String[] args) throws InterruptedException {
         int port = 8189;
-        if(args.length > 0) port = Integer.parseInt(args[0]);
-        new CloudServer(port).run();
+        String rootDir = "storage_server";
+        if(args.length > 1) {
+            port = Integer.parseInt(args[0]);
+            rootDir = args[1];
+        }
+        new CloudServer(port, rootDir).run();
     }
 
 

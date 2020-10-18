@@ -80,16 +80,13 @@ public class FileMessage extends AbstractMessage {
                 }
             }
         }
-        if (buf.readableBytes() == 0) {
-            buf.release();
-        }
     }
 
     public void sendFile (Channel channel, ChannelFutureListener fileTransferListener) throws IOException {
         // 1(=isFile) + 4(=fileNameLen) + fileName + 8(=fileSize) + file
         ByteBuf buf = null;
         buf = ByteBufAllocator.DEFAULT.directBuffer(1 + 4 + fileName.getBytes(StandardCharsets.UTF_8).length + 8);
-        buf.writeByte(MessageLibrary.FILE_SYGNAL_BYTE);
+        buf.writeByte(CommandLibrary.FILE_SIGNAL_BYTE);
         buf.writeInt(fileName.getBytes(StandardCharsets.UTF_8).length);
         buf.writeBytes(fileName.getBytes(StandardCharsets.UTF_8));
         buf.writeLong(fileSize);
