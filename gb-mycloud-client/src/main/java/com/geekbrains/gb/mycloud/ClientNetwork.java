@@ -1,12 +1,7 @@
 package com.geekbrains.gb.mycloud;
 
-
-
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -35,11 +30,10 @@ public class ClientNetwork {
             b.group(workerGroup);
             b.channel(NioSocketChannel.class);
             b.remoteAddress(new InetSocketAddress(host, port));
-//            b.option(ChannelOption.SO_KEEPALIVE, true);
+            b.option(ChannelOption.SO_KEEPALIVE, true);
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel socketChannel) throws Exception {
-                    socketChannel.pipeline().addLast();
                     currentChannel = socketChannel;
                 }
             });

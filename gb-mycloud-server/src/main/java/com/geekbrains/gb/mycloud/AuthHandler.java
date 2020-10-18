@@ -9,8 +9,10 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
 
+//        временная заглушка
+        System.out.println("Client Authorised");
+        ctx.fireChannelRead(msg);
     }
-
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
