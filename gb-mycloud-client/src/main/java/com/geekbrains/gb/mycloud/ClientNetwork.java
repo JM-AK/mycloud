@@ -1,5 +1,6 @@
 package com.geekbrains.gb.mycloud;
 
+import com.geekbraind.gb.mycloud.CommandMessage;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -13,14 +14,40 @@ public class ClientNetwork {
     private String host;
     private int port;
     private Channel currentChannel;
+    private String rootDir;
+    private boolean isAuthorised;
 
-    public ClientNetwork(String host, int port) {
+    private ClientNetwork(String host, int port) {
         this.host = host;
         this.port = port;
+        this.isAuthorised = false;
+    }
+
+    private static ClientNetwork ourInstance = new ClientNetwork("localhost", 8189);
+
+    public static ClientNetwork getInstance() {
+        return ourInstance;
     }
 
     public Channel getCurrentChannel() {
         return currentChannel;
+    }
+
+    public boolean isAuthorised () {
+        return isAuthorised;
+    }
+
+    public void setNetworSettings(String host, int port){
+        this.host = host;
+        this.port = port;
+    }
+
+    public void setRootDir (String rootDir) {
+        this.rootDir = rootDir;
+    }
+
+    public void setIsAuthorised (boolean isAuthorised) {
+        this.isAuthorised = isAuthorised;
     }
 
     public void start(CountDownLatch countDownLatch) throws InterruptedException {
@@ -34,6 +61,7 @@ public class ClientNetwork {
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel socketChannel) throws Exception {
+                    socketChannel.pipeline().addLast(new OutClientHandler(), new InClientHandler(rootDir,new CommandMessage()));
                     currentChannel = socketChannel;
                 }
             });

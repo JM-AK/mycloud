@@ -1,7 +1,10 @@
 package com.geekbrains.gb.mycloud;
 
+import com.geekbraind.gb.mycloud.CommandLibrary;
 import com.geekbraind.gb.mycloud.CommandMessage;
 import com.geekbraind.gb.mycloud.MessageLibrary;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,6 +25,10 @@ public class ClientController {
     public GridPane loginArea;
     @FXML
     public Button login;
+
+    public ClientNetwork getClientNetwork() {
+        return clientNetwork;
+    }
 
     @FXML
     public void showLoginArea(ActionEvent actionEvent) {
@@ -59,12 +66,17 @@ public class ClientController {
     @FXML
     public void loginTry(ActionEvent actionEvent) {
         System.out.println("Try login");
-
         try {
             start();
-            new CommandMessage(MessageLibrary.getAuthRequestMessage("alex", "123"));
-
-            loginArea.setVisible(false);
+            new CommandMessage(MessageLibrary.getAuthRequestMessage("alex", "123")).sendCommand(clientNetwork.getCurrentChannel(), new ChannelFutureListener() {
+                @Override
+                public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                    System.out.println(MessageLibrary.getCommandCompletedMessage(CommandLibrary.CommandList.AUTHORISE,null));
+                }
+            });
+            if(clientNetwork.isAuthorised()){
+                loginArea.setVisible(false);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -73,7 +85,8 @@ public class ClientController {
     private void start() throws InterruptedException {
         CountDownLatch networkStarter = new CountDownLatch(1);
         new Thread (()-> {
-                clientNetwork = new ClientNetwork("localhost", 8189);
+                clientNetwork = ClientNetwork.getInstance();
+                clientNetwork.setRootDir("storage_client");
             try {
                 clientNetwork.start(networkStarter);
             } catch (InterruptedException e) {

@@ -1,6 +1,10 @@
 package com.geekbrains.gb.mycloud;
 
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import com.geekbraind.gb.mycloud.CommandMessage;
+import com.geekbraind.gb.mycloud.InMessageHandler;
 
-public class InClientHandler extends ChannelInboundHandlerAdapter {
+public class InClientHandler extends InMessageHandler {
+    public InClientHandler(String rootDir, CommandMessage commandMessage) {
+        super(rootDir, commandMessage);
+    }
 }

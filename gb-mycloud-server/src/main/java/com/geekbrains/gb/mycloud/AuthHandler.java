@@ -34,8 +34,12 @@ public class AuthHandler extends InMessageHandler {
                         String[] cmdArr = commandReceived.split(MessageLibrary.DELIMITER);
                         if(cmdArr[1].equals(CommandLibrary.CMD_AUTHORISE)){
                             if (isAuthorised(cmdArr[2],cmdArr[3])) {
-                                System.out.println("Client authorised");
+                                System.out.println(MessageLibrary.getAuthAcceptMessage());
+                                new CommandMessage(MessageLibrary.getAuthAcceptMessage()).sendCommand(ctx.channel(), null );
                                 ctx.pipeline().remove(this);
+                            } else {
+                                System.out.println(MessageLibrary.getAuthDeniedMessage());
+                                new CommandMessage(MessageLibrary.getAuthDeniedMessage()).sendCommand(ctx.channel(), null);
                             }
                         }
                     }
