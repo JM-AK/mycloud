@@ -61,7 +61,7 @@ public class ClientNetwork {
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel socketChannel) throws Exception {
-                    socketChannel.pipeline().addLast(new OutClientHandler(), new InClientHandler(rootDir,new CommandMessage()));
+                    socketChannel.pipeline().addLast(new OutClientHandler(), new InClientHandler(rootDir,new ClientCommandMessage()));
                     currentChannel = socketChannel;
                 }
             });
