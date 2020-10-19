@@ -1,13 +1,13 @@
 package com.geekbrains.gb.mycloud;
 
+import com.geekbraind.gb.mycloud.CommandMessage;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+
+import java.io.IOException;
 
 public class CloudServer {
 
@@ -29,7 +29,10 @@ public class CloudServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(new OutServerHandler(), new AuthHandler(), new ServerHandler(rootDir, new ServerCommandMessage(rootDir)));
+                            socketChannel.pipeline().addLast(
+                                    new OutServerHandler(),
+                                    new AuthHandler(rootDir, new CommandMessage()),
+                                    new ServerHandler(rootDir, new ServerCommandMessage(rootDir)));
                         }
                     })
                     .childOption(ChannelOption.SO_KEEPALIVE, true);

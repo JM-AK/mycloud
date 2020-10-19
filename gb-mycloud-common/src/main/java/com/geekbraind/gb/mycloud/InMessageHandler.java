@@ -7,13 +7,13 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import java.io.File;
 
 public class InMessageHandler extends ChannelInboundHandlerAdapter {
-    private enum Status {
+    public enum Status {
         IDLE, FILE, COMMAND
     }
 
     private CommandMessage commandMessage;
     private FileMessage fileMessage;
-    private Status currentStatus;
+    public Status currentStatus;
 
     public InMessageHandler(String rootDir, CommandMessage commandMessage){
         this.currentStatus = Status.IDLE;
@@ -49,5 +49,9 @@ public class InMessageHandler extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         ctx.close();
+    }
+
+    public CommandMessage getCommandMessage() {
+        return commandMessage;
     }
 }

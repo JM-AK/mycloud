@@ -1,5 +1,7 @@
 package com.geekbrains.gb.mycloud;
 
+import com.geekbraind.gb.mycloud.CommandMessage;
+import com.geekbraind.gb.mycloud.MessageLibrary;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -57,9 +59,12 @@ public class ClientController {
     @FXML
     public void loginTry(ActionEvent actionEvent) {
         System.out.println("Try login");
-        loginArea.setVisible(false);
+
         try {
             start();
+            new CommandMessage(MessageLibrary.getAuthRequestMessage("alex", "123"));
+
+            loginArea.setVisible(false);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

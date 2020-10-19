@@ -1,22 +1,54 @@
 package com.geekbrains.gb.mycloud;
 
 
+import com.geekbraind.gb.mycloud.CommandLibrary;
+import com.geekbraind.gb.mycloud.CommandMessage;
+import com.geekbraind.gb.mycloud.InMessageHandler;
+import com.geekbraind.gb.mycloud.MessageLibrary;
+import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 
-public class AuthHandler extends ChannelInboundHandlerAdapter {
+/*
+* /cmd##/authorise_client##login##password
+*
+* */
 
-    @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) {
 
-//        временная заглушка
-        System.out.println("Client Authorised");
-        ctx.fireChannelRead(msg);
+public class AuthHandler extends InMessageHandler {
+
+    public AuthHandler (String rootDir, CommandMessage commandMessage){
+        super(rootDir, commandMessage);
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        cause.printStackTrace();
-        ctx.close();
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        ByteBuf buf = ((ByteBuf) msg);
+        while (buf.readableBytes() > 0) {
+            if (currentStatus == Status.IDLE) {
+                byte selectorByte = buf.readByte();
+                if (selectorByte == CommandLibrary.CMD_SIGNAL_BYTE) {
+                    currentStatus = Status.COMMAND;
+                    super.getCommandMessage().receiveCommand(ctx, buf);
+                    String commandReceived = super.getCommandMessage().getCommand();
+                    if (commandReceived.startsWith(MessageLibrary.MSG_COMMAND)){
+                        String[] cmdArr = commandReceived.split(MessageLibrary.DELIMITER);
+                        if(cmdArr[1].equals(CommandLibrary.CMD_AUTHORISE)){
+                            if (isAuthorised(cmdArr[2],cmdArr[3])) {
+                                System.out.println("Client authorised");
+                                ctx.pipeline().remove(this);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (buf.readableBytes() == 0) {
+            buf.release();
+        }
+    }
+    //to be done
+    public boolean isAuthorised (String login, String password){
+        return true;
     }
 }
+

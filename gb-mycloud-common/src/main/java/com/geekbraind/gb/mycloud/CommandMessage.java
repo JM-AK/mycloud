@@ -20,7 +20,7 @@ import io.netty.channel.ChannelHandlerContext;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-public abstract class CommandMessage extends AbstractMessage{
+public class CommandMessage extends AbstractMessage{
     public enum State {
         IDLE, COMMAND_LENGTH, COMMAND
     }
@@ -83,6 +83,7 @@ public abstract class CommandMessage extends AbstractMessage{
         }
     }
 
-    //method to be override
-    public abstract void parseCommand(ChannelHandlerContext ctx, String command) throws IOException;
+    public void parseCommand(ChannelHandlerContext ctx, String command) throws IOException {
+
+    }
 }

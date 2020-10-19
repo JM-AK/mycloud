@@ -47,6 +47,8 @@ public class ServerCommandMessage extends CommandMessage {
             String fileName = cmdArr[2];
             Paths.get(fileName);
             switch (cmdReceived) {
+                case CommandLibrary.CMD_AUTHORISE:
+                    return;
                 case CommandLibrary.CMD_DELETE_FILE:
                     Files.deleteIfExists(Paths.get(rootDir, "\\", fileName));
                     System.out.println(MessageLibrary.getCommandCompletedMessage(CommandLibrary.CommandList.DELETE_FILE, fileName));
