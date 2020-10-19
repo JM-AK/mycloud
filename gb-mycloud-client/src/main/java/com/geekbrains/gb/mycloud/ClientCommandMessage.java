@@ -42,11 +42,5 @@ public class ClientCommandMessage extends CommandMessage {
             ClientNetwork.getInstance().setIsAuthorised(true);
         }
 
-        if(ClientNetwork.getInstance().isAuthorised()){
-
-
-
-        }
-
     }
 }
