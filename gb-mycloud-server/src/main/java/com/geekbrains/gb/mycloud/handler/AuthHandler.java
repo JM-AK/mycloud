@@ -1,10 +1,9 @@
-package com.geekbrains.gb.mycloud;
+package com.geekbrains.gb.mycloud.handler;
 
 
-import com.geekbraind.gb.mycloud.CommandLibrary;
-import com.geekbraind.gb.mycloud.CommandMessage;
-import com.geekbraind.gb.mycloud.InMessageHandler;
-import com.geekbraind.gb.mycloud.MessageLibrary;
+import com.geekbraind.gb.mycloud.message.CommandMsg;
+import com.geekbraind.gb.mycloud.util.MsgHandler;
+import com.geekbraind.gb.mycloud.lib.MsgLib;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -14,9 +13,9 @@ import io.netty.channel.ChannelHandlerContext;
 * */
 
 
-public class AuthHandler extends InMessageHandler {
+public class AuthHandler extends MsgHandler {
 
-    public AuthHandler (String rootDir, CommandMessage commandMessage){
+    public AuthHandler (String rootDir, CommandMsg commandMessage){
         super(rootDir, commandMessage);
     }
 
@@ -26,20 +25,20 @@ public class AuthHandler extends InMessageHandler {
         while (buf.readableBytes() > 0) {
             if (currentStatus == Status.IDLE) {
                 byte selectorByte = buf.readByte();
-                if (selectorByte == CommandLibrary.CMD_SIGNAL_BYTE) {
+                if (selectorByte == CmdLib.CMD_SIGNAL_BYTE) {
                     currentStatus = Status.COMMAND;
                     super.getCommandMessage().receiveCommand(ctx, buf);
                     String commandReceived = super.getCommandMessage().getCommand();
-                    if (commandReceived.startsWith(MessageLibrary.MSG_COMMAND)){
-                        String[] cmdArr = commandReceived.split(MessageLibrary.DELIMITER);
-                        if(cmdArr[1].equals(CommandLibrary.CMD_AUTHORISE)){
+                    if (commandReceived.startsWith(MsgLib.MSG_COMMAND)){
+                        String[] cmdArr = commandReceived.split(MsgLib.DELIMITER);
+                        if(cmdArr[1].equals(CmdLib.CMD_AUTHORISE)){
                             if (isAuthorised(cmdArr[2],cmdArr[3])) {
-                                System.out.println(MessageLibrary.getAuthAcceptMessage());
-                                new CommandMessage(MessageLibrary.getAuthAcceptMessage()).sendCommand(ctx.channel(), null );
+                                System.out.println(MsgLib.getAuthAcceptMessage());
+                                new CommandMsg(MsgLib.getAuthAcceptMessage()).sendCommand(ctx.channel(), null );
                                 ctx.pipeline().remove(this);
                             } else {
-                                System.out.println(MessageLibrary.getAuthDeniedMessage());
-                                new CommandMessage(MessageLibrary.getAuthDeniedMessage()).sendCommand(ctx.channel(), null);
+                                System.out.println(MsgLib.getAuthDeniedMessage());
+                                new CommandMsg(MsgLib.getAuthDeniedMessage()).sendCommand(ctx.channel(), null);
                             }
                         }
                     }

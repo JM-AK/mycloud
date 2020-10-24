@@ -31,3 +31,15 @@ A
 logs/logfile1.log,3\8\3829fd05abc27ddbf5cee87fce159f2e0706ed15
 |
 Lgb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/ClientNetwork.java,d\4\d474ff1a8f2a7ff762dc0de237ad125f90237339
+ƒ
+Sgb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/ServerCommandMessage.java,4\d\4d48cb78f0b5d5e73823e1dc261024616a8623bd
+
+Ogb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/OutClientHandler.java,9\9\99de1b2fc3342ab205ab403e5af4527d4f25e11e
+|
+Lgb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/ServerHandler.java,a\7\a79f125d568869567e7965baeba3726478130ebf
+~
+Ngb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/InClientHandler.java,1\3\1386533dca30aef660486b2b7cf70a278ddb885d
+
+Ogb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/OutServerHandler.java,9\3\936ab3fe1ed7064af6abca4dcf4894ee05b37fa5
+ƒ
+Sgb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/ClientCommandMessage.java,c\5\c535c1cf66d3777beae0b9d567f23abb91d500b6

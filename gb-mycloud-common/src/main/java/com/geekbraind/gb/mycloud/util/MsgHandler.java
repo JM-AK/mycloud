@@ -1,24 +1,25 @@
-package com.geekbraind.gb.mycloud;
+package com.geekbraind.gb.mycloud.util;
 
+import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
+import com.geekbraind.gb.mycloud.message.CommandMsg;
+import com.geekbraind.gb.mycloud.message.FileMsg;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
-import java.io.File;
-
-public class InMessageHandler extends ChannelInboundHandlerAdapter {
+public class MsgHandler extends ChannelInboundHandlerAdapter {
     public enum Status {
         IDLE, FILE, COMMAND
     }
 
-    private CommandMessage commandMessage;
-    private FileMessage fileMessage;
+    private CommandMsg commandMessage;
+    private FileMsg fileMsg;
     public Status currentStatus;
 
-    public InMessageHandler(String rootDir, CommandMessage commandMessage){
+    public MsgHandler(String rootDir, CommandMsg commandMessage){
         this.currentStatus = Status.IDLE;
         this.commandMessage = commandMessage;
-        this.fileMessage = new FileMessage(rootDir);
+        this.fileMsg = new FileMsg(rootDir);
     }
 
     @Override
@@ -27,17 +28,17 @@ public class InMessageHandler extends ChannelInboundHandlerAdapter {
         while (buf.readableBytes() > 0) {
             if (currentStatus == Status.IDLE) {
                 byte selectorByte = buf.readByte();
-                if (selectorByte == CommandLibrary.FILE_SIGNAL_BYTE) {
+                if (selectorByte == ProtocolCode.FILE_SIGNAL_BYTE) {
                     currentStatus = Status.FILE;
-                } else if (selectorByte == CommandLibrary.CMD_SIGNAL_BYTE) {
+                } else if (selectorByte == ProtocolCode.TEXT_SIGNAL_BYTE) {
                     currentStatus = Status.COMMAND;
                 }
             }
             if (currentStatus == Status.FILE) {
-                fileMessage.receiveFile(ctx, buf);
+//                fileMsg.receiveFile(ctx, buf);
             }
             if (currentStatus == Status.COMMAND) {
-                commandMessage.receiveCommand(ctx, buf);
+//                commandMessage.receiveCommand(ctx, buf);
             }
             if (buf.readableBytes() == 0) {
                 buf.release();
@@ -51,7 +52,7 @@ public class InMessageHandler extends ChannelInboundHandlerAdapter {
         ctx.close();
     }
 
-    public CommandMessage getCommandMessage() {
+    public CommandMsg getCommandMessage() {
         return commandMessage;
     }
 }

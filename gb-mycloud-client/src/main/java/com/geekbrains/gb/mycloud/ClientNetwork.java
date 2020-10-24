@@ -1,6 +1,5 @@
 package com.geekbrains.gb.mycloud;
 
-import com.geekbraind.gb.mycloud.CommandMessage;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -61,7 +60,7 @@ public class ClientNetwork {
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel socketChannel) throws Exception {
-                    socketChannel.pipeline().addLast(new OutClientHandler(), new InClientHandler(rootDir,new ClientCommandMessage()));
+                    socketChannel.pipeline().addLast(new OutClientHandler(), new InClientHandler(rootDir,new ClientCommandMsg()));
                     currentChannel = socketChannel;
                 }
             });

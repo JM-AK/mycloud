@@ -1,8 +1,7 @@
 package com.geekbrains.gb.mycloud;
 
-import com.geekbraind.gb.mycloud.CommandLibrary;
-import com.geekbraind.gb.mycloud.CommandMessage;
-import com.geekbraind.gb.mycloud.MessageLibrary;
+import com.geekbraind.gb.mycloud.message.CommandMsg;
+import com.geekbraind.gb.mycloud.lib.MsgLib;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import javafx.event.ActionEvent;
@@ -68,12 +67,13 @@ public class ClientController {
         System.out.println("Try login");
         try {
             start();
-            new CommandMessage(MessageLibrary.getAuthRequestMessage("alex", "123")).sendCommand(clientNetwork.getCurrentChannel(), new ChannelFutureListener() {
+            new CommandMsg(MsgLib.getAuthRequestMessage("alex", "123")).sendCommand(clientNetwork.getCurrentChannel(), new ChannelFutureListener() {
                 @Override
                 public void operationComplete(ChannelFuture channelFuture) throws Exception {
-                    System.out.println(MessageLibrary.getCommandCompletedMessage(CommandLibrary.CommandList.AUTHORISE,null));
+                    System.out.println(MsgLib.getCommandCompletedMessage(CmdLib.CommandList.AUTHORISE,null));
                 }
             });
+            Thread.sleep(1000);
             if(clientNetwork.isAuthorised()){
                 loginArea.setVisible(false);
             }

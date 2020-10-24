@@ -1,4 +1,4 @@
-package com.geekbrains.gb.mycloud;
+package com.geekbrains.gb.mycloud.handler;
 
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 
