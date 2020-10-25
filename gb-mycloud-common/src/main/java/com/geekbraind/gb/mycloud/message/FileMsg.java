@@ -13,6 +13,7 @@ public class FileMsg extends AbstractMsg {
     private String destination;
     private String fileName;
     private long fileSize;
+    private int bufferSize;
     private boolean isRequestFileList;
 
     public FileMsg(Path src, Path dst, boolean isFileList) {
@@ -43,7 +44,16 @@ public class FileMsg extends AbstractMsg {
         return fileSize;
     }
 
+    public int getBufferSize() {
+        return bufferSize;
+    }
+
     public boolean isFileList() {
         return isRequestFileList;
     }
+
+    public void setBufferSize(int bufferSize) {
+        this.bufferSize = bufferSize;
+    }
+
 }

@@ -1,9 +1,7 @@
 package com.geekbrains.gb.mycloud;
 
-import com.geekbraind.gb.mycloud.message.CommandMsg;
 import com.geekbrains.gb.mycloud.handler.AuthHandler;
 import com.geekbrains.gb.mycloud.handler.OutServerHandler;
-import com.geekbrains.gb.mycloud.handler.ServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -32,8 +30,7 @@ public class CloudServer {
                         public void initChannel(SocketChannel socketChannel) throws Exception {
                             socketChannel.pipeline().addLast(
                                     new OutServerHandler(),
-                                    new AuthHandler(rootDir, new CommandMsg()),
-                                    new ServerHandler(rootDir, new ServerCommandMsg(rootDir)));
+                                    new AuthHandler());
                         }
                     })
                     .childOption(ChannelOption.SO_KEEPALIVE, true);

@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FileListMsg extends AbstractMsg {
-    private ArrayList<Path> files;
+    private List<String> files;
     private String path;
 
-    public List<Path> getFiles() {
+    public List<String> getFiles() {
         return files;
     }
 
@@ -21,7 +21,7 @@ public class FileListMsg extends AbstractMsg {
         return path;
     }
 
-    public FileListMsg(ArrayList<Path> files, String path) {
+    public FileListMsg(List<String> files, String path) {
         super.setMsgType(MsgType.FILE_LIST);
         this.files = files;
         this.path = path;
