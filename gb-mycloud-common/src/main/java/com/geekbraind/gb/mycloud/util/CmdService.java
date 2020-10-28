@@ -84,7 +84,7 @@ public class CmdService {
         }
     }
 
-    public static void sendFileList(Path path, ChannelHandlerContext ctx, ChannelFutureListener commandListener) {
+    public void sendFileList(Path path, ChannelHandlerContext ctx, ChannelFutureListener commandListener) {
         List<String> files = null;
         try {
             files = Files.list(path).map(Path::toString).collect(Collectors.toList());
