@@ -3,12 +3,11 @@ package com.geekbrains.gb.mycloud.data;
 public class SQLiteQuery {
 
     public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS users (" +
-            "id auto_increment NOT NULL, " +
+            "id integer primary key autoincrement, " +
             "login character varchar(50) NOT NULL, " +
             "password text NOT NULL, " +
             "username character varchar(50) NOT NULL, " +
-            "active boolean NOT NULL, " +
-            "CONSTRAINT users_pkey PRIMARY KEY (id))";
+            "active boolean NOT NULL) ";
 
     public static final String USER_REGISTER = "INSERT INTO users (login, password, username, active) " +
             "VALUES (?, ?, ?, true)";

@@ -57,8 +57,12 @@ public class AuthService {
 
     public void disconnect() {
         try {
-            statement.close();
-            connection.close();
+            if(isConnected()) {
+                statement.close();
+                if (ps != null) ps.close();
+                connection.close();
+                System.out.println("DB disconnected");
+            }
         } catch (SQLException throwables) {
             logger.error("Ошибка: {}", throwables.getMessage(), throwables);
             throwables.printStackTrace();
@@ -83,6 +87,9 @@ public class AuthService {
             ps.setString(1, login);
             ps.setString(2, hash);
             ps.setString(3, username);
+            ps.execute();
+            System.out.println("DB new user " + username);
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -123,7 +130,7 @@ public class AuthService {
                 if (activate && SCryptUtil.check(password, hash)) {
                     ps = connection.prepareStatement(SQLiteQuery.DELETE_USER);
                     ps.setString(1, login);
-                    ps.executeQuery();
+                    ps.execute();
                     return true;
                 }
             }
@@ -172,12 +179,13 @@ public class AuthService {
     public boolean deactivateAccount (String login) {
         if (login.isEmpty()) return false;
         login = login.trim();
-        if (isAccountActive(login)) return false;
+        if (!isAccountActive(login)) return false;
         try {
             ps = connection.prepareStatement(SQLiteQuery.UPDATE_ACTIVE);
             ps.setBoolean(1, false);
             ps.setString(2, login);
             ps.execute();
+            System.out.println("DB account deactivated " + login);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -252,5 +260,21 @@ public class AuthService {
             throwables.printStackTrace();
         }
     }
+
+    //ForTesting
+//    public static void main(String[] args) {
+//        instance.connect();
+////        instance.createTable();
+////        System.out.println(instance.isLoginValid("alex@example.com"));
+////        System.out.println(instance.isLoginBusy("alex@example.com"));
+////        System.out.println(instance.createAccount("alex@example.com", "123", "alex-root"));
+//        System.out.println(instance.deactivateAccount("alex@example.com"));
+//        System.out.println(instance.isAccountActive("alex@example.com"));
+//        System.out.println(instance.activateAccount("alex@example.com"));
+//
+//        instance.disconnect();
+//
+//
+//    }
 
 }

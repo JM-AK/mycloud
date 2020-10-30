@@ -21,6 +21,10 @@ public class CommandMsg extends AbstractMsg {
         this.attachment = attachment;
     }
 
+    public Command getCommand () {
+        return command;
+    }
+
     public Object[] getAttachment() {
         return attachment;
     }
@@ -34,4 +38,7 @@ public class CommandMsg extends AbstractMsg {
         return MsgType.COMMAND + MsgLib.DELIMITER + command + sb.toString();
     }
 
+    public boolean equalsCmd(Command cmd) {
+        return this.command.equals(cmd);
+    }
 }

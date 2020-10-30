@@ -35,8 +35,6 @@ Vgb-mycloud-common/src/main/java/com/geekbraind/gb/mycloud/dictionary/ProtocolCo
 Pgb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/MainClientHandler.java,2\9\29aad108ba03cdd2d0e24e78930c853ed3a5d968
 ~
 Ngb-mycloud-common/src/main/java/com/geekbraind/gb/mycloud/message/InfoMsg.java,c\c\cc4374524ad8790d53296f4bb076081f14128cf2
-|
-Lgb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/util/SQLQuery.java,d\b\db081fb2dfa647ea4839413f548fd831e837caef
 Å
 Qgb-mycloud-common/src/main/java/com/geekbraind/gb/mycloud/message/CommandMsg.java,3\4\345c8d003aac13b0dc120d06547a6cd05658c3f4
 Ö
@@ -75,3 +73,5 @@ Ogb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/data/SQLiteQuery.java
 Wgb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/handler/OutServerHandler.java,6\5\65018385f2a62535df1a29f7b78a2de613d2c2ed
 à
 Xgb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/handler/MainServerHandler.java,0\d\0d1a6b8b96986eaceefa54cc0da4d64b91cc012f
+Ç
+Rgb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/data/ServerSettings.java,3\2\321773757ba1b6532d3f54f286d09bb54a3802bd

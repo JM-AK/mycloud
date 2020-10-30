@@ -4,6 +4,9 @@ package com.geekbraind.gb.mycloud.message;
  * for file transfer
  * */
 
+import com.geekbraind.gb.mycloud.dictionary.MsgType;
+import com.geekbraind.gb.mycloud.lib.MsgLib;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -54,6 +57,15 @@ public class FileMsg extends AbstractMsg {
 
     public void setBufferSize(int bufferSize) {
         this.bufferSize = bufferSize;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(MsgLib.DELIMITER).append(source);
+        sb.append(MsgLib.DELIMITER).append(destination);
+        sb.append(MsgLib.DELIMITER).append(isRequestFileList);
+        return MsgType.FILE +  sb.toString();
     }
 
 }

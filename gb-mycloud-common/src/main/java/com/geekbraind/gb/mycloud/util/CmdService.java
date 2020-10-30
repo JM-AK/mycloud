@@ -1,7 +1,9 @@
 package com.geekbraind.gb.mycloud.util;
 
+import com.geekbraind.gb.mycloud.dictionary.MsgType;
 import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
-import com.geekbraind.gb.mycloud.message.FileListMsg;
+import com.geekbraind.gb.mycloud.lib.MsgLib;
+import com.geekbraind.gb.mycloud.message.*;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.ChannelFuture;
@@ -12,8 +14,12 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.geekbraind.gb.mycloud.dictionary.Command.*;
 
 /*
 *
@@ -91,7 +97,46 @@ public class CmdService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        FileListMsg fileListMsg = new FileListMsg(files, path.toString());
+        FileListMsg fileListMsg = new FileListMsg(path.toString(), files);
         instance.sendCommand(fileListMsg.toString(), ctx, commandListener);
     }
+
+    /*
+     * /cmd##/delete_file##file name
+     * /cmd##/download_file##file name
+     * /cmd##/upload_file##file name
+     * /cmd##/rename_file##old file name##new file name
+     *
+     * /file_list##...fileName##...
+     **/
+
+    public AbstractMsg getMsg (String msg) {
+        String [] msgArr = msg.split(MsgLib.DELIMITER);
+
+        if (msgArr[0].equals(MsgType.COMMAND.toString())){
+            return new CommandMsg(getCmd(msgArr[1]), Arrays.asList(msgArr).subList(2,msgArr.length).toArray());
+        }
+
+        if (msgArr[0].equals(MsgType.FILE_LIST.toString())){
+            return new FileListMsg(msgArr[1], Arrays.asList(msgArr).subList(2,msgArr.length));
+        }
+
+        if (msgArr[0].equals(MsgType.REPLY.toString())){
+            if (msgArr.length > 2) {
+                return new ReplyMsg(getCmd(msgArr[1]), Boolean.parseBoolean(msgArr[2]), msgArr[3]);
+            } else {
+                return new ReplyMsg(getCmd(msgArr[1]), Boolean.parseBoolean(msgArr[2]));
+            }
+        }
+
+        if (msgArr[0].equals(MsgType.FILE.toString())){
+            return new FileMsg(Paths.get(msgArr[1]),Paths.get(msgArr[2]), Boolean.parseBoolean(msgArr[3]));
+        }
+
+        if (msgArr[0].equals(MsgType.INFO.toString())){
+            return new InfoMsg(msgArr[1]);
+        }
+        return null;
+    }
+
 }

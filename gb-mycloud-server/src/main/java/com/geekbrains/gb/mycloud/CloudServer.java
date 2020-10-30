@@ -1,5 +1,6 @@
 package com.geekbrains.gb.mycloud;
 
+import com.geekbrains.gb.mycloud.data.ServerSettings;
 import com.geekbrains.gb.mycloud.handler.AuthHandler;
 import com.geekbrains.gb.mycloud.handler.OutServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
@@ -11,11 +12,9 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class CloudServer {
 
     private int port;
-    private String rootDir;
 
-    public CloudServer (int port, String rootDir) {
+    public CloudServer (int port) {
         this.port = port;
-        this.rootDir = rootDir;
     }
 
     public void run() throws InterruptedException {
@@ -43,13 +42,8 @@ public class CloudServer {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        int port = 8189;
-        String rootDir = "storage_server";
-        if(args.length > 1) {
-            port = Integer.parseInt(args[0]);
-            rootDir = args[1];
-        }
-        new CloudServer(port, rootDir).run();
+        int port = ServerSettings.getInstance().getPort();
+        new CloudServer(port).run();
     }
 
 
