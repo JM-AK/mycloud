@@ -6,6 +6,7 @@ import com.geekbraind.gb.mycloud.lib.MsgLib;
 import com.geekbraind.gb.mycloud.message.*;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -70,7 +71,7 @@ public class CmdService {
         return null;
     }
 
-    public void sendCommand (String command, ChannelHandlerContext ctx, ChannelFutureListener commandListener){
+    public void sendCommand (String command, Channel channel, ChannelHandlerContext ctx, ChannelFutureListener commandListener){
         // 1 + 4 + commandLength
         int commandLength = command.length();
         ByteBuf buf = null;
@@ -79,7 +80,7 @@ public class CmdService {
         buf.writeInt(commandLength);
         buf.writeBytes(command.getBytes(StandardCharsets.UTF_8));
 
-        ChannelFuture transferOperationFuture = ctx.writeAndFlush(buf);
+        ChannelFuture transferOperationFuture = (channel == null)? ctx.writeAndFlush(buf) : channel.writeAndFlush(buf);
         if(commandListener != null) {
             transferOperationFuture.addListener(commandListener);
         }
@@ -90,7 +91,7 @@ public class CmdService {
         }
     }
 
-    public void sendFileList(Path path, ChannelHandlerContext ctx, ChannelFutureListener commandListener) {
+    public void sendFileList(Path path, Channel channel, ChannelHandlerContext ctx, ChannelFutureListener commandListener) {
         List<String> files = null;
         try {
             files = Files.list(path).map(Path::toString).collect(Collectors.toList());
@@ -98,7 +99,7 @@ public class CmdService {
             e.printStackTrace();
         }
         FileListMsg fileListMsg = new FileListMsg(path.toString(), files);
-        instance.sendCommand(fileListMsg.toString(), ctx, commandListener);
+        instance.sendCommand(fileListMsg.toString(), channel, ctx, commandListener);
     }
 
     /*

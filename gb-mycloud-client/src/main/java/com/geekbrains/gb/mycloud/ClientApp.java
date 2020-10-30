@@ -22,16 +22,12 @@ public class ClientApp extends Application {
         CountDownLatch networkStarter = new CountDownLatch(1);
         new Thread(() -> {
             try {
-                ClientNetwork.getInstance().init(networkStarter);
+                ClientNetwork.getInstance().start(networkStarter);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }).start();
-        try {
-            networkStarter.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        networkStarter.await();
         WindowManager.showLogin();
     }
 
@@ -41,7 +37,7 @@ public class ClientApp extends Application {
     }
 
     public void applyClientSetting () {
-        int bufferSize = 1024;
+        int bufferSize = 8;
         int serverPort = 8189;
         String serverIp = "localhost";
         String homeRoot = "storage_client";

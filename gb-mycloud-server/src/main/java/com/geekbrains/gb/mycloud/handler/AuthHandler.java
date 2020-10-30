@@ -52,13 +52,13 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                         isAuthorised = true;
                         //ToDo заменить на чтение из файла properties
                         Path path = Paths.get(ServerSettings.getInstance().getServerPath().toString(), login);
-                        CmdService.getInstance().sendFileList(path, ctx, future -> System.out.println("FileList sent"));
-                        CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(),ctx, future -> System.out.println("User is authorised"));
+                        CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent"));
+                        CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> System.out.println("User is authorised"));
                         ctx.pipeline().remove(this);
                         ctx.pipeline().addLast(new MainServerHandler());
                         ctx.pipeline().addLast(new FilesHandler());
                     } else {
-                        CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), ctx,future -> System.out.println("User is not authorised") );
+                        CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx,future -> System.out.println("User is not authorised") );
                     }
                 }
 
@@ -71,12 +71,12 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                         if (authService.createAccount(login, password, username)) {
                             Path ssp = ServerSettings.getInstance().getServerPath();
                             Files.createDirectory(Paths.get(ssp.toString(),login));
-                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, true).toString(), ctx, future -> System.out.println("New user registered"));
+                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, true).toString(), null, ctx, future -> System.out.println("New user registered"));
                         } else {
-                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false).toString(), ctx, future -> System.out.println("New user NOT registered - Login BUSY"));
+                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false).toString(), null, ctx, future -> System.out.println("New user NOT registered - Login BUSY"));
                         }
                     } else {
-                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false,"Login incorrect").toString(),ctx, future -> System.out.println("New user NOT registered"));
+                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false,"Login incorrect").toString(), null, ctx, future -> System.out.println("New user NOT registered"));
                     }
                 }
                 if (cmdMsg.equalsCmd(Command.CHANGEPASS)) {
@@ -84,9 +84,9 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                     String oldPass = cmdMsg.getAttachment()[1].toString();
                     String newPass = cmdMsg.getAttachment()[2].toString();
                     if (authService.changePassword(login, oldPass, newPass)) {
-                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, true).toString(), ctx, future -> System.out.println("Change pass OK"));
+                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, true).toString(), null, ctx, future -> System.out.println("Change pass OK"));
                     } else {
-                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, false).toString(), ctx, future -> System.out.println("Change pass WRONG"));
+                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, false).toString(), null, ctx, future -> System.out.println("Change pass WRONG"));
                     }
                 }
 

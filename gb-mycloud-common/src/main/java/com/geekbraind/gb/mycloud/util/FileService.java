@@ -89,7 +89,7 @@ public class FileService {
         }
     }
 
-    public void sendFile (FileMsg fileMsg, int bufferSize , ChannelHandlerContext ctx, ChannelFutureListener fileTransferListener) {
+    public void sendFile (FileMsg fileMsg, int bufferSize , Channel channel,ChannelHandlerContext ctx, ChannelFutureListener fileTransferListener) {
         // 1(=isFile) + 4(=fileNameLen) + dstFile + 8(=fileSize) + file
         String fileName = fileMsg.getFileName();
         String src = fileMsg.getSource();
@@ -104,7 +104,11 @@ public class FileService {
         buf.writeInt(dstFileName.getBytes(StandardCharsets.UTF_8).length);
         buf.writeBytes(dstFileName.getBytes(StandardCharsets.UTF_8));
         buf.writeLong(fileSize);
-        ctx.writeAndFlush(buf);
+        if (channel == null) {
+            ctx.writeAndFlush(buf);
+        } else {
+            channel.writeAndFlush(buf);
+        }
 
         Path filePath = Paths.get(src,fileName);
 
@@ -135,9 +139,17 @@ public class FileService {
                     }
                 } else {
                     buf.writeBytes(byteArray);
-                    ctx.writeAndFlush(buf);
+                    if (channel == null) {
+                        ctx.writeAndFlush(buf);
+                    } else {
+                        channel.writeAndFlush(buf);
+                    }
                 }
-                ctx.writeAndFlush(buf);
+                if (channel == null) {
+                    ctx.writeAndFlush(buf);
+                } else {
+                    channel.writeAndFlush(buf);
+                }
                 fileSize -= readedBytes;
             }
         } catch (IOException e) {

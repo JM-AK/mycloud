@@ -95,7 +95,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
             //
             if (cmdMsg.equalsCmd(Command.GETFILELIST)) {
                 Path rootPath = Paths.get((String) cmdMsg.getAttachment()[0]);
-                CmdService.getInstance().sendFileList(rootPath, ctx, future -> System.out.println("FileList sent"));
+                CmdService.getInstance().sendFileList(rootPath, null, ctx, future -> System.out.println("FileList sent"));
             }
 
             //
@@ -106,9 +106,9 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 Path subPath = path.subpath(1, path.getNameCount()-1);
                 path = Paths.get(serverPath.toString(), subPath.toString());
 
-                CmdService.getInstance().sendFileList(path, ctx, future -> System.out.println("FileList sent - rename file or dir"));
+                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - rename file or dir"));
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.RENAME_FILE_DIR,
-                        true, path.toString() + "-" + newName ).toString(), ctx, null);
+                        true, path.toString() + "-" + newName ).toString(), null, ctx, null);
             }
 
             //
@@ -121,8 +121,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 Files.createDirectory(newPath);
 
                 if (isRequestFileList)
-                    CmdService.getInstance().sendFileList(newPath, ctx, future -> System.out.println("FileList sent"));
-                CmdService.getInstance().sendCommand(new ReplyMsg(Command.CREATE_DIR, true, newPath.toString()).toString(), ctx, null);
+                    CmdService.getInstance().sendFileList(newPath, null, ctx, future -> System.out.println("FileList sent"));
+                CmdService.getInstance().sendCommand(new ReplyMsg(Command.CREATE_DIR, true, newPath.toString()).toString(), null, ctx, null);
             }
 
             //
@@ -132,8 +132,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 Path subPath = filePath.subpath(1, filePath.getNameCount() - 1);
                 filePath = Paths.get(serverPath.toString(), subPath.toString());
 
-                CmdService.getInstance().sendFileList(filePath, ctx, future -> System.out.println("FileList sent - delete file"));
-                CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_FILE, true, filePath.toString()).toString(), ctx, null);
+                CmdService.getInstance().sendFileList(filePath, null, ctx, future -> System.out.println("FileList sent - delete file"));
+                CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_FILE, true, filePath.toString()).toString(), null, ctx, null);
             }
 
             //
@@ -171,20 +171,20 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
 
                 Path subPath = path.subpath(1, path.getNameCount() - 1);
                 path = Paths.get(serverPath.toString(), subPath.toString());
-                CmdService.getInstance().sendFileList(path, ctx, future -> System.out.println("FileList sent - delete dir"));
-                CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_DIR, true, path.toString()).toString(), ctx, null);
+                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - delete dir"));
+                CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_DIR, true, path.toString()).toString(), null, ctx, null);
             }
 
             //
             if (cmdMsg.equalsCmd(Command.REFRESH_FILELIST)) {
                 Path path = Paths.get((String) cmdMsg.getAttachment()[0]);
-                CmdService.getInstance().sendFileList(path, ctx, future -> System.out.println("FileList sent - refresh"));
+                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - refresh"));
             }
 
             //
             if (cmdMsg.equalsCmd(Command.OPEN_DIR)) {
                 Path path = Paths.get((String) cmdMsg.getAttachment()[0]);
-                CmdService.getInstance().sendFileList(path, ctx, future -> System.out.println("FileList sent - open dir"));
+                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - open dir"));
             }
 
             //
@@ -192,7 +192,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 AuthHandler.setAuthorised(false);
                 ctx.pipeline().removeLast();
                 ctx.pipeline().removeLast();
-                CmdService.getInstance().sendCommand(new ReplyMsg(Command.LOGOUT, true).toString(), ctx, future -> System.out.println("Logout"));
+                CmdService.getInstance().sendCommand(new ReplyMsg(Command.LOGOUT, true).toString(), null, ctx, future -> System.out.println("Logout"));
             }
 
             //
@@ -203,7 +203,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 int bufferSize = ServerSettings.getInstance().getBuferSize();
                 if(!isDirectory) {
                     FileMsg fileMsg = new FileMsg(src, dst, false);
-                    FileService.getInstance().sendFile(fileMsg, bufferSize, ctx, future -> System.out.println("File received"));
+                    FileService.getInstance().sendFile(fileMsg, bufferSize, null, ctx, future -> System.out.println("File received"));
                 }
                 if(isDirectory) {
                     Files.walkFileTree(src, new SimpleFileVisitor<Path>() {
@@ -213,7 +213,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                             Path relPath = path.relativize(dir);
                             Path clientPath = Paths.get(dst.toString(), relPath.toString());
                             CommandMsg repCmd = new CommandMsg(Command.CREATE_DIR, clientPath.toString(), false);
-                            CmdService.getInstance().sendCommand(repCmd.toString(), ctx, null);
+                            CmdService.getInstance().sendCommand(repCmd.toString(), null, ctx, null);
                             return FileVisitResult.CONTINUE;
                         }
 
@@ -222,7 +222,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                             Path subFile = src.getParent().relativize(file);
                             Path clientPath = Paths.get(dst.toString(), subFile.toString()).getParent();
                             FileMsg fileMsg = new FileMsg(file, clientPath, false);
-                            FileService.getInstance().sendFile(fileMsg, bufferSize,ctx, future -> System.out.println("File received"));
+                            FileService.getInstance().sendFile(fileMsg, bufferSize, null, ctx, future -> System.out.println("File received"));
                             return FileVisitResult.CONTINUE;
                         }
                     });

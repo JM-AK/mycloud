@@ -1,10 +1,5 @@
 package com.geekbrains.gb.mycloud.util;
 
-import com.geekbraind.gb.mycloud.message.AbstractMsg;
-import com.geekbraind.gb.mycloud.message.CommandMsg;
-import com.geekbraind.gb.mycloud.message.FileMsg;
-import com.geekbraind.gb.mycloud.util.CmdService;
-import com.geekbraind.gb.mycloud.util.FileService;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.handler.MainClientHandler;
 import com.geekbrains.gb.mycloud.handler.OutClientHandler;
@@ -16,6 +11,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.CountDownLatch;
+import java.util.logging.Logger;
 
 public class ClientNetwork {
     private String host;
@@ -23,6 +19,9 @@ public class ClientNetwork {
     private Channel currentChannel;
     private String rootDir;
     private boolean isAuthorised;
+    private static ClientNetwork instance = new ClientNetwork();
+
+    private static final Logger logger = Logger.getLogger(ClientNetwork.class.getSimpleName());
 
     private ClientNetwork() {
         this.rootDir = ClientSettings.getInstance().getLocalPath().toString();
@@ -31,14 +30,10 @@ public class ClientNetwork {
         this.isAuthorised = false;
     }
 
-    private static ClientNetwork instance = new ClientNetwork();
     public static ClientNetwork getInstance() {
         return instance;
     }
 
-    /*
-    * Getters and Setters
-    * */
     public Channel getCurrentChannel() {
         return currentChannel;
     }
@@ -47,27 +42,11 @@ public class ClientNetwork {
         return isAuthorised;
     }
 
-//    private void setRootDir (String rootDir) {
-//        this.rootDir = rootDir;
-//    }
-//
-//    private void setPort (int port) {
-//        this.port = port;
-//    }
-//
-//    private void setHost (String host) {
-//        this.host = host;
-//    }
-
     public void setIsAuthorised (boolean isAuthorised) {
         this.isAuthorised = isAuthorised;
     }
 
-    /*
-    * Methods
-    * */
-
-    public void init(CountDownLatch countDownLatch) throws InterruptedException {
+    public void start(CountDownLatch countDownLatch) throws InterruptedException {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
@@ -83,6 +62,7 @@ public class ClientNetwork {
                 }
             });
             ChannelFuture channelFuture = b.connect().sync();
+            logger.info("Connected");
             countDownLatch.countDown();
             channelFuture.channel().closeFuture().sync();
         } finally {
@@ -95,9 +75,7 @@ public class ClientNetwork {
     }
 
     public void stop() {
-        if (currentChannel.isActive()){
-            currentChannel.close();
-        }
+        currentChannel.close();
     }
 
 }
