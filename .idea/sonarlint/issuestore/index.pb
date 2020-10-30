@@ -19,8 +19,6 @@ Hgb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/ClientApp.java,9\6\9
 Ogb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/ClientController.java,a\8\a88ec72c7b17755214433858934d2e297ce8d123
 z
 Jgb-mycloud-server/src/main/java/com/geekbrains/gb/mycloud/CloudServer.java,2\c\2c468c6960a9b84535ffbddd8bd46efaa549c518
-_
-/gb-mycloud-server/src/main/resources/log4j2.xml,f\9\f9b6f81fa70080ec794fd8964ef8120f28c030ae
 A
 logs/logfile1.log,3\8\3829fd05abc27ddbf5cee87fce159f2e0706ed15
 |

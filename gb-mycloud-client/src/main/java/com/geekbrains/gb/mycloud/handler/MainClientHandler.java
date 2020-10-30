@@ -1,6 +1,5 @@
-package com.geekbrains.gb.mycloud;
+package com.geekbrains.gb.mycloud.handler;
 
-import com.geekbraind.gb.mycloud.message.CommandMsg;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 public class MainClientHandler extends ChannelInboundHandlerAdapter {

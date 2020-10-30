@@ -1,5 +1,13 @@
-package com.geekbrains.gb.mycloud;
+package com.geekbrains.gb.mycloud.util;
 
+import com.geekbraind.gb.mycloud.message.AbstractMsg;
+import com.geekbraind.gb.mycloud.message.CommandMsg;
+import com.geekbraind.gb.mycloud.message.FileMsg;
+import com.geekbraind.gb.mycloud.util.CmdService;
+import com.geekbraind.gb.mycloud.util.FileService;
+import com.geekbrains.gb.mycloud.data.ClientSettings;
+import com.geekbrains.gb.mycloud.handler.MainClientHandler;
+import com.geekbrains.gb.mycloud.handler.OutClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -16,18 +24,21 @@ public class ClientNetwork {
     private String rootDir;
     private boolean isAuthorised;
 
-    private ClientNetwork(String host, int port) {
-        this.host = host;
-        this.port = port;
+    private ClientNetwork() {
+        this.rootDir = ClientSettings.getInstance().getLocalPath().toString();
+        this.host = ClientSettings.getInstance().getServerIp();
+        this.port = ClientSettings.getInstance().getServerPort();
         this.isAuthorised = false;
     }
 
-    private static ClientNetwork ourInstance = new ClientNetwork("localhost", 8189);
-
+    private static ClientNetwork instance = new ClientNetwork();
     public static ClientNetwork getInstance() {
-        return ourInstance;
+        return instance;
     }
 
+    /*
+    * Getters and Setters
+    * */
     public Channel getCurrentChannel() {
         return currentChannel;
     }
@@ -36,20 +47,27 @@ public class ClientNetwork {
         return isAuthorised;
     }
 
-    public void setNetworSettings(String host, int port){
-        this.host = host;
-        this.port = port;
-    }
-
-    public void setRootDir (String rootDir) {
-        this.rootDir = rootDir;
-    }
+//    private void setRootDir (String rootDir) {
+//        this.rootDir = rootDir;
+//    }
+//
+//    private void setPort (int port) {
+//        this.port = port;
+//    }
+//
+//    private void setHost (String host) {
+//        this.host = host;
+//    }
 
     public void setIsAuthorised (boolean isAuthorised) {
         this.isAuthorised = isAuthorised;
     }
 
-    public void start(CountDownLatch countDownLatch) throws InterruptedException {
+    /*
+    * Methods
+    * */
+
+    public void init(CountDownLatch countDownLatch) throws InterruptedException {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
@@ -77,6 +95,9 @@ public class ClientNetwork {
     }
 
     public void stop() {
-        currentChannel.close();
+        if (currentChannel.isActive()){
+            currentChannel.close();
+        }
     }
+
 }
