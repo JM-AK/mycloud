@@ -9,6 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.concurrent.CountDownLatch;
 import java.util.logging.Logger;
@@ -61,9 +62,10 @@ public class ClientNetwork {
                     currentChannel = socketChannel;
                 }
             });
-            ChannelFuture channelFuture = b.connect().sync();
-            logger.info("Connected");
             countDownLatch.countDown();
+            ChannelFuture channelFuture = b.connect().sync();
+
+            logger.info("Connected");
             channelFuture.channel().closeFuture().sync();
         } finally {
             try {

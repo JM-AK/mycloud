@@ -34,6 +34,7 @@ public class CmdService {
         IDLE, COMMAND_LENGTH, COMMAND
     }
 
+    private static final int MIN_READ_BYTES = 4;
     private State currentState = State.IDLE;
     private static CmdService instance = new CmdService();
 
@@ -59,9 +60,9 @@ public class CmdService {
             }
             if (currentState == State.COMMAND) {
                 if (buf.readableBytes() >= commandLength) {
-                    byte[] commandByteArr = new byte[commandLength];
-                    buf.readBytes(commandByteArr);
-                    String command = new String(commandByteArr, StandardCharsets.UTF_8);
+                    byte[] cmdArr = new byte[commandLength];
+                    buf.readBytes(cmdArr);
+                    String command = new String(cmdArr, StandardCharsets.UTF_8);
                     System.out.println("STATE: Command received - " + command);
                     currentState = State.IDLE;
                     return command;
@@ -73,22 +74,24 @@ public class CmdService {
 
     public void sendCommand (String command, Channel channel, ChannelHandlerContext ctx, ChannelFutureListener commandListener){
         // 1 + 4 + commandLength
-        int commandLength = command.length();
-        ByteBuf buf = null;
-        buf = ByteBufAllocator.DEFAULT.directBuffer(1 + 4 + commandLength);
+        int commandLength = command.getBytes().length;
+        ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + 4);
         buf.writeByte(ProtocolCode.TEXT_SIGNAL_BYTE);
         buf.writeInt(commandLength);
+        if (channel == null) {
+            ctx.writeAndFlush(buf);
+        } else {
+            channel.writeAndFlush(buf);
+        }
+        buf = ByteBufAllocator.DEFAULT.directBuffer(commandLength);
         buf.writeBytes(command.getBytes(StandardCharsets.UTF_8));
 
         ChannelFuture transferOperationFuture = (channel == null)? ctx.writeAndFlush(buf) : channel.writeAndFlush(buf);
         if(commandListener != null) {
             transferOperationFuture.addListener(commandListener);
         }
-        try {
-            transferOperationFuture.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+
     }
 
     public void sendFileList(Path path, Channel channel, ChannelHandlerContext ctx, ChannelFutureListener commandListener) {

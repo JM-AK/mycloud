@@ -2,6 +2,7 @@ package com.geekbrains.gb.mycloud.handler;
 
 
 import com.geekbraind.gb.mycloud.dictionary.Command;
+import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
 import com.geekbraind.gb.mycloud.message.AbstractMsg;
 import com.geekbraind.gb.mycloud.message.AuthResponeMsg;
 import com.geekbraind.gb.mycloud.message.CommandMsg;
@@ -37,61 +38,64 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
         }
         if (!isAuthorised) {
             ByteBuf buf = ((ByteBuf) msg);
-            String inMsg =  CmdService.getInstance().receiveCommand(buf);
-            AbstractMsg msgReceived = CmdService.getInstance().getMsg(inMsg);
+            byte selectorByte = buf.readByte();
+            if (selectorByte == ProtocolCode.TEXT_SIGNAL_BYTE) {
+                String inMsg = CmdService.getInstance().receiveCommand(buf);
+                AbstractMsg msgReceived = CmdService.getInstance().getMsg(inMsg);
 
-            if (msgReceived instanceof CommandMsg) {
-                CommandMsg cmdMsg = (CommandMsg) msg;
-                AuthService authService = AuthService.getInstance();
+                if (msgReceived instanceof CommandMsg) {
+                    CommandMsg cmdMsg = (CommandMsg) msgReceived;
+                    AuthService authService = AuthService.getInstance();
 
-                if (cmdMsg.equalsCmd(Command.AUTHORISE)) {
-                    String login = cmdMsg.getAttachment()[0].toString();
-                    String password = cmdMsg.getAttachment()[1].toString();
-                    String username = authService.getUsername(login, password);
-                    if (username != null) {
-                        isAuthorised = true;
-                        //ToDo заменить на чтение из файла properties
-                        Path path = Paths.get(ServerSettings.getInstance().getServerPath().toString(), login);
-                        CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent"));
-                        CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> System.out.println("User is authorised"));
-                        ctx.pipeline().remove(this);
-                        ctx.pipeline().addLast(new MainServerHandler());
-                        ctx.pipeline().addLast(new FilesHandler());
-                    } else {
-                        CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx,future -> System.out.println("User is not authorised") );
-                    }
-                }
-
-                if (cmdMsg.equalsCmd(Command.REGISTER)) {
-                    String login = cmdMsg.getAttachment()[0].toString();
-                    String password = cmdMsg.getAttachment()[1].toString();
-                    String username = cmdMsg.getAttachment()[2].toString();
-
-                    if(!authService.isLoginBusy(login)) {
-                        if (authService.createAccount(login, password, username)) {
-                            Path ssp = ServerSettings.getInstance().getServerPath();
-                            Files.createDirectory(Paths.get(ssp.toString(),login));
-                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, true).toString(), null, ctx, future -> System.out.println("New user registered"));
+                    if (cmdMsg.equalsCmd(Command.AUTHORISE)) {
+                        String login = cmdMsg.getAttachment()[0].toString();
+                        String password = cmdMsg.getAttachment()[1].toString();
+                        String username = authService.getUsername(login, password);
+                        if (username != null) {
+                            isAuthorised = true;
+                            //ToDo заменить на чтение из файла properties
+                            Path path = Paths.get(ServerSettings.getInstance().getServerPath().toString(), login);
+                            CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent"));
+                            CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> System.out.println("User is authorised"));
+                            ctx.pipeline().remove(this);
+                            ctx.pipeline().addLast(new MainServerHandler());
+                            ctx.pipeline().addLast(new FilesHandler());
                         } else {
-                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false).toString(), null, ctx, future -> System.out.println("New user NOT registered - Login BUSY"));
+                            CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> System.out.println("User is not authorised"));
                         }
-                    } else {
-                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false,"Login incorrect").toString(), null, ctx, future -> System.out.println("New user NOT registered"));
                     }
-                }
-                if (cmdMsg.equalsCmd(Command.CHANGEPASS)) {
-                    String login = cmdMsg.getAttachment()[0].toString();
-                    String oldPass = cmdMsg.getAttachment()[1].toString();
-                    String newPass = cmdMsg.getAttachment()[2].toString();
-                    if (authService.changePassword(login, oldPass, newPass)) {
-                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, true).toString(), null, ctx, future -> System.out.println("Change pass OK"));
-                    } else {
-                        CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, false).toString(), null, ctx, future -> System.out.println("Change pass WRONG"));
-                    }
-                }
 
-            } else {
-                ReferenceCountUtil.release(msg);
+                    if (cmdMsg.equalsCmd(Command.REGISTER)) {
+                        String login = cmdMsg.getAttachment()[0].toString();
+                        String password = cmdMsg.getAttachment()[1].toString();
+                        String username = cmdMsg.getAttachment()[2].toString();
+
+                        if (!authService.isLoginBusy(login)) {
+                            if (authService.createAccount(login, password, username)) {
+                                Path ssp = ServerSettings.getInstance().getServerPath();
+                                Files.createDirectory(Paths.get(ssp.toString(), login));
+                                CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, true).toString(), null, ctx, future -> System.out.println("New user registered"));
+                            } else {
+                                CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false).toString(), null, ctx, future -> System.out.println("New user NOT registered - Login BUSY"));
+                            }
+                        } else {
+                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false, "Login incorrect").toString(), null, ctx, future -> System.out.println("New user NOT registered"));
+                        }
+                    }
+                    if (cmdMsg.equalsCmd(Command.CHANGEPASS)) {
+                        String login = cmdMsg.getAttachment()[0].toString();
+                        String oldPass = cmdMsg.getAttachment()[1].toString();
+                        String newPass = cmdMsg.getAttachment()[2].toString();
+                        if (authService.changePassword(login, oldPass, newPass)) {
+                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, true).toString(), null, ctx, future -> System.out.println("Change pass OK"));
+                        } else {
+                            CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, false).toString(), null, ctx, future -> System.out.println("Change pass WRONG"));
+                        }
+                    }
+
+                } else {
+                    ReferenceCountUtil.release(msg);
+                }
             }
         } else {
             ctx.fireChannelRead(msg);

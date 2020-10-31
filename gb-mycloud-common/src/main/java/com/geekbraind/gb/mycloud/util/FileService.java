@@ -132,11 +132,6 @@ public class FileService {
                     if(fileTransferListener != null) {
                         transferOperationFuture.addListener(fileTransferListener);
                     }
-                    try {
-                        transferOperationFuture.await();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 } else {
                     buf.writeBytes(byteArray);
                     if (channel == null) {
