@@ -55,7 +55,13 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                             isAuthorised = true;
                             //ToDo заменить на чтение из файла properties
                             Path path = Paths.get(ServerSettings.getInstance().getServerPath().toString(), login);
-//                            CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent"));
+                            CmdService.getInstance().sendFileList(path, null, ctx, future -> {
+                                if (future.isSuccess()) {
+                                    System.out.println("Success sent - filelist");
+                                } else {
+                                    System.out.println("Failed sent - filelist");
+                                }
+                            });
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
                                     System.out.println("Success sent - user is authorised");
