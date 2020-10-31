@@ -1,0 +1,21 @@
+
+d
+java:S2142‰"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ø¿ƒÖ.
+U	java:S106;"9Replace this use of System.out or System.err by a logger.(É£ñŒ8ö”¼şÕ.
+Z	java:S106F"9Replace this use of System.out or System.err by a logger.(àÚ×ºıÿÿÿÿ8ö”¼şÕ.
+Q
+java:S1066/"/Merge this if statement with the enclosing one.(Üê‡Šúÿÿÿÿ8õ”¼şÕ.
+X
+java:S1141‡"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ø¿ƒÖ.
+n
+java:S3776\"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(î­è:8Èÿİ××.
+Z	java:S106,"9Replace this use of System.out or System.err by a logger.(ƒ‚ìàşÿÿÿÿ8ö”¼şÕ.
+U	java:S1060"9Replace this use of System.out or System.err by a logger.(Ï©¥•8ö”¼şÕ.
+Q
+java:S1066D"/Merge this if statement with the enclosing one.(®Òèşÿÿÿÿÿ8ö”¼şÕ.
+]	java:S125t"<This block of commented-out lines of code should be removed.(Ìâî·üÿÿÿÿ8ŸÓÜ€Ö.
+t
+java:S3776%"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(é¹Ô¥øÿÿÿÿ8ö”¼şÕ.
+U	java:S106T"9Replace this use of System.out or System.err by a logger.(ÌûŠ°8ö”¼şÕ.
+Q
+java:S10666"/Merge this if statement with the enclosing one.(ãÌ‡ğúÿÿÿÿ8ö”¼şÕ.

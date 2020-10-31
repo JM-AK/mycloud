@@ -1,0 +1,24 @@
+
+[	java:S106¼"9Replace this use of System.out or System.err by a logger.(òŽÏ…øÿÿÿÿ8â©Ž¦×.
+e
+java:S2095á"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8˜¼Ã…×.
+_
+java:S1126ø"AReplace this if-then-else statement by a single return statement.(Šâº©8Ôðâ„×.
+Z	java:S106#"9Replace this use of System.out or System.err by a logger.(Öë ¬ûÿÿÿÿ8Ú÷Í„×.
+^	java:S125“"<This block of commented-out lines of code should be removed.(…µáÚúÿÿÿÿ8àßŸ¦×.
+^	java:S125–"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8àßŸ¦×.
+U	java:S106@"9Replace this use of System.out or System.err by a logger.(›Åùš8”‚¥×.
+^	java:S125‰"<This block of commented-out lines of code should be removed.(»ž•ûÿÿÿÿ8àßŸ¦×.
+[
+java:S1854f"9Remove this useless assignment to local variable "login".(›Ð£øüÿÿÿÿ8£ÚÂ…×.
+d
+java:S2095j"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8çþÊ…×.
+F
+java:S2115 ")Add password protection to this database.(â×Žõ8Žï¸„×.
+e
+java:S2095Ð"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8˜¼Ã…×.
+d
+java:S2095~"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8½¢Ù…×.
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×Ó‚8ƒ€­„×.
+U	java:S106["9Replace this use of System.out or System.err by a logger.(îÍ·ÿ8¤ù«¥×.
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Áò÷8Å¿£„×.
