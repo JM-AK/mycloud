@@ -1,5 +1,7 @@
 package com.geekbrains.gb.mycloud.util;
 
+import com.geekbraind.gb.mycloud.dictionary.Command;
+import com.geekbraind.gb.mycloud.message.CommandMsg;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -43,13 +45,27 @@ public class WindowManager {
         });
     }
 
-    //ToDo
     public static void showRegister() {
         Platform.runLater(() -> {
             stage.close();
             try {
-                Parent root = FXMLLoader.load(WindowManager.class.getResource("/configRegister.fxml"));
-                stage.setTitle("Cloud Storage - Register new user");
+                Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_Register.fxml"));
+                stage.setTitle("MyCloud - Register new user");
+                stage.setScene(new Scene(root, 400, 250));
+                stage.setResizable(false);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void showChangePassword() {
+        Platform.runLater(() -> {
+            stage.close();
+            try {
+                Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_changepass.fxml"));
+                stage.setTitle("MyCloud - Change password");
                 stage.setScene(new Scene(root, 400, 250));
                 stage.setResizable(false);
                 stage.show();
@@ -74,44 +90,28 @@ public class WindowManager {
 //            }
 //        });
 //    }
-    //ToDo
-    public static void showChangePassword() {
+
+
+    static void showMain() {
         Platform.runLater(() -> {
             stage.close();
             try {
-                Parent root = FXMLLoader.load(WindowManager.class.getResource("/configChangePassword.fxml"));
-                stage.setTitle("MyCloud - Change password");
-                stage.setScene(new Scene(root, 400, 250));
+                Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_main.fxml"));
+                stage.setTitle("MyCloud client");
+                stage.setScene(new Scene(root, 1024, 768));
                 stage.setResizable(false);
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            CommandMsg cmdMsg = new CommandMsg(Command.LOGOUT, false);
+            ClientNetwork.getInstance().sendObject(cmdMsg);
+        }));
     }
 
-    //ToDo
-//    static void showMain() {
-//        Platform.runLater(() -> {
-//            stage.close();
-//            try {
-//                Parent root = FXMLLoader.load(WindowManager.class.getResource("/configMain.fxml"));
-//                stage.setTitle("Cloud Storage client");
-//                stage.setScene(new Scene(root, 1024, 768));
-//                stage.setResizable(false);
-//                stage.show();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//
-//        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-//            CmdMsg cmdMsg = new CmdMsg(Commands.LOGOUT, false);
-//            Network.getInstance().sendObject(cmdMsg);
-//        }));
-//    }
-
-    //ToDo
     public static List<Path> addFilesDialog() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select files to copy to Local Storage");
@@ -124,7 +124,6 @@ public class WindowManager {
         return list;
     }
 
-    //ToDo
     public static Optional<ButtonType> showDeleteConfirmation(Path file) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
@@ -137,7 +136,6 @@ public class WindowManager {
         return alert.showAndWait();
     }
 
-    //ToDo
     public static Optional<ButtonType> showLogOutConfirmation() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
@@ -146,7 +144,6 @@ public class WindowManager {
         return alert.showAndWait();
     }
 
-    //ToDo
     public static Optional<ButtonType> showOverwriteConfirmation(Path file) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Overwrite");
@@ -155,7 +152,6 @@ public class WindowManager {
         return alert.showAndWait();
     }
 
-    //ToDo
     public static Optional<String> showInputRename(Path file) {
         TextInputDialog dialog = new TextInputDialog(file.getFileName().toString());
         dialog.setTitle("Rename file");
@@ -164,7 +160,6 @@ public class WindowManager {
         return dialog.showAndWait();
     }
 
-    //ToDo
     public static Optional<String> showInputCreateDir(Path file) {
         TextInputDialog dialog = new TextInputDialog(file.getFileName().toString());
         dialog.setTitle("Creation of new directory");
@@ -173,7 +168,6 @@ public class WindowManager {
         return dialog.showAndWait();
     }
 
-    //ToDo
     public static void showWarningAlert(String msg) {
         Platform.runLater(() -> {
             Alert warning = new Alert(Alert.AlertType.WARNING);
@@ -184,7 +178,6 @@ public class WindowManager {
         });
     }
 
-    //ToDo
     static void showInfoAlert(String msg) {
         Platform.runLater(() -> {
             Alert info = new Alert(Alert.AlertType.INFORMATION);
@@ -195,7 +188,6 @@ public class WindowManager {
         });
     }
 
-    //ToDo
     static void showErrorAlert(String msg) {
         Platform.runLater(() -> {
             Alert error = new Alert(Alert.AlertType.ERROR);

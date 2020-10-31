@@ -96,6 +96,12 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
             }
 
             //
+            if (cmdMsg.equalsCmd(Command.REFRESH_FILELIST)) {
+                Path path = Paths.get((String) cmdMsg.getAttachment()[0]);
+                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - refresh"));
+            }
+
+            //
             if (cmdMsg.equalsCmd(Command.RENAME_FILE_DIR)) {
                 Path path = Paths.get((String) cmdMsg.getAttachment()[0]);
                 String newName = (String) cmdMsg.getAttachment()[1];
@@ -170,12 +176,6 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 path = Paths.get(serverPath.toString(), subPath.toString());
                 CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - delete dir"));
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_DIR, true, path.toString()).toString(), null, ctx, null);
-            }
-
-            //
-            if (cmdMsg.equalsCmd(Command.REFRESH_FILELIST)) {
-                Path path = Paths.get((String) cmdMsg.getAttachment()[0]);
-                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - refresh"));
             }
 
             //

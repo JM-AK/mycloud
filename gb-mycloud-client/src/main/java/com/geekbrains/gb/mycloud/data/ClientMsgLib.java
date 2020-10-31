@@ -10,4 +10,5 @@ public final class ClientMsgLib {
 
     public static final String WRNG_OLD_NEW_PASS= "Old and new passwords should be different.";
 
+    public static final String WRNG_LOGIN_TYPING = "Please insert email into login like ***@***.***";
 }

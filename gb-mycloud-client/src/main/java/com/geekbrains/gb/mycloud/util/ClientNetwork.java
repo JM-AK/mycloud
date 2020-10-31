@@ -85,23 +85,7 @@ public class ClientNetwork {
         currentChannel.close();
     }
 
-    public void sendMsg (AbstractMsg msg) {
-        if (msg instanceof FileMsg) {
-            FileService.getInstance().sendFile((FileMsg) msg, 8 , currentChannel, null, future -> {
-                if (!future.isSuccess()) {
-                    logger.info("FAILED FILE SENT - " + ((FileMsg) msg).getFileName());
-                } else {
-                    logger.info("SUCCESS FILE SENT - " + ((FileMsg) msg).getFileName());
-                }
-            });
-        } else {
-            CmdService.getInstance().sendCommand(msg.toString(), currentChannel, null, future -> {
-                if (!future.isSuccess()) {
-                    logger.info("FAILED MSG SENT - " + msg.toString());
-                } else {
-                    logger.info("SUCCESS MSG SENT - " + msg.toString());
-                }
-            });
-        }
+    public void sendObject (Object msg) {
+        currentChannel.writeAndFlush(msg);
     }
 }

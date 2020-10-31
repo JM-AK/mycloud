@@ -5,14 +5,17 @@ import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
 import com.geekbraind.gb.mycloud.message.*;
 import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbraind.gb.mycloud.util.FileService;
+import com.geekbrains.gb.mycloud.controller.MainController;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
+import com.geekbrains.gb.mycloud.util.StoragePath;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.stream.Collectors;
 
 public class MainClientHandler extends ChannelInboundHandlerAdapter {
 
@@ -56,36 +59,28 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         ctx.close();
     }
 
-    public void parseMsg (ChannelHandlerContext ctx, String inMsg) throws IOException {
-        Path clientPath = ClientSettings.getInstance().getHome();
+    private void parseMsg (ChannelHandlerContext ctx, String inMsg) throws IOException {
 
         AbstractMsg msg = CmdService.getInstance().getMsg(inMsg);
 
         if (msg instanceof FileMsg) {
-            FileMsg fileMsg = (FileMsg) msg;
-            String fileName = fileMsg.getFileName();
-            Path dstFolder = Paths.get(fileMsg.getDestination());
-            Path dstFile = Paths.get(dstFolder.toString(), fileName);
-            boolean isFileList = fileMsg.isFileList();
-            if (Files.exists(dstFile)) Files.deleteIfExists(dstFile);
-            Files.createFile(dstFile);
-
-            ReplyMsg replyMsg = new ReplyMsg(Command.DOWNLOAD_FILEDIR, true, "Client ready for download");
-            ClientNetwork.getInstance().sendMsg(replyMsg);
+            fileMsgHandler((FileMsg) msg);
         }
-
+        if (msg instanceof CommandMsg) {
+            cmdMsgHandler((CommandMsg) msg);
+        }
+        if (msg instanceof FileListMsg) {
+            fileListHandler((FileListMsg) msg);
+        }
         if (msg instanceof ReplyMsg) {
-            ReplyMsg replyMsg = (ReplyMsg) msg;
-            System.out.println(replyMsg.toString());
+            replyMsgHandler((ReplyMsg) msg);
         }
-
         if (msg instanceof InfoMsg) {
-            InfoMsg infoMsg = (InfoMsg) msg;
-            System.out.println(infoMsg.toString());
+            infoMsgHandler((InfoMsg) msg);
         }
     }
 
-    public void downloadFiles (ChannelHandlerContext ctx, Object msg) {
+    private void downloadFiles (ChannelHandlerContext ctx, Object msg) {
         try {
             FileService.getInstance().receiveFile((ByteBuf) msg);
             ReplyMsg replyMsg = new ReplyMsg(Command.DOWNLOAD_FILEDIR, true, "Success download");
@@ -95,4 +90,57 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         }
 
     }
+
+    private void fileMsgHandler (FileMsg msg) throws IOException {
+        FileMsg fileMsg = (FileMsg) msg;
+        String fileName = fileMsg.getFileName();
+        Path dstFolder = Paths.get(fileMsg.getDestination());
+        Path dstFile = Paths.get(dstFolder.toString(), fileName);
+        boolean isFileList = fileMsg.isFileList();
+
+        if (Files.exists(dstFile)) Files.deleteIfExists(dstFile);
+        Files.createFile(dstFile);
+
+        ReplyMsg replyMsg = new ReplyMsg(Command.DOWNLOAD_FILEDIR, true, "Client ready for download");
+        ClientNetwork.getInstance().sendObject(replyMsg);
+    }
+
+    private void cmdMsgHandler (CommandMsg cmdMsg) {
+        if (cmdMsg.equalsCmd(Command.CREATE_DIR)) {
+            Path newDir = Paths.get((String) cmdMsg.getAttachment()[0]);
+            try {
+                Files.createFile(newDir);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void fileListHandler(FileListMsg msg) {
+        ClientSettings.getInstance().setClientFileList(
+                msg.getFiles().stream()
+                .map(path -> Paths.get(path))
+                .collect(Collectors.toList())
+        );
+        Path path = Paths.get(msg.getPath());
+        StoragePath sp = ClientSettings.getInstance().getServerPath();
+        sp.setFullPath(path);
+        if (sp.getRoot() == null) {
+            sp.setRoot(path);
+        }
+    }
+
+    //ToDo
+    private void replyMsgHandler (ReplyMsg replyMsg){
+        System.out.println(replyMsg.toString());
+
+    }
+
+    //ToDo
+    private void infoMsgHandler (InfoMsg infoMsg){
+        System.out.println(infoMsg.toString());
+
+    }
+
+
 }

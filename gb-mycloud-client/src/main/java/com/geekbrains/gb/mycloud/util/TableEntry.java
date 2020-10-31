@@ -5,8 +5,8 @@ import java.nio.file.Path;
 
 public class TableEntry implements Comparable<TableEntry> {
     private Integer id;
-    private String shortFilename;
-    private String fullFilename;
+    private String shortFileName;
+    private String fullFileName;
     private Path fullPath;
     private String shortPath;
     private String type;
@@ -20,12 +20,12 @@ public class TableEntry implements Comparable<TableEntry> {
         this.id = id;
     }
 
-    public String getShortFilename() {
-        return shortFilename;
+    public String getShortFileName() {
+        return shortFileName;
     }
 
-    public String getFullFilename() {
-        return fullFilename;
+    public String getFullFileName() {
+        return fullFileName;
     }
 
     public Path getFullPath() {
@@ -48,8 +48,8 @@ public class TableEntry implements Comparable<TableEntry> {
         this.id = id;
         this.fullPath = file.toAbsolutePath();
         this.shortPath = file.getParent().toString();
-        this.fullFilename = file.getFileName().toString();
-        this.shortFilename = getFilename(file);
+        this.fullFileName = file.getFileName().toString();
+        this.shortFileName = getFilename(file);
         this.type = getFileType(file);
         this.size = getFileSize(file);
     }
@@ -57,8 +57,8 @@ public class TableEntry implements Comparable<TableEntry> {
     public TableEntry() {
         this.fullPath = null;
         this.shortPath = "";
-        this.fullFilename = "";
-        this.shortFilename = "...";
+        this.fullFileName = "";
+        this.shortFileName = "...";
         this.type = "";
         this.size = "";
     }
@@ -72,7 +72,7 @@ public class TableEntry implements Comparable<TableEntry> {
     }
 
     public boolean isMove() {
-        return this.getShortFilename().equals("...");
+        return this.getShortFileName().equals("...");
     }
 
     private String getFilename(Path file) {
@@ -122,7 +122,7 @@ public class TableEntry implements Comparable<TableEntry> {
 
     @Override
     public int compareTo(TableEntry o) {
-        return this.getShortFilename().compareTo(o.getShortFilename());
+        return this.getShortFileName().compareTo(o.getShortFileName());
     }
 }
 

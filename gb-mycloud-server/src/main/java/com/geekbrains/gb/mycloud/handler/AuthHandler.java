@@ -118,6 +118,7 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                             });
                         }
                     }
+
                     if (cmdMsg.equalsCmd(Command.CHANGEPASS)) {
                         String login = cmdMsg.getAttachment()[0].toString();
                         String oldPass = cmdMsg.getAttachment()[1].toString();
@@ -143,6 +144,7 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
 
                 } else {
                     ReferenceCountUtil.release(msg);
+                    buf.release();
                 }
             }
         } else {

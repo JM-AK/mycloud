@@ -126,7 +126,7 @@ public class CmdService {
         }
 
         if (msgArr[0].equals(MsgType.REPLY.toString())){
-            if (msgArr.length > 2) {
+            if (msgArr.length > 3) {
                 return new ReplyMsg(getCmd(msgArr[1]), Boolean.parseBoolean(msgArr[2]), msgArr[3]);
             } else {
                 return new ReplyMsg(getCmd(msgArr[1]), Boolean.parseBoolean(msgArr[2]));

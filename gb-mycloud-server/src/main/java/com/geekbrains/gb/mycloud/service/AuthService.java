@@ -1,11 +1,13 @@
 package com.geekbrains.gb.mycloud.service;
 
+import com.geekbraind.gb.mycloud.util.CheckEmail;
 import com.geekbrains.gb.mycloud.data.SQLiteQuery;
 import com.lambdaworks.crypto.SCryptUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
+import java.util.regex.Pattern;
 
 public class AuthService {
     private static final Logger logger = LogManager.getLogger(AuthService.class);
@@ -231,19 +233,7 @@ public class AuthService {
     }
 
     public boolean isLoginValid (String login) {
-        if (login == null) return false;
-        if (login.isEmpty()) return false;
-        if (!login.contains("@")) return false;
-        String[] line = login.split("@");
-        if (line.length > 2 || line.length <= 1) return false;
-
-        String sub = login.substring(login.indexOf("@") + 1, login.length());
-        if (sub.isEmpty()) return false;
-        if (!sub.contains(".")) return false;
-        String[] line2 = sub.split("\\.");
-        if (line2.length > 2 || line2.length <= 1) return false;
-        if (line2[0].equals("")) return false;
-        return true;
+        return CheckEmail.isEmail(login);
     }
 
     /*
@@ -275,8 +265,6 @@ public class AuthService {
 ////        System.out.println(instance.activateAccount("alex@example.com"));
 ////
 //        instance.disconnect();
-////
-////
 //    }
 
 }

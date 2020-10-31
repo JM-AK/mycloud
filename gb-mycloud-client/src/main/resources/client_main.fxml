@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<SplitPane dividerPositions="0.5344086021505376" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geekbrains.gb.mycloud.controller.MainController">
+
+    <AnchorPane minHeight="0" minWidth="0" prefHeight="160" prefWidth="100">
+        <BorderPane prefHeight="398.0" prefWidth="280" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+            <padding>
+                <Insets right="10" />
+            </padding>
+
+            <bottom>
+                <HBox alignment="CENTER_RIGHT" minHeight="40" spacing="10" BorderPane.alignment="CENTER">
+                    <Button onAction="#refreshLocal" text="Refresh" />
+                    <Button onAction="#createDirLocal" text="New Dir" />
+                    <Button onAction="#openDir" text="Open Dir" />
+                    <Button onAction="#addLocal" text="Add" />
+                    <Button onAction="#renameLocal" text="Rename" />
+                    <Button onAction="#deleteLocal" text="Delete" />
+                    <Button fx:id="btnUpload" onAction="#uploadToServer" text="Upload" />
+                </HBox>
+            </bottom>
+
+            <top>
+                <VBox BorderPane.alignment="CENTER_LEFT">
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button visible="false" />
+                    </HBox>
+                    <Text id="welcome-text" text=" Local storage" />
+                    <Text id="path-text" fx:id="pathLocalText" />
+                </VBox>
+            </top>
+
+            <center>
+                <TableView fx:id="localTable" prefHeight="200.0" prefWidth="333.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="idColLocal" maxWidth="30" minWidth="30" prefWidth="30" text="№" />
+                        <TableColumn fx:id="nameColLocal" prefWidth="300" text="Name" />
+                        <TableColumn fx:id="typeColLocal" maxWidth="60" minWidth="60" prefWidth="60" text="Type" />
+                        <TableColumn fx:id="sizeColLocal" maxWidth="60" minWidth="60" prefWidth="60" text="Size" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </center>
+        </BorderPane>
+    </AnchorPane>
+
+    <AnchorPane minHeight="0" minWidth="0" prefHeight="160" prefWidth="100">
+        <BorderPane prefHeight="398" prefWidth="312" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <padding>
+                <Insets right="10" />
+            </padding>
+
+            <top>
+                <VBox BorderPane.alignment="CENTER_LEFT">
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button onAction="#logOut" text="Log Out" />
+                    </HBox>
+                    <Text id="welcome-text" text=" Server storage" />
+                    <Text id="path-text" fx:id="pathServerText" />
+                </VBox>
+            </top>
+
+            <bottom>
+                <HBox alignment="CENTER_RIGHT" minHeight="40" prefWidth="312" spacing="10" BorderPane.alignment="CENTER">
+                    <Button onAction="#refreshServer" text="Refresh" />
+                    <Button onAction="#createDirServer" text="New Dir" />
+                    <Button onAction="#renameAtServer" text="Rename" />
+                    <Button onAction="#deleteAtServer" text="Delete" />
+                    <Button fx:id="btnDownload" onAction="#downloadFromServer" text="Download" />
+                </HBox>
+            </bottom>
+            <center>
+                <TableView fx:id="serverTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="idColServer" maxWidth="30" minWidth="30" prefWidth="30" text="№" />
+                        <TableColumn fx:id="nameColServer" prefWidth="300" text="Name" />
+                        <TableColumn fx:id="typeColServer" maxWidth="60" minWidth="60" prefWidth="60" text="Type" />
+                        <TableColumn fx:id="sizeColServer" maxWidth="60" minWidth="60" prefWidth="60" text="Size" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </center>
+        </BorderPane>
+    </AnchorPane>
+</SplitPane>
