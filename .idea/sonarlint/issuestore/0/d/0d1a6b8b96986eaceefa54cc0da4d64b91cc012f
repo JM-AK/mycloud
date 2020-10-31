@@ -1,0 +1,28 @@
+
+\
+java:S1854ğ">Remove this useless assignment to local variable "isFileList".(Øäô 8ŒñË×.
+o
+java:S3776W"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(¿õô½8»¨±×.
+M
+java:S1481ğ"/Remove this unused "isFileList" local variable.(Øäô 8ŒñË×.
+[	java:S106á"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
+O
+java:S1135v"2Complete the task associated to this TODO comment.(¼Õ¼È8Û³€É×.
+V	java:S106®"9Replace this use of System.out or System.err by a logger.(»æÛ8Û³€É×.
+F
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å8ùæÓË×.
+c
+java:S1128"ARemove this unused import 'com.geekbraind.gb.mycloud.lib.MsgLib'.(ú°Ş÷úÿÿÿÿ8­¥²×.
+V	java:S106÷"9Replace this use of System.out or System.err by a logger.(¯Ûù8 Î‚Ì×.
+V	java:S106ü"9Replace this use of System.out or System.err by a logger.(¨¦Ò­8 Î‚Ì×.
+[	java:S106µ"9Replace this use of System.out or System.err by a logger.(«·Çóÿÿÿÿÿ8Û³€É×.
+[	java:S106Î"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
+U	java:S106b"9Replace this use of System.out or System.err by a logger.(¢¸»¿8ÕÈè°×.
+U	java:S106»"9Replace this use of System.out or System.err by a logger.(Àˆ&8Û³€É×.
+T	java:S106|"9Replace this use of System.out or System.err by a logger.(»²M8Û³€É×.
+Z	java:S106m"9Replace this use of System.out or System.err by a logger.(Œâ€ëúÿÿÿÿ8Û³€É×.
+f
+java:S1128"IRemove this unused import 'com.geekbraind.gb.mycloud.dictionary.MsgType'.(¼Ÿáö8µ™‡¨×.
+[	java:S106‡"9Replace this use of System.out or System.err by a logger.(¥‹â±ıÿÿÿÿ8Û³€É×.
+V	java:S106Ã"9Replace this use of System.out or System.err by a logger.(Ü„°8Û³€É×.
+U	java:S106!"9Replace this use of System.out or System.err by a logger.(Ì›òæ8é…´¦×.
