@@ -107,7 +107,6 @@ public class AuthService {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 String hash = rs.getString("password");
-                System.out.println(hash);
                 boolean activate = rs.getBoolean("active");
                 if (activate && SCryptUtil.check(password, hash)) {
                     return rs.getString("username");

@@ -1,5 +1,10 @@
 package com.geekbrains.gb.mycloud.util;
 
+import com.geekbraind.gb.mycloud.message.AbstractMsg;
+import com.geekbraind.gb.mycloud.message.CommandMsg;
+import com.geekbraind.gb.mycloud.message.FileMsg;
+import com.geekbraind.gb.mycloud.util.CmdService;
+import com.geekbraind.gb.mycloud.util.FileService;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.handler.MainClientHandler;
 import com.geekbrains.gb.mycloud.handler.OutClientHandler;
@@ -80,4 +85,23 @@ public class ClientNetwork {
         currentChannel.close();
     }
 
+    public void sendMsg (AbstractMsg msg) {
+        if (msg instanceof FileMsg) {
+            FileService.getInstance().sendFile((FileMsg) msg, 8 , currentChannel, null, future -> {
+                if (!future.isSuccess()) {
+                    logger.info("FAILED FILE SENT - " + ((FileMsg) msg).getFileName());
+                } else {
+                    logger.info("SUCCESS FILE SENT - " + ((FileMsg) msg).getFileName());
+                }
+            });
+        } else {
+            CmdService.getInstance().sendCommand(msg.toString(), currentChannel, null, future -> {
+                if (!future.isSuccess()) {
+                    logger.info("FAILED MSG SENT - " + msg.toString());
+                } else {
+                    logger.info("SUCCESS MSG SENT - " + msg.toString());
+                }
+            });
+        }
+    }
 }

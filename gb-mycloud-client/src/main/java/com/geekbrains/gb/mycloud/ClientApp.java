@@ -8,8 +8,8 @@ import javafx.stage.Stage;
 
 import java.util.concurrent.CountDownLatch;
 
-
 public class ClientApp extends Application {
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -24,7 +24,7 @@ public class ClientApp extends Application {
             try {
                 ClientNetwork.getInstance().start(networkStarter);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                networkStarter.countDown();
             }
         }).start();
         networkStarter.await();

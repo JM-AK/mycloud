@@ -27,7 +27,6 @@ public class WindowManager {
 //        return progressStage;
 //    }
 
-    //ToDo
     public static void showLogin() {
         Platform.runLater(() -> {
             stage.close();

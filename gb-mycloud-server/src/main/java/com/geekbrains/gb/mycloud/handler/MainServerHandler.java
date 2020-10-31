@@ -1,9 +1,7 @@
 package com.geekbrains.gb.mycloud.handler;
 
 import com.geekbraind.gb.mycloud.dictionary.Command;
-import com.geekbraind.gb.mycloud.dictionary.MsgType;
 import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
-import com.geekbraind.gb.mycloud.lib.MsgLib;
 import com.geekbraind.gb.mycloud.message.*;
 import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbraind.gb.mycloud.util.FileService;
@@ -12,7 +10,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.nio.file.*;

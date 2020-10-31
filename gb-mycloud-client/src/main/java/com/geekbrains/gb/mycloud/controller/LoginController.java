@@ -1,21 +1,13 @@
 package com.geekbrains.gb.mycloud.controller;
 
-import com.geekbraind.gb.mycloud.dictionary.Command;
 import com.geekbraind.gb.mycloud.message.AuthRequestMsg;
-import com.geekbraind.gb.mycloud.message.FileMsg;
-import com.geekbraind.gb.mycloud.util.CmdService;
-import com.geekbraind.gb.mycloud.util.FileService;
 import com.geekbrains.gb.mycloud.data.ClientMsgLib;
-import com.geekbrains.gb.mycloud.data.ClientSettings;
-import com.geekbrains.gb.mycloud.handler.OutClientHandler;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
 import com.geekbrains.gb.mycloud.util.WindowManager;
-import io.netty.channel.ChannelFutureListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.util.concurrent.CountDownLatch;
 
 public class LoginController {
 
@@ -45,13 +37,7 @@ public class LoginController {
             return;
         }
         AuthRequestMsg msg = new AuthRequestMsg(loginField.getText(), passField.getText());
-        CmdService.getInstance().sendCommand(msg.toString(), ClientNetwork.getInstance().getCurrentChannel(),null, future -> {
-            if (!future.isSuccess()) {
-                future.cause().printStackTrace();
-            } else {
-                System.out.println("Send authrequest");
-            }
-        });
+        ClientNetwork.getInstance().sendMsg(msg);
     }
 }
 
