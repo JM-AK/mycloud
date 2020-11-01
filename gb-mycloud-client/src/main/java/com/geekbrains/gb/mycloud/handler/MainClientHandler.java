@@ -5,6 +5,7 @@ import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
 import com.geekbraind.gb.mycloud.message.*;
 import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbraind.gb.mycloud.util.FileService;
+import com.geekbrains.gb.mycloud.controller.MainController;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
 import com.geekbrains.gb.mycloud.util.FileListReceiverCallback;
@@ -25,8 +26,6 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
     }
 
     private State currentState = State.IDLE;
-    private FileListReceiverCallback fileListReceiverCallback;
-
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -73,7 +72,7 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
             cmdMsgHandler((CommandMsg) msg);
         }
         if (msg instanceof FileListMsg) {
-            fileListHandler((FileListMsg) msg);
+            fileListHandler((FileListMsg) msg, MainController.getInstance());
         }
         if (msg instanceof ReplyMsg) {
             replyMsgHandler((ReplyMsg) msg);
@@ -119,8 +118,8 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
-    private void fileListHandler(FileListMsg msg) {
-        ClientSettings.getInstance().setClientFileList(
+    private void fileListHandler(FileListMsg msg, FileListReceiverCallback cb) {
+        ClientSettings.getInstance().setServerFileList(
                 msg.getFiles().stream()
                 .map(path -> Paths.get(path))
                 .collect(Collectors.toList())
@@ -131,13 +130,14 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         if (sp.getRoot() == null) {
             sp.setRoot(path);
         }
-        fileListReceiverCallback.receiveFileListCallback();
+        cb.receiveFileListCallback();
 
     }
 
     private void replyMsgHandler (ReplyMsg replyMsg){
         alertClient(replyMsg);
         if (replyMsg.getCommand().equals(Command.AUTHORISE) && replyMsg.isSuccess()) {
+            MainController.getInstance().initialise();
             WindowManager.showMain();
         }
         if (replyMsg.getCommand().equals(Command.LOGOUT) && replyMsg.isSuccess()) {

@@ -22,11 +22,8 @@ import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.DosFileAttributeView;
-import java.util.ArrayDeque;
-import java.util.Comparator;
+import java.util.*;
 import java.util.List;
-import java.util.Optional;
-import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class MainController implements FileListReceiverCallback {
@@ -35,6 +32,12 @@ public class MainController implements FileListReceiverCallback {
     private StoragePath spLocal = ClientSettings.getInstance().getLocalPath();
     private StoragePath spServer = ClientSettings.getInstance().getServerPath();
     private Queue<FileMsg> uploadQueue;
+
+    private static MainController instance = new MainController();
+
+    public static MainController getInstance() {
+        return instance;
+    }
 
     @FXML
     public Text pathLocalText;
@@ -253,7 +256,7 @@ public class MainController implements FileListReceiverCallback {
     * Init GUI
     * */
 
-    private void initialise() {
+    public void initialise() {
         try {
             this.fillFileTable(listLocal, spLocal, pathLocalText);
         } catch (IOException e) {
@@ -368,10 +371,11 @@ public class MainController implements FileListReceiverCallback {
         list.clear();
         List<Path> files = null;
         if (list.equals(localTable)) files = Files.list(sp.getFullPath()).collect(Collectors.toList());
-        if (list.equals(listServer)) files = ClientSettings.getInstance().getClientFileList();
+        if (list.equals(listServer)) files = ClientSettings.getInstance().getServerFileList();
         int rowsCount = (files != null) ? files.size() : 0;
         if (!sp.isRoot()) list.add(new TableEntry());
         for (Path file : files) {
+            System.out.println(rowsCount);
             rowsCount++;
             list.add(new TableEntry(rowsCount, file));
         }
@@ -506,10 +510,12 @@ public class MainController implements FileListReceiverCallback {
     public void receiveFileListCallback() {
         try {
             fillFileTable(listServer, spServer, pathServerText);
+            fillFileTable(listLocal, spLocal, pathLocalText);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
 
 

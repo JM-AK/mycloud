@@ -5,7 +5,6 @@ import com.geekbrains.gb.mycloud.util.ClientNetwork;
 import com.geekbrains.gb.mycloud.util.WindowManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
 import java.util.concurrent.CountDownLatch;
 
 public class ClientApp extends Application {

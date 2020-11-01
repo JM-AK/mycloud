@@ -1,21 +1,21 @@
 
-M
-java:S1144Ê"/Remove this unused private "initialise" method.(ÉüùÁ8£ö—Ø.
+d
+java:S2142ò"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8™³ô£Ø.
 u
-java:S1192à"WDefine a constant instead of duplicating this literal "-fx-alignment: CENTER;" 4 times.(êİ†ú8£ö—Ø.
-`
-java:S1128"FRemove this unused import 'java.nio.file.attribute.DosFileAttributes'.(áºÅ8¢º˜Ø.
-
-java:S1186À"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïâq8£ö—Ø.
-Ÿ
-java:S1186¶"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(€‘êÆ8£ö—Ø.
+java:S1192™"WDefine a constant instead of duplicating this literal "-fx-alignment: CENTER;" 4 times.(êİ†ú8™³ô£Ø.
+M
+java:S1144ƒ"/Remove this unused private "initialise" method.(ÉüùÁ8™³ô£Ø.
 a
-java:S2095¼"DUse try-with-resources or close this "Stream" in a "finally" clause.(¢Ûï8£ö—Ø.
-Ÿ
-java:S1186¹"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’ÔîÎ8£ö—Ø.
-¤
-java:S1186­"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(·øŒ»ûÿÿÿÿ8£ö—Ø.
+java:S2095õ"DUse try-with-resources or close this "Stream" in a "finally" clause.(¢Ûï8™³ô£Ø.
+N
+java:S1481û"+Remove this unused "cmdMsg" local variable.(‡¨šòúÿÿÿÿ8™³ô£Ø.
+[	java:S106ÿ"9Replace this use of System.out or System.err by a logger.(ÙÚûÙıÿÿÿÿ8™³ô£Ø.
+P
+java:S1135œ"2Complete the task associated to this TODO comment.(¨Àâ…8™³ô£Ø.
+U
+java:S1135ï"2Complete the task associated to this TODO comment.(ƒ°à¿ûÿÿÿÿ8™³ô£Ø.
 o
-java:S3776Ğ"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ì¬¿V8£ö—Ø.
-¤
-java:S1186¼"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø»¼ºùÿÿÿÿ8£ö—Ø.
+java:S3776‰"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ì¬¿V8™³ô£Ø.
+]
+java:S1854û":Remove this useless assignment to local variable "cmdMsg".(‡¨šòúÿÿÿÿ8™³ô£Ø.
+[	java:S106€"9Replace this use of System.out or System.err by a logger.(ù¼ù£ûÿÿÿÿ8™³ô£Ø.
