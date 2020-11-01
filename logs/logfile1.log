@@ -1480,3 +1480,858 @@ DEBUG 2020-11-01 15:03:11 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycl
 DEBUG 2020-11-01 15:03:11 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
 DEBUG 2020-11-01 15:03:11 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
 DEBUG 2020-11-01 15:03:11 [nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@6fb3b59d
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 15:54:51 [main] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@11a9e7c8
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12d4bf7e
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4c1d9d4b
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b227d8d
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7219ec67
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@45018215
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@65d6b83b
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@d706f19
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1fe20588
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6ce139a4
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6973bf95
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ddc8ecb
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@229d10bd
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@47542153
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@33afa13b
+TRACE 2020-11-01 15:54:51 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7a4ccb53
+DEBUG 2020-11-01 15:54:51 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 11480 (auto-detected)
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 15:54:51 [main] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 15:54:52 [main] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 15:54:52 [main] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 15:54:52 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 15:54:52 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 15:54:52 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 15:54:52 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 15:55:05 [Thread-4] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@96f202c
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7109c5c
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@770ea2d2
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@e5dc99a
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@424e9a95
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@41bf1cfc
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@43253e2b
+TRACE 2020-11-01 15:55:05 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@23d42ecc
+DEBUG 2020-11-01 15:55:06 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 3412 (auto-detected)
+DEBUG 2020-11-01 15:55:06 [Thread-4] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 15:55:06 [Thread-4] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 15:55:06 [Thread-4] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 15:55:06 [Thread-4] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 15:55:07 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 15:55:22 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 15:55:22 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 15:55:22 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 15:55:22 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 15:55:22 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-2-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@49ca7962
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 15:55:22 [nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@49d2f618
+DEBUG 2020-11-01 15:55:25 [nioEventLoopGroup-2-1] io.netty.buffer.PoolThreadCache (PoolThreadCache.java:229) - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-2-1
+DEBUG 2020-11-01 16:18:45 [main] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:18:45 [main] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:18:45 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:18:45 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:18:45 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:18:45 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:18:45 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:18:45 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:18:45 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@11a9e7c8
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12d4bf7e
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4c1d9d4b
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b227d8d
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7219ec67
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@45018215
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@65d6b83b
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@d706f19
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1fe20588
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6ce139a4
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6973bf95
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ddc8ecb
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@229d10bd
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@47542153
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@33afa13b
+TRACE 2020-11-01 16:18:46 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7a4ccb53
+DEBUG 2020-11-01 16:18:46 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 9224 (auto-detected)
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:18:46 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:18:46 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:18:46 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:18:46 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:18:46 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:18:46 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:18:46 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:18:47 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:20:21 [main] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@11a9e7c8
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12d4bf7e
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4c1d9d4b
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b227d8d
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7219ec67
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@45018215
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@65d6b83b
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@d706f19
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1fe20588
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6ce139a4
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6973bf95
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ddc8ecb
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@229d10bd
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@47542153
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@33afa13b
+TRACE 2020-11-01 16:20:21 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7a4ccb53
+DEBUG 2020-11-01 16:20:21 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 9920 (auto-detected)
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:20:21 [main] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:20:22 [main] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:20:22 [main] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:20:22 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:20:22 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:20:22 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:20:22 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2679696f
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@5d1fd23b
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@30c0fae6
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ac401
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12406f83
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@316df9fa
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6cd22fb
+TRACE 2020-11-01 16:20:39 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@5011f4ef
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 2356 (auto-detected)
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:20:39 [Thread-4] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:20:40 [Thread-4] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:20:40 [Thread-4] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:20:41 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:20:50 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:20:50 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:20:50 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:20:50 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:20:50 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-2-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@79c00d55
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:20:50 [nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@49d2f618
+DEBUG 2020-11-01 16:20:53 [nioEventLoopGroup-2-1] io.netty.buffer.PoolThreadCache (PoolThreadCache.java:229) - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-2-1
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:23:05 [main] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@11a9e7c8
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12d4bf7e
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4c1d9d4b
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b227d8d
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7219ec67
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@45018215
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@65d6b83b
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@d706f19
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1fe20588
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6ce139a4
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6973bf95
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ddc8ecb
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@229d10bd
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@47542153
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@33afa13b
+TRACE 2020-11-01 16:23:05 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7a4ccb53
+DEBUG 2020-11-01 16:23:05 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 8508 (auto-detected)
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:23:05 [main] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:23:06 [main] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:23:06 [main] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:23:07 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:23:07 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:23:07 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:23:07 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:23:17 [Thread-4] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2e56a028
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4b747948
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@5038d7ee
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1a99ae6f
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@34d4021a
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@5c0293f1
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4a93a838
+TRACE 2020-11-01 16:23:17 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1dae8dd3
+DEBUG 2020-11-01 16:23:18 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 8944 (auto-detected)
+DEBUG 2020-11-01 16:23:18 [Thread-4] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:23:18 [Thread-4] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:23:18 [Thread-4] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:23:18 [Thread-4] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:23:19 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:23:19 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:23:19 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:23:20 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:23:33 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:23:33 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:23:33 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:23:33 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:23:33 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-2-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@513e21ca
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:23:33 [nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@3c65c024
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:31:14 [main] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:31:14 [main] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@11a9e7c8
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12d4bf7e
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4c1d9d4b
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b227d8d
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7219ec67
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@45018215
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@65d6b83b
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@d706f19
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1fe20588
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6ce139a4
+TRACE 2020-11-01 16:31:14 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6973bf95
+TRACE 2020-11-01 16:31:15 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ddc8ecb
+TRACE 2020-11-01 16:31:15 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@229d10bd
+TRACE 2020-11-01 16:31:15 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@47542153
+TRACE 2020-11-01 16:31:15 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@33afa13b
+TRACE 2020-11-01 16:31:15 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7a4ccb53
+DEBUG 2020-11-01 16:31:15 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 10324 (auto-detected)
+DEBUG 2020-11-01 16:31:15 [main] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:31:15 [main] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:31:15 [main] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:31:15 [main] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:31:16 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:31:16 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:31:16 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:31:16 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2679696f
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@5d1fd23b
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@30c0fae6
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ac401
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12406f83
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@316df9fa
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6cd22fb
+TRACE 2020-11-01 16:31:31 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@5011f4ef
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 10524 (auto-detected)
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:31:31 [Thread-4] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:31:32 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:31:40 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:31:40 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:31:40 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:31:40 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:31:40 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-2-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@b601385
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:31:40 [nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@e5e9741
+DEBUG 2020-11-01 16:31:43 [nioEventLoopGroup-2-1] io.netty.buffer.PoolThreadCache (PoolThreadCache.java:229) - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-2-1
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:36:19 [main] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@11a9e7c8
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12d4bf7e
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4c1d9d4b
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b227d8d
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7219ec67
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@45018215
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@65d6b83b
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@d706f19
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1fe20588
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6ce139a4
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6973bf95
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ddc8ecb
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@229d10bd
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@47542153
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@33afa13b
+TRACE 2020-11-01 16:36:19 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7a4ccb53
+DEBUG 2020-11-01 16:36:19 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 2632 (auto-detected)
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:36:19 [main] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:36:20 [main] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:36:20 [main] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:36:21 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:36:21 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:36:21 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:36:21 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:36:47 [Thread-4] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@695f68f0
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@39a73ed4
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2b2dc9f8
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2239864
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ac60c4d
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2a97d65f
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6f30a8fc
+TRACE 2020-11-01 16:36:47 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@71cefdc6
+DEBUG 2020-11-01 16:36:48 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 9300 (auto-detected)
+DEBUG 2020-11-01 16:36:48 [Thread-4] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:36:48 [Thread-4] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:36:49 [Thread-4] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:36:49 [Thread-4] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:36:50 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:36:54 [main] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@11a9e7c8
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@12d4bf7e
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4c1d9d4b
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b227d8d
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7219ec67
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@45018215
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@65d6b83b
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@d706f19
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@1fe20588
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6ce139a4
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6973bf95
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2ddc8ecb
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@229d10bd
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@47542153
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@33afa13b
+TRACE 2020-11-01 16:36:54 [main] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7a4ccb53
+DEBUG 2020-11-01 16:36:54 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 10616 (auto-detected)
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:36:54 [main] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:36:57 [main] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:36:57 [main] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:36:58 [main] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:36:58 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:36:58 [main] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:36:58 [main] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.logging.InternalLoggerFactory (InternalLoggerFactory.java:49) - Using Log4J2 as the default logging framework
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.channel.MultithreadEventLoopGroup (MultithreadEventLoopGroup.java:44) - -Dio.netty.eventLoopThreads: 8
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:56) - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.InternalThreadLocalMap (InternalThreadLocalMap.java:59) - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:106) - -Dio.netty.noKeySetOptimization: false
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:107) - -Dio.netty.selectorAutoRebuildThreshold: 512
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1028) - Platform: Windows
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:417) - -Dio.netty.noUnsafe: false
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:889) - Java version: 8
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:130) - sun.misc.Unsafe.theUnsafe: available
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:154) - sun.misc.Unsafe.copyMemory: available
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:192) - java.nio.Buffer.address: available
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:257) - direct buffer constructor: available
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:331) - java.nio.Bits.unaligned: available, true
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:396) - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent0 (PlatformDependent0.java:403) - java.nio.DirectByteBuffer.<init>(long, int): available
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1071) - sun.misc.Unsafe: available
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1192) - -Dio.netty.tmpdir: C:\Users\komle\AppData\Local\Temp (java.io.tmpdir)
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:1271) - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:177) - -Dio.netty.maxDirectMemory: 1840250880 bytes
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:184) - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.CleanerJava6 (CleanerJava6.java:92) - java.nio.ByteBuffer.cleaner(): available
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent (PlatformDependent.java:204) - -Dio.netty.noPreferDirect: false
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.internal.PlatformDependent$Mpsc (PlatformDependent.java:932) - org.jctools-core.MpscChunkedArrayQueue: available
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@efdaef3
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@41dc4f73
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@2235fb8d
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@75cd3cec
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@4953ae6a
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6a57c7e4
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@6733b0b0
+TRACE 2020-11-01 16:37:07 [Thread-4] io.netty.channel.nio.NioEventLoop (NioEventLoop.java:260) - instrumented a special java.util.Set into: sun.nio.ch.WindowsSelectorImpl@7b85dae6
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:79) - -Dio.netty.processId: 10720 (auto-detected)
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.NetUtil (NetUtil.java:139) - -Djava.net.preferIPv4Stack: false
+DEBUG 2020-11-01 16:37:07 [Thread-4] io.netty.util.NetUtil (NetUtil.java:140) - -Djava.net.preferIPv6Addresses: false
+DEBUG 2020-11-01 16:37:08 [Thread-4] io.netty.util.NetUtil (NetUtil.java:224) - Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+DEBUG 2020-11-01 16:37:08 [Thread-4] io.netty.util.NetUtil$1 (NetUtil.java:289) - Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.channel.DefaultChannelId (DefaultChannelId.java:101) - -Dio.netty.machineId: 7c:7a:91:ff:fe:47:f5:09 (auto-detected)
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:130) - -Dio.netty.leakDetection.level: simple
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.util.ResourceLeakDetector (ResourceLeakDetector.java:131) - -Dio.netty.leakDetection.targetRecords: 4
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:154) - -Dio.netty.allocator.numHeapArenas: 8
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:155) - -Dio.netty.allocator.numDirectArenas: 8
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:157) - -Dio.netty.allocator.pageSize: 8192
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:162) - -Dio.netty.allocator.maxOrder: 11
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:166) - -Dio.netty.allocator.chunkSize: 16777216
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:167) - -Dio.netty.allocator.smallCacheSize: 256
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:168) - -Dio.netty.allocator.normalCacheSize: 64
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:169) - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:170) - -Dio.netty.allocator.cacheTrimInterval: 8192
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:171) - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:172) - -Dio.netty.allocator.useCacheForAllThreads: true
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.PooledByteBufAllocator (PooledByteBufAllocator.java:173) - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:87) - -Dio.netty.allocator.type: pooled
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:96) - -Dio.netty.threadLocalDirectBufferSize: 0
+DEBUG 2020-11-01 16:37:09 [Thread-4] io.netty.buffer.ByteBufUtil (ByteBufUtil.java:99) - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+DEBUG 2020-11-01 16:37:16 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:37:16 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:37:16 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:37:16 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:37:16 [JavaFX Application Thread] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-2-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-2-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@44c8bc98
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:100) - -Dio.netty.recycler.maxCapacityPerThread: 4096
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:101) - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:102) - -Dio.netty.recycler.linkCapacity: 16
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:103) - -Dio.netty.recycler.ratio: 8
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.util.Recycler (Recycler.java:104) - -Dio.netty.recycler.delayedQueue.ratio: 8
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:63) - -Dio.netty.buffer.checkAccessible: true
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.buffer.AbstractByteBuf (AbstractByteBuf.java:64) - -Dio.netty.buffer.checkBounds: true
+DEBUG 2020-11-01 16:37:17 [nioEventLoopGroup-3-1] io.netty.util.ResourceLeakDetectorFactory$DefaultResourceLeakDetectorFactory (ResourceLeakDetectorFactory.java:196) - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@175b494c
+DEBUG 2020-11-01 16:37:20 [nioEventLoopGroup-2-1] io.netty.buffer.PoolThreadCache (PoolThreadCache.java:229) - Freed 2 thread-local buffer(s) from thread: nioEventLoopGroup-2-1
