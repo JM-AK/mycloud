@@ -138,7 +138,6 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         if (replyMsg.getCommand().equals(Command.LOGOUT) && replyMsg.isSuccess()) {
             WindowManager.showLogin();
         }
-
     }
 
     private void alertClient(ReplyMsg replyMsg) {
@@ -150,7 +149,7 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
     }
 
     private void infoMsgHandler (InfoMsg infoMsg){
-        WindowManager.showInfoAlert(infoMsg.getMsg())
+        WindowManager.showInfoAlert(infoMsg.getMsg());
         System.out.println(infoMsg.toString());
     }
 
