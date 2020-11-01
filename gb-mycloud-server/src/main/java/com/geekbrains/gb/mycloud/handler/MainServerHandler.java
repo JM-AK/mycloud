@@ -51,6 +51,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
             }
             if (currentState == State.COMMAND) {
                 String cmd = CmdService.getInstance().receiveCommand(buf);
+                System.out.println(cmd);
                 currentState = State.IDLE;
                 parseMsg(ctx, cmd);
             }
@@ -92,13 +93,27 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
             //
             if (cmdMsg.equalsCmd(Command.GETFILELIST)) {
                 Path rootPath = Paths.get((String) cmdMsg.getAttachment()[0]);
-                CmdService.getInstance().sendFileList(rootPath, null, ctx, future -> System.out.println("FileList sent"));
+                FileListMsg fileListMsg = new FileListMsg(rootPath);
+                CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
+                    if (future.isSuccess()) {
+                        System.out.println("Success sent - filelist -" + fileListMsg);
+                    } else {
+                        System.out.println("Failed sent - filelist -" + fileListMsg);
+                    }
+                });
             }
 
             //
             if (cmdMsg.equalsCmd(Command.REFRESH_FILELIST)) {
                 Path path = Paths.get((String) cmdMsg.getAttachment()[0]);
-                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - refresh"));
+                FileListMsg fileListMsg = new FileListMsg(path);
+                CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
+                    if (future.isSuccess()) {
+                        System.out.println("Success sent - filelist -" + fileListMsg);
+                    } else {
+                        System.out.println("Failed sent - filelist -" + fileListMsg);
+                    }
+                });
             }
 
             //
@@ -109,7 +124,14 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 Path subPath = path.subpath(1, path.getNameCount()-1);
                 path = Paths.get(serverPath.toString(), subPath.toString());
 
-                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - rename file or dir"));
+                FileListMsg fileListMsg = new FileListMsg(path);
+                CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
+                    if (future.isSuccess()) {
+                        System.out.println("Success sent - filelist -" + fileListMsg);
+                    } else {
+                        System.out.println("Failed sent - filelist -" + fileListMsg);
+                    }
+                });
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.RENAME_FILE_DIR,
                         true, path.toString() + "-" + newName ).toString(), null, ctx, null);
             }
@@ -123,8 +145,16 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 if (cmdMsg.getAttachment().length == 2) isRequestFileList = (boolean) cmdMsg.getAttachment()[1];
                 Files.createDirectory(newPath);
 
-                if (isRequestFileList)
-                    CmdService.getInstance().sendFileList(newPath, null, ctx, future -> System.out.println("FileList sent"));
+                if (isRequestFileList) {
+                    FileListMsg fileListMsg = new FileListMsg(newPath);
+                    CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
+                        if (future.isSuccess()) {
+                            System.out.println("Success sent - filelist -" + fileListMsg);
+                        } else {
+                            System.out.println("Failed sent - filelist -" + fileListMsg);
+                        }
+                    });
+                }
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.CREATE_DIR, true, newPath.toString()).toString(), null, ctx, null);
             }
 
@@ -135,7 +165,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 Path subPath = filePath.subpath(1, filePath.getNameCount() - 1);
                 filePath = Paths.get(serverPath.toString(), subPath.toString());
 
-                CmdService.getInstance().sendFileList(filePath, null, ctx, future -> System.out.println("FileList sent - delete file"));
+                FileListMsg fileListMsg = new FileListMsg(filePath);
+                CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> System.out.println("FileList sent - delete file"));
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_FILE, true, filePath.toString()).toString(), null, ctx, null);
             }
 
@@ -174,14 +205,28 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
 
                 Path subPath = path.subpath(1, path.getNameCount() - 1);
                 path = Paths.get(serverPath.toString(), subPath.toString());
-                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - delete dir"));
+                FileListMsg fileListMsg = new FileListMsg(path);
+                CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
+                    if (future.isSuccess()) {
+                        System.out.println("Success sent - filelist -" + fileListMsg);
+                    } else {
+                        System.out.println("Failed sent - filelist -" + fileListMsg);
+                    }
+                });
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_DIR, true, path.toString()).toString(), null, ctx, null);
             }
 
             //
             if (cmdMsg.equalsCmd(Command.OPEN_DIR)) {
                 Path path = Paths.get((String) cmdMsg.getAttachment()[0]);
-                CmdService.getInstance().sendFileList(path, null, ctx, future -> System.out.println("FileList sent - open dir"));
+                FileListMsg fileListMsg = new FileListMsg(path);
+                CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
+                    if (future.isSuccess()) {
+                        System.out.println("Success sent - filelist -" + fileListMsg);
+                    } else {
+                        System.out.println("Failed sent - filelist -" + fileListMsg);
+                    }
+                });
             }
 
             //

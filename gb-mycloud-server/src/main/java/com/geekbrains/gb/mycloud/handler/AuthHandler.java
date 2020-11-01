@@ -3,10 +3,7 @@ package com.geekbrains.gb.mycloud.handler;
 
 import com.geekbraind.gb.mycloud.dictionary.Command;
 import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
-import com.geekbraind.gb.mycloud.message.AbstractMsg;
-import com.geekbraind.gb.mycloud.message.AuthResponeMsg;
-import com.geekbraind.gb.mycloud.message.CommandMsg;
-import com.geekbraind.gb.mycloud.message.ReplyMsg;
+import com.geekbraind.gb.mycloud.message.*;
 import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbrains.gb.mycloud.data.ServerSettings;
 import com.geekbrains.gb.mycloud.service.AuthService;
@@ -55,11 +52,12 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                             isAuthorised = true;
                             //ToDo заменить на чтение из файла properties
                             Path path = Paths.get(ServerSettings.getInstance().getServerPath().toString(), login);
-                            CmdService.getInstance().sendFileList(path, null, ctx, future -> {
+                            FileListMsg fileListMsg = new FileListMsg(path);
+                            CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - filelist");
+                                    System.out.println("Success sent - filelist -" + fileListMsg);
                                 } else {
-                                    System.out.println("Failed sent - filelist");
+                                    System.out.println("Failed sent - filelist -" + fileListMsg);
                                 }
                             });
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {

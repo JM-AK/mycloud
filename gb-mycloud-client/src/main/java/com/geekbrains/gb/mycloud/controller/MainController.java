@@ -4,10 +4,7 @@ import com.geekbraind.gb.mycloud.dictionary.Command;
 import com.geekbraind.gb.mycloud.message.CommandMsg;
 import com.geekbraind.gb.mycloud.message.FileMsg;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
-import com.geekbrains.gb.mycloud.util.ClientNetwork;
-import com.geekbrains.gb.mycloud.util.StoragePath;
-import com.geekbrains.gb.mycloud.util.TableEntry;
-import com.geekbrains.gb.mycloud.util.WindowManager;
+import com.geekbrains.gb.mycloud.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,7 +29,7 @@ import java.util.Optional;
 import java.util.Queue;
 import java.util.stream.Collectors;
 
-public class MainController {
+public class MainController implements FileListReceiverCallback {
     private ObservableList<TableEntry> listLocal = FXCollections.observableArrayList();
     private ObservableList<TableEntry> listServer = FXCollections.observableArrayList();
     private StoragePath spLocal = ClientSettings.getInstance().getLocalPath();
@@ -505,9 +502,14 @@ public class MainController {
         btnUpload.setDisable(false);
     }
 
-
-
-
+    @Override
+    public void receiveFileListCallback() {
+        try {
+            fillFileTable(listServer, spServer, pathServerText);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 

@@ -7,6 +7,7 @@ import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbraind.gb.mycloud.util.FileService;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
+import com.geekbrains.gb.mycloud.util.FileListReceiverCallback;
 import com.geekbrains.gb.mycloud.util.StoragePath;
 import com.geekbrains.gb.mycloud.util.WindowManager;
 import io.netty.buffer.ByteBuf;
@@ -24,6 +25,8 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
     }
 
     private State currentState = State.IDLE;
+    private FileListReceiverCallback fileListReceiverCallback;
+
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -128,6 +131,8 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         if (sp.getRoot() == null) {
             sp.setRoot(path);
         }
+        fileListReceiverCallback.receiveFileListCallback();
+
     }
 
     private void replyMsgHandler (ReplyMsg replyMsg){
