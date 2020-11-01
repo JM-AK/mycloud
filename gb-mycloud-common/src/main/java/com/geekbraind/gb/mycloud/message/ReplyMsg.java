@@ -27,6 +27,9 @@ public class ReplyMsg extends AbstractMsg {
         this.isSuccess = isSuccess;
         this.comment = comment;
     }
+    public Command getCommand () {
+        return  this.command;
+    }
 
     public String getComment () {
         return this.comment;

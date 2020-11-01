@@ -75,24 +75,7 @@ public class WindowManager {
         });
     }
 
-//    public static void showProgress(boolean upload) {
-//        Platform.runLater(() -> {
-//            try {
-//                Parent root = FXMLLoader.load(WindowManager.class.getResource("/configProgress.fxml"));
-//                if (upload)
-//                    progressStage.setTitle("Uploading in progress... Please, wait...");
-//                else progressStage.setTitle("Downloading in progress... Please, wait...");
-//                progressStage.setScene(new Scene(root, 300, 50));
-//                progressStage.setResizable(false);
-//                progressStage.show();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
-
-
-    static void showMain() {
+    public static void showMain() {
         Platform.runLater(() -> {
             stage.close();
             try {
@@ -111,6 +94,22 @@ public class WindowManager {
             ClientNetwork.getInstance().sendObject(cmdMsg);
         }));
     }
+
+//    public static void showProgress(boolean upload) {
+//        Platform.runLater(() -> {
+//            try {
+//                Parent root = FXMLLoader.load(WindowManager.class.getResource("/configProgress.fxml"));
+//                if (upload)
+//                    progressStage.setTitle("Uploading in progress... Please, wait...");
+//                else progressStage.setTitle("Downloading in progress... Please, wait...");
+//                progressStage.setScene(new Scene(root, 300, 50));
+//                progressStage.setResizable(false);
+//                progressStage.show();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//    }
 
     public static List<Path> addFilesDialog() {
         FileChooser fileChooser = new FileChooser();
@@ -178,7 +177,7 @@ public class WindowManager {
         });
     }
 
-    static void showInfoAlert(String msg) {
+    public static void showInfoAlert(String msg) {
         Platform.runLater(() -> {
             Alert info = new Alert(Alert.AlertType.INFORMATION);
             info.setTitle("Information");
@@ -188,7 +187,7 @@ public class WindowManager {
         });
     }
 
-    static void showErrorAlert(String msg) {
+    public static void showErrorAlert(String msg) {
         Platform.runLater(() -> {
             Alert error = new Alert(Alert.AlertType.ERROR);
             error.setTitle("Error");

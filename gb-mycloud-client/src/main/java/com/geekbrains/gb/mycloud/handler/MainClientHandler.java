@@ -5,10 +5,10 @@ import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
 import com.geekbraind.gb.mycloud.message.*;
 import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbraind.gb.mycloud.util.FileService;
-import com.geekbrains.gb.mycloud.controller.MainController;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
 import com.geekbrains.gb.mycloud.util.StoragePath;
+import com.geekbrains.gb.mycloud.util.WindowManager;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -130,16 +130,28 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
-    //ToDo
     private void replyMsgHandler (ReplyMsg replyMsg){
-        System.out.println(replyMsg.toString());
+        alertClient(replyMsg);
+        if (replyMsg.getCommand().equals(Command.AUTHORISE) && replyMsg.isSuccess()) {
+            WindowManager.showMain();
+        }
+        if (replyMsg.getCommand().equals(Command.LOGOUT) && replyMsg.isSuccess()) {
+            WindowManager.showLogin();
+        }
 
     }
 
-    //ToDo
-    private void infoMsgHandler (InfoMsg infoMsg){
-        System.out.println(infoMsg.toString());
+    private void alertClient(ReplyMsg replyMsg) {
+        if (replyMsg.isSuccess()) {
+            WindowManager.showInfoAlert(replyMsg.getComment());
+        } else {
+            WindowManager.showErrorAlert(replyMsg.getComment());
+        }
+    }
 
+    private void infoMsgHandler (InfoMsg infoMsg){
+        WindowManager.showInfoAlert(infoMsg.getMsg())
+        System.out.println(infoMsg.toString());
     }
 
 
