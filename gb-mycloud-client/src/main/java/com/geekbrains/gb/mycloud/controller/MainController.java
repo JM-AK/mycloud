@@ -2,6 +2,7 @@ package com.geekbrains.gb.mycloud.controller;
 
 import com.geekbraind.gb.mycloud.dictionary.Command;
 import com.geekbraind.gb.mycloud.message.CommandMsg;
+import com.geekbraind.gb.mycloud.message.FileMsg;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
 import com.geekbrains.gb.mycloud.util.StoragePath;
@@ -19,13 +20,16 @@ import javafx.scene.text.Text;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.attribute.DosFileAttributeView;
+import java.util.ArrayDeque;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class MainController {
@@ -33,6 +37,7 @@ public class MainController {
     private ObservableList<TableEntry> listServer = FXCollections.observableArrayList();
     private StoragePath spLocal = ClientSettings.getInstance().getLocalPath();
     private StoragePath spServer = ClientSettings.getInstance().getServerPath();
+    private Queue<FileMsg> uploadQueue;
 
     @FXML
     public Text pathLocalText;
@@ -80,6 +85,7 @@ public class MainController {
         CommandMsg cmdMsg = new CommandMsg(Command.REFRESH_FILELIST, spServer.toString());
         ClientNetwork.getInstance().sendObject(cmdMsg);
     }
+
     @FXML
     public void createDirLocal(ActionEvent actionEvent) {
         Path path = spLocal.getFullPath();
@@ -105,6 +111,7 @@ public class MainController {
             ClientNetwork.getInstance().sendObject(cmdMsg);
         }
     }
+
     @FXML
     public void renameLocal(ActionEvent actionEvent) {
         TableEntry selectedEntry = localTable.getSelectionModel().getSelectedItem();
@@ -143,7 +150,11 @@ public class MainController {
             Optional<ButtonType> btn = WindowManager.showDeleteConfirmation(selectedEntry.getFullPath());
             if (btn.isPresent() && btn.get() == ButtonType.OK) {
                 Path path = selectedEntry.getFullPath();
-                deleteFileDIR (path);
+                if (Files.isDirectory(path)) {
+                    deleteDirectory(path);
+                } else {
+                    deleteFile(path);
+                }
                 try {
                     fillFileTable(listLocal, spLocal, pathLocalText);
                 } catch (IOException e) {
@@ -152,7 +163,6 @@ public class MainController {
             }
         }
     }
-
     @FXML
     public void deleteAtServer(ActionEvent actionEvent) {
         TableEntry selectedEntry = serverTable.getSelectionModel().getSelectedItem();
@@ -161,8 +171,11 @@ public class MainController {
             if (btn.isPresent() && btn.get() == ButtonType.OK) {
                 Path path = selectedEntry.getFullPath();
                 CommandMsg cmdMsg = null;
-                if (Files.isDirectory(path)) cmdMsg = new CommandMsg(Command.DELETE_DIR,path.toString());
-                if (!Files.isDirectory(path)) cmdMsg = new CommandMsg(Command.DELETE_FILE,path.toString());
+                if (Files.isDirectory(path)) {
+                    cmdMsg = new CommandMsg(Command.DELETE_DIR,path.toString());
+                } else {
+                    cmdMsg = new CommandMsg(Command.DELETE_FILE,path.toString());
+                }
                 ClientNetwork.getInstance().sendObject(cmdMsg);
             }
         }
@@ -170,34 +183,87 @@ public class MainController {
 
     @FXML
     public void openDir(ActionEvent actionEvent) {
+        try {
+            Desktop.getDesktop().browse(new URI(spLocal.getFullPath().toString()));
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     public void addLocal(ActionEvent actionEvent) {
+        List<Path> files = WindowManager.addFilesDialog();
+        if (files != null) {
+            for (Path src : files) {
+                if (Files.exists(src)) {
+                    Path dst = Paths.get(spLocal.getFullPath().toString(), src.getFileName().toString());
+                    try {
+                        Files.copy(src, dst, StandardCopyOption.REPLACE_EXISTING);
+                        fillFileTable(listLocal, spLocal, pathLocalText);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
+
     @FXML
     public void uploadToServer(ActionEvent actionEvent) {
+        TableEntry selectedEntry = localTable.getSelectionModel().getSelectedItem();
+        if (selectedEntry != null) {
+            btnUpload.setDisable(true);
+            Path src = selectedEntry.getFullPath();
+            Path dst = spServer.getFullPath();
+            if (!Files.exists(src)) return;
+
+            if (Files.isDirectory(src)) {
+                uploadDirectory(src, dst);
+            } else {
+                uploadFile(src, dst);
+            }
+            btnUpload.setDisable(false);
+        }
     }
+
     @FXML
     public void downloadFromServer(ActionEvent actionEvent) {
+        TableEntry selectedEntry = serverTable.getSelectionModel().getSelectedItem();
+        if (selectedEntry != null) {
+            btnDownload.setDisable(true);
+            Path src = selectedEntry.getFullPath();
+            Path dst = spLocal.getFullPath();
+
+            boolean isDirectory = false;
+            if (!Files.exists(src)) return;
+            if (Files.isDirectory(src)) isDirectory = true;
+
+            CommandMsg cmdMsg = new CommandMsg(Command.DOWNLOAD_FILEDIR, src.toString(), dst.toString(), isDirectory);
+            ClientNetwork.getInstance().sendObject(cmdMsg);
+            btnDownload.setDisable(false);
+        }
     }
 
     @FXML
     public void logOut(ActionEvent actionEvent) {
+        Optional<ButtonType> btn = WindowManager.showLogOutConfirmation();
+        if (btn.isPresent()) {
+            CommandMsg cmdMsg = new CommandMsg(Command.LOGOUT, true);
+        }
     }
 
     /*
     * Init GUI
     * */
 
-    private void initialise () {
+    private void initialise() {
         try {
-            fillFileTable(listLocal, spLocal, pathLocalText);
+            this.fillFileTable(listLocal, spLocal, pathLocalText);
         } catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            fillFileTable(listServer, spServer, pathServerText);
+            this.fillFileTable(listServer, spServer, pathServerText);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -241,7 +307,7 @@ public class MainController {
         });
     }
 
-    private void initServerTableGUI() {
+    private void initServerTableGUI () {
         //set column name
         idColServer.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColServer.setCellValueFactory(new PropertyValueFactory<>("shortFileName"));
@@ -288,7 +354,7 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.updateText(spLocal, pathLocalText, true);
+        updateText(spLocal, pathLocalText, true);
     }
 
     private void insideDirLocal(Path path) {
@@ -298,7 +364,7 @@ public class MainController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.updateText(spLocal, pathLocalText, true);
+        updateText(spLocal, pathLocalText, true);
     }
 
     private void fillFileTable (ObservableList<TableEntry> list, StoragePath sp, Text pathText) throws IOException {
@@ -343,9 +409,104 @@ public class MainController {
         }
     }
 
-    //ToDo
-    private void deleteFileDIR(Path path) {
+    //ToDo mb move to FileService utility
+
+    private void deleteFile(Path path) {
+        try {
+            DosFileAttributeView attr = Files.getFileAttributeView(path, DosFileAttributeView.class);
+            attr.setReadOnly(false);
+            Files.deleteIfExists(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    private void deleteDirectory(Path path) {
+        try {
+            Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                    DosFileAttributeView attr = Files.getFileAttributeView(dir, DosFileAttributeView.class);
+                    attr.setReadOnly(false);
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    DosFileAttributeView attr = Files.getFileAttributeView(file, DosFileAttributeView.class);
+                    attr.setReadOnly(false);
+                    Files.deleteIfExists(file);
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                    DosFileAttributeView attr = Files.getFileAttributeView(dir, DosFileAttributeView.class);
+                    attr.setReadOnly(false);
+                    Files.deleteIfExists(dir);
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void uploadFile(Path src, Path dst) {
+        Thread uploadFileThread = new Thread(() -> {
+            FileMsg fileMsg = new FileMsg(src, dst, false);
+            ClientNetwork.getInstance().sendObject(fileMsg);
+        });
+        uploadFileThread.start();
+
+    }
+
+    private void uploadDirectory(Path src, Path dst) {
+        Thread uploadDirThread = new Thread(() -> {
+            try {
+                Files.walkFileTree(src, new SimpleFileVisitor<Path>() {
+                    @Override
+                    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                        Path subDir = spLocal.getFullPath().relativize(dir);
+                        Path dst = Paths.get(spServer.getFullPath().toString(), subDir.toString());
+
+                        CommandMsg cmdMsg = new CommandMsg(Command.CREATE_DIR, dst.toString());
+                        ClientNetwork.getInstance().sendObject(cmdMsg);
+                        return FileVisitResult.CONTINUE;
+                    }
+
+                    @Override
+                    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                        Path subFile = spLocal.getFullPath().relativize(file);
+                        Path relFolder = subFile.subpath(0, subFile.getNameCount() - 1);
+                        Path newPath = Paths.get(dst.toString(), relFolder.toString());
+                        FileMsg fileMsg = new FileMsg(file, newPath, false);
+                        uploadQueue.offer(fileMsg);
+                        return FileVisitResult.CONTINUE;
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                while (!uploadQueue.isEmpty()) {
+                    FileMsg fileMsg = uploadQueue.poll();
+                    ClientNetwork.getInstance().sendObject(fileMsg);
+                    //ToDo - add listener
+                    Thread.sleep(1000);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            CommandMsg cmdMsg = new CommandMsg(Command.GETFILELIST, spServer.toAbsString());
+            ClientNetwork.getInstance().sendObject(cmdMsg);
+        });
+        uploadDirThread.start();
+        btnUpload.setDisable(false);
+    }
+
+
+
 
 }
 

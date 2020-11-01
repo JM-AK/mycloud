@@ -1,3 +1,21 @@
 
-X
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Ø•Õ½
+M
+java:S1144Ê"/Remove this unused private "initialise" method.(ÉüùÁ8£ö—Ø.
+u
+java:S1192à"WDefine a constant instead of duplicating this literal "-fx-alignment: CENTER;" 4 times.(êİ†ú8£ö—Ø.
+`
+java:S1128"FRemove this unused import 'java.nio.file.attribute.DosFileAttributes'.(áºÅ8¢º˜Ø.
+
+java:S1186À"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ïâq8£ö—Ø.
+Ÿ
+java:S1186¶"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(€‘êÆ8£ö—Ø.
+a
+java:S2095¼"DUse try-with-resources or close this "Stream" in a "finally" clause.(¢Ûï8£ö—Ø.
+Ÿ
+java:S1186¹"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’ÔîÎ8£ö—Ø.
+¤
+java:S1186­"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(·øŒ»ûÿÿÿÿ8£ö—Ø.
+o
+java:S3776Ğ"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ì¬¿V8£ö—Ø.
+¤
+java:S1186¼"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø»¼ºùÿÿÿÿ8£ö—Ø.
