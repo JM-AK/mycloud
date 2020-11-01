@@ -40,6 +40,7 @@ public class FileListMsg extends AbstractMsg {
         String fileListStr = Arrays.stream(files.toArray())
                 .map(Object::toString)
                 .collect(Collectors.joining(MsgLib.DELIMITER));
-        return MsgType.FILE_LIST + MsgLib.DELIMITER + path + MsgLib.DELIMITER+ fileListStr;
+        if (fileListStr == null) return MsgType.FILE_LIST + MsgLib.DELIMITER + path;
+        else return MsgType.FILE_LIST + MsgLib.DELIMITER + path + MsgLib.DELIMITER+ fileListStr;
     }
 }

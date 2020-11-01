@@ -75,7 +75,7 @@ public class MainController implements FileListReceiverCallback {
     @FXML
     public void refreshLocal(ActionEvent actionEvent) {
         try {
-            fillFileTable(listLocal, spLocal, pathLocalText);
+            fillFileTable(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,7 +94,7 @@ public class MainController implements FileListReceiverCallback {
             try {
                 String newDirName = btn.get();
                 Files.createDirectory(Paths.get(path.toString(), newDirName));
-                fillFileTable(listLocal, spLocal, pathLocalText);
+                fillFileTable(true);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -122,7 +122,7 @@ public class MainController implements FileListReceiverCallback {
                 if (btn.isPresent()) {
                     String newName = btn.get();
                     Files.move(file, file.resolveSibling(newName), StandardCopyOption.REPLACE_EXISTING);
-                    fillFileTable(listLocal, spLocal, pathLocalText);
+                    fillFileTable(true);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -156,7 +156,7 @@ public class MainController implements FileListReceiverCallback {
                     deleteFile(path);
                 }
                 try {
-                    fillFileTable(listLocal, spLocal, pathLocalText);
+                    fillFileTable(true);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -199,7 +199,7 @@ public class MainController implements FileListReceiverCallback {
                     Path dst = Paths.get(spLocal.getFullPath().toString(), src.getFileName().toString());
                     try {
                         Files.copy(src, dst, StandardCopyOption.REPLACE_EXISTING);
-                        fillFileTable(listLocal, spLocal, pathLocalText);
+                        fillFileTable(true);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -258,17 +258,17 @@ public class MainController implements FileListReceiverCallback {
 
     public void initialise() {
         try {
-            this.fillFileTable(listLocal, spLocal, pathLocalText);
+            this.fillFileTable(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try {
-            this.fillFileTable(listServer, spServer, pathServerText);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            this.fillFileTable(listServer, spServer, pathServerText);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         initLocalTableGUI();
-        initServerTableGUI();
+      //  initServerTableGUI();
     }
 
     private void initLocalTableGUI() {
@@ -350,7 +350,7 @@ public class MainController implements FileListReceiverCallback {
     private void outsideDirLocal() {
         spLocal.outside();
         try {
-            fillFileTable(listLocal, spLocal, pathLocalText);
+            fillFileTable(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -360,14 +360,18 @@ public class MainController implements FileListReceiverCallback {
     private void insideDirLocal(Path path) {
         spLocal.inside(path);
         try {
-            fillFileTable(listLocal, spLocal, pathLocalText);
+            fillFileTable(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
         updateText(spLocal, pathLocalText, true);
     }
 
-    private void fillFileTable (ObservableList<TableEntry> list, StoragePath sp, Text pathText) throws IOException {
+    private void fillFileTable (boolean isLocalTable) throws IOException {
+        ObservableList<TableEntry> list = isLocalTable ? this.listLocal : this.listServer;
+        StoragePath sp = isLocalTable ? this.spLocal : this.spServer;
+        Text pathText = isLocalTable ? this.pathLocalText : this.pathServerText;
+
         list.clear();
         List<Path> files = null;
         if (list.equals(localTable)) files = Files.list(sp.getFullPath()).collect(Collectors.toList());
@@ -508,12 +512,12 @@ public class MainController implements FileListReceiverCallback {
 
     @Override
     public void receiveFileListCallback() {
-        try {
-            fillFileTable(listServer, spServer, pathServerText);
-            fillFileTable(listLocal, spLocal, pathLocalText);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//           // fillFileTable(listServer, spServer, pathServerText);
+//            //fillFileTable(listLocal, spLocal, pathLocalText);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }
