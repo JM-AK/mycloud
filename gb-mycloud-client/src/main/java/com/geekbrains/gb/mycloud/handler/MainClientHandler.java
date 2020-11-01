@@ -137,6 +137,7 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
     private void replyMsgHandler (ReplyMsg replyMsg){
         alertClient(replyMsg);
         if (replyMsg.getCommand().equals(Command.AUTHORISE) && replyMsg.isSuccess()) {
+            MainController.getInstance().initialise();
             WindowManager.showMain();
         }
         if (replyMsg.getCommand().equals(Command.LOGOUT) && replyMsg.isSuccess()) {

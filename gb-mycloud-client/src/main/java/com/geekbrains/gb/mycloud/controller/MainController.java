@@ -256,7 +256,7 @@ public class MainController implements FileListReceiverCallback {
     * Init GUI
     * */
 
-    private void initialise() {
+    public void initialise() {
         try {
             this.fillFileTable(listLocal, spLocal, pathLocalText);
         } catch (IOException e) {
@@ -375,6 +375,7 @@ public class MainController implements FileListReceiverCallback {
         int rowsCount = (files != null) ? files.size() : 0;
         if (!sp.isRoot()) list.add(new TableEntry());
         for (Path file : files) {
+            System.out.println(rowsCount);
             rowsCount++;
             list.add(new TableEntry(rowsCount, file));
         }
@@ -508,17 +509,11 @@ public class MainController implements FileListReceiverCallback {
     @Override
     public void receiveFileListCallback() {
         try {
-            System.out.println(ClientSettings.getInstance().getServerFileList());
-            System.out.println(ClientSettings.getInstance());
             fillFileTable(listServer, spServer, pathServerText);
+            fillFileTable(listLocal, spLocal, pathLocalText);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    //for TEST !!!
-    public static void main(String[] args) {
-       instance.receiveFileListCallback();
     }
 
 }

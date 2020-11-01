@@ -83,3 +83,5 @@ Qgb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/util/ClientNetwork.ja
 Qgb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/util/WindowManager.java,2\e\2e10c92bc24b3b221a85260f398f26d088ca4e7b
 ‰
 Ygb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/controller/LoginController.java,5\0\5082ccc6ac5227eaac1ea54b27be2445273ee657
+Œ
+\gb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/util/FileListReceiverCallback.java,b\2\b2edd81b62da6cdaddd3fc3111aa6c97940f8dc0

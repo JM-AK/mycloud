@@ -23,8 +23,8 @@ public class ClientSettings {
     private int bufferSize;
     private int serverPort;
     private String serverIp;
-    private List<Path> clientFileList = new ArrayList<>();
-    private List<Path> serverFileList = new ArrayList<>();
+    private List<Path> clientFileList;
+    private List<Path> serverFileList;
 
 //    private ProgressController progressController;
 
