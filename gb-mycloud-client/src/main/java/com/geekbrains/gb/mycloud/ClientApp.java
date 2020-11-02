@@ -1,5 +1,6 @@
 package com.geekbrains.gb.mycloud;
 
+import com.geekbrains.gb.mycloud.controller.MainController;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
 import com.geekbrains.gb.mycloud.util.WindowManager;
