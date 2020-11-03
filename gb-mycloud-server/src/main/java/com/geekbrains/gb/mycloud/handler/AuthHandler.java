@@ -59,19 +59,15 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                             CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
                                     logger.info("Success sent - filelist -" + fileListMsg);
-                                    System.out.println("Success sent - filelist -" + fileListMsg);
                                 } else {
                                     logger.warning("Failed sent - filelist -" + fileListMsg);
-                                    System.out.println("Failed sent - filelist -" + fileListMsg);
                                 }
                             });
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
                                     logger.info("Success sent - auth result");
-                                    System.out.println("Success sent - auth result");
                                 } else {
                                     logger.warning("Failed sent - auth result");
-                                    System.out.println("Failed sent - auth result");
                                 }
                             });
                             ctx.pipeline().remove(this);
@@ -81,10 +77,8 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
                                     logger.info("Success sent - user not authorised");
-                                    System.out.println("Success sent - user is not authorised");
                                 } else {
                                     logger.info("Success sent - user not authorised");
-                                    System.out.println("Failed sent - user is not authorised");
                                 }
                             });
                         }
@@ -101,26 +95,26 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                                 Files.createDirectory(Paths.get(ssp.toString(), login));
                                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, true).toString(), null, ctx, future -> {
                                     if (future.isSuccess()) {
-                                        System.out.println("Success sent - user registered");
+                                        logger.info("Success sent - user registered");
                                     } else {
-                                        System.out.println("Failed sent - user is authorised");
+                                        logger.warning("Failed sent - user registered");
                                     }
                                 });
                             } else {
                                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false).toString(), null, ctx, future -> {
                                     if (future.isSuccess()) {
-                                        System.out.println("Success sent - user is not registered");
+                                        logger.info("Success sent - user is notregistered");
                                     } else {
-                                        System.out.println("Failed sent - user is not registered");
+                                        logger.warning("Failed sent - user is not registered");
                                     }
                                 });
                             }
                         } else {
                             CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false, "Login incorrect").toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - incorrect login");
+                                    logger.info("Success sent - incorrect login");
                                 } else {
-                                    System.out.println("Failed sent - incorrect login");
+                                    logger.warning("Failed sent - incorrect login");
                                 }
                             });
                         }
@@ -133,17 +127,17 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                         if (authService.changePassword(login, oldPass, newPass)) {
                             CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, true).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - Change pass OK");
+                                    logger.info("Success sent - Change pass OK");
                                 } else {
-                                    System.out.println("Failed sent - Change pass OK");
+                                    logger.warning("Failed sent - Change pass OK");
                                 }
                             });
                         } else {
                             CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, false).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - Change pass WRONG");
+                                    logger.info("Success sent - Change pass WRONG");
                                 } else {
-                                    System.out.println("Failed sent - Change pass WRONG");
+                                    logger.warning("Failed sent - Change pass WRONG");
                                 }
                             });
                         }

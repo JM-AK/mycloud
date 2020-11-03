@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import static com.geekbraind.gb.mycloud.dictionary.Command.*;
@@ -34,6 +35,8 @@ public class CmdService {
         IDLE, COMMAND_LENGTH, COMMAND
     }
 
+    private static final Logger logger = Logger.getLogger(CmdService.class.getSimpleName());
+
     private static final int MIN_READ_BYTES = 4;
     private State currentState = State.IDLE;
     private static CmdService instance = new CmdService();
@@ -49,12 +52,13 @@ public class CmdService {
         while (buf.readableBytes() > 0) {
             if (currentState == State.IDLE){
                 currentState = State.COMMAND_LENGTH;
-                System.out.println("STATE: Start command receiving");
+                logger.info("STATE: Start command receiving");
             }
             if (currentState == State.COMMAND_LENGTH) {
                 if (buf.readableBytes() >= MIN_READ_BYTES) {
-                    System.out.println("STATE: Get command length");
+                    logger.info("STATE: Get command length");
                     commandLength = buf.readInt();
+                    logger.info("STATE: Command length received - " + commandLength);
                     System.out.println(commandLength);
                     currentState = State.COMMAND;
                 }
@@ -64,7 +68,7 @@ public class CmdService {
                     byte[] cmdArr = new byte[commandLength];
                     buf.readBytes(cmdArr);
                     String command = new String(cmdArr, StandardCharsets.UTF_8);
-                    System.out.println("STATE: Command received - " + command);
+                    logger.info("STATE: Command received - " + command);
                     currentState = State.IDLE;
                     return command;
                 }
@@ -79,6 +83,7 @@ public class CmdService {
         ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + MIN_READ_BYTES);
         buf.writeByte(ProtocolCode.TEXT_SIGNAL_BYTE);
         buf.writeInt(commandLength);
+        logger.info(buf.toString());
         if (channel == null) {
             ctx.writeAndFlush(buf);
         } else {
@@ -86,7 +91,7 @@ public class CmdService {
         }
         buf = ByteBufAllocator.DEFAULT.directBuffer(commandLength);
         buf.writeBytes(command.getBytes(StandardCharsets.UTF_8));
-
+        logger.info(buf.toString());
         ChannelFuture transferOperationFuture = (channel == null)? ctx.writeAndFlush(buf) : channel.writeAndFlush(buf);
         if(commandListener != null) {
             transferOperationFuture.addListener(commandListener);

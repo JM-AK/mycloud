@@ -55,8 +55,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
             }
             if (currentState == State.COMMAND) {
                 String cmd = CmdService.getInstance().receiveCommand(buf);
-                System.out.println(cmd);
                 currentState = State.IDLE;
+                logger.info(cmd);
                 parseMsg(ctx, cmd);
             }
             if (buf.readableBytes() == 0) {
@@ -101,10 +101,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                     if (future.isSuccess()) {
                         logger.info("Success sent - filelist -" + fileListMsg);
-                        System.out.println("Success sent - filelist -" + fileListMsg);
                     } else {
                         logger.warning("Failed sent - filelist -" + fileListMsg);
-                        System.out.println("Failed sent - filelist -" + fileListMsg);
                     }
                 });
             }
@@ -116,10 +114,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                     if (future.isSuccess()) {
                         logger.info("Success sent - filelist -" + fileListMsg);
-                        System.out.println("Success sent - filelist -" + fileListMsg);
                     } else {
                         logger.warning("Failed sent - filelist -" + fileListMsg);
-                        System.out.println("Failed sent - filelist -" + fileListMsg);
                     }
                 });
             }
@@ -136,10 +132,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                     if (future.isSuccess()) {
                         logger.info("Success sent - filelist -" + fileListMsg);
-                        System.out.println("Success sent - filelist -" + fileListMsg);
                     } else {
                         logger.warning("Failed sent - filelist -" + fileListMsg);
-                        System.out.println("Failed sent - filelist -" + fileListMsg);
                     }
                 });
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.RENAME_FILE_DIR,
@@ -160,10 +154,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                     CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                         if (future.isSuccess()) {
                             logger.info("Success sent - filelist -" + fileListMsg);
-                            System.out.println("Success sent - filelist -" + fileListMsg);
                         } else {
                             logger.warning("Failed sent - filelist -" + fileListMsg);
-                            System.out.println("Failed sent - filelist -" + fileListMsg);
                         }
                     });
                 }
@@ -181,10 +173,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                     if (future.isSuccess()) {
                         logger.info("Success sent filelist -" + fileListMsg);
-                        System.out.println("Success sent filelist -" + fileListMsg);
                     } else {
                         logger.warning("Failed sent - filelist -" + fileListMsg);
-                        System.out.println("Failed sent - filelist -" + fileListMsg);
                     }
 
                 });
@@ -230,10 +220,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                     if (future.isSuccess()) {
                         logger.info("Success sent filelist -" + fileListMsg);
-                        System.out.println("Success sent filelist -" + fileListMsg);
                     } else {
                         logger.warning("Failed sent - filelist -" + fileListMsg);
-                        System.out.println("Failed sent - filelist -" + fileListMsg);
                     }
                 });
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.DELETE_DIR, true, path.toString()).toString(), null, ctx, null);
@@ -246,10 +234,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                     if (future.isSuccess()) {
                         logger.info("Success sent filelist -" + fileListMsg);
-                        System.out.println("Success sent filelist -" + fileListMsg);
                     } else {
                         logger.warning("Failed sent - filelist -" + fileListMsg);
-                        System.out.println("Failed sent - filelist -" + fileListMsg);
                     }
                 });
             }
@@ -262,10 +248,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.LOGOUT, true).toString(), null, ctx, future -> {
                     if (future.isSuccess()) {
                         logger.info("Success sent -" + cmdMsg);
-                        System.out.println("Success sent -" + cmdMsg);
                     } else {
                         logger.warning("Failed sent -" + cmdMsg);
-                        System.out.println("Failed sent -" + cmdMsg);
                     }
                 });
             }
@@ -281,10 +265,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                     FileService.getInstance().sendFile(fileMsg, bufferSize, null, ctx, future -> {
                         if (future.isSuccess()) {
                             logger.info("Success sent -" + fileMsg.getFileName());
-                            System.out.println("Success sent -" + fileMsg.getFileName());
                         } else {
                             logger.warning("Failed sent -" + fileMsg.getFileName());
-                            System.out.println("Failed sent -" + fileMsg.getFileName());
                         }
                     });
                 }
@@ -308,10 +290,8 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                             FileService.getInstance().sendFile(fileMsg, bufferSize, null, ctx, future -> {
                                 if (future.isSuccess()) {
                                     logger.info("Success sent -" + fileMsg.getFileName());
-                                    System.out.println("Success sent -" + fileMsg.getFileName());
                                 } else {
                                     logger.warning("Failed sent -" + fileMsg.getFileName());
-                                    System.out.println("Failed sent -" + fileMsg.getFileName());
                                 }
                             });
                             return FileVisitResult.CONTINUE;
