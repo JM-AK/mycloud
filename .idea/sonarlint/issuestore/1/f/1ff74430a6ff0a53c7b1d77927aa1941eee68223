@@ -1,21 +1,29 @@
 
-d
-java:S2142ò"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8™³ô£Ø.
-u
-java:S1192™"WDefine a constant instead of duplicating this literal "-fx-alignment: CENTER;" 4 times.(êİ†ú8™³ô£Ø.
-M
-java:S1144ƒ"/Remove this unused private "initialise" method.(ÉüùÁ8™³ô£Ø.
-a
-java:S2095õ"DUse try-with-resources or close this "Stream" in a "finally" clause.(¢Ûï8™³ô£Ø.
-N
-java:S1481û"+Remove this unused "cmdMsg" local variable.(‡¨šòúÿÿÿÿ8™³ô£Ø.
-[	java:S106ÿ"9Replace this use of System.out or System.err by a logger.(ÙÚûÙıÿÿÿÿ8™³ô£Ø.
-P
-java:S1135œ"2Complete the task associated to this TODO comment.(¨Àâ…8™³ô£Ø.
-U
-java:S1135ï"2Complete the task associated to this TODO comment.(ƒ°à¿ûÿÿÿÿ8™³ô£Ø.
 o
-java:S3776‰"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ì¬¿V8™³ô£Ø.
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ì¬¿V8Ã«©Ø.
+P
+java:S1135 "2Complete the task associated to this TODO comment.(¨Àâ…8Ã«©Ø.
+U
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8½ÌÇ½Ø.
+d
+java:S2142ö"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8Ã«©Ø.
+Q
+java:S1128"/Remove this unused import 'javafx.stage.Stage'.(æÄ¸²úÿÿÿÿ8½ÌÇ½Ø.
+N
+java:S1481‚"+Remove this unused "cmdMsg" local variable.(‡¨šòúÿÿÿÿ8™³ô£Ø.
 ]
-java:S1854û":Remove this useless assignment to local variable "cmdMsg".(‡¨šòúÿÿÿÿ8™³ô£Ø.
-[	java:S106€"9Replace this use of System.out or System.err by a logger.(ù¼ù£ûÿÿÿÿ8™³ô£Ø.
+java:S1854‚":Remove this useless assignment to local variable "cmdMsg".(‡¨šòúÿÿÿÿ8™³ô£Ø.
+Z
+java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8½ÌÇ½Ø.
+U
+java:S1135ó"2Complete the task associated to this TODO comment.(ƒ°à¿ûÿÿÿÿ8Ã«©Ø.
+u
+java:S1192‘"WDefine a constant instead of duplicating this literal "-fx-alignment: CENTER;" 4 times.(êİ†ú8™³ô£Ø.
+?
+java:S1116ë"Remove this empty statement.(”ááûÿÿÿÿ8ö•©Ø.
+L
+java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8½ÌÇ½Ø.
+b
+java:S2095ï"DUse try-with-resources or close this "Stream" in a "finally" clause.(à‹Ï¨8ö•©Ø.
+M
+java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È8½ÌÇ½Ø.

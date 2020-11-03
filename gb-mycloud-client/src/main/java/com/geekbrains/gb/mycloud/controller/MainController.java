@@ -270,10 +270,6 @@ public class MainController implements Initializable, FileListReceiverCallback {
         typeColLocal.setCellValueFactory(new PropertyValueFactory<>("type"));
         sizeColLocal.setCellValueFactory(new PropertyValueFactory<>("size"));
         //set col styles
-        idColLocal.setStyle("-fx-alignment: CENTER;");
-        nameColLocal.setStyle("-fx-alignment: LEFT;");
-        typeColLocal.setStyle("-fx-alignment: CENTER;");
-        sizeColLocal.setStyle("-fx-alignment: RIGHT;");
         //fill column
         localTable.setItems(listLocal);
         //manage local table
@@ -306,10 +302,6 @@ public class MainController implements Initializable, FileListReceiverCallback {
         typeColServer.setCellValueFactory(new PropertyValueFactory<>("type"));
         sizeColServer.setCellValueFactory(new PropertyValueFactory<>("size"));
         //set col styles
-        idColServer.setStyle("-fx-alignment: CENTER;");
-        nameColServer.setStyle("-fx-alignment: LEFT;");
-        typeColServer.setStyle("-fx-alignment: CENTER;");
-        sizeColServer.setStyle("-fx-alignment: RIGHT;");
         //fill column
         serverTable.setItems(listServer);
 
@@ -511,11 +503,11 @@ public class MainController implements Initializable, FileListReceiverCallback {
 
     @Override
     public void receiveFileListCallback() {
-        try {
-            fillFileTable(false);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            fillFileTable(false);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
@@ -531,7 +523,7 @@ public class MainController implements Initializable, FileListReceiverCallback {
             e.printStackTrace();
         }
         initLocalTableGUI();
-          initServerTableGUI();
+        initServerTableGUI();
     }
 }
 

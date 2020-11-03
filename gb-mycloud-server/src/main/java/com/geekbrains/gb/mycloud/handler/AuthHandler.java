@@ -14,6 +14,7 @@ import io.netty.util.ReferenceCountUtil;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
 /*
  * /cmd##/authorise_client##login##password
@@ -22,6 +23,8 @@ import java.nio.file.Paths;
 
 
 public class AuthHandler extends ChannelInboundHandlerAdapter {
+    private static final Logger logger = Logger.getLogger(AuthHandler.class.getSimpleName());
+
     private static boolean isAuthorised = false;
 
     public static void setAuthorised(boolean authorised) {
@@ -55,16 +58,20 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                             FileListMsg fileListMsg = new FileListMsg(path);
                             CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
+                                    logger.info("Success sent - filelist -" + fileListMsg);
                                     System.out.println("Success sent - filelist -" + fileListMsg);
                                 } else {
+                                    logger.warning("Failed sent - filelist -" + fileListMsg);
                                     System.out.println("Failed sent - filelist -" + fileListMsg);
                                 }
                             });
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - user is authorised");
+                                    logger.info("Success sent - auth result");
+                                    System.out.println("Success sent - auth result");
                                 } else {
-                                    System.out.println("Failed sent - user is authorised");
+                                    logger.warning("Failed sent - auth result");
+                                    System.out.println("Failed sent - auth result");
                                 }
                             });
                             ctx.pipeline().remove(this);
@@ -73,8 +80,10 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                         } else {
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
+                                    logger.info("Success sent - user not authorised");
                                     System.out.println("Success sent - user is not authorised");
                                 } else {
+                                    logger.info("Success sent - user not authorised");
                                     System.out.println("Failed sent - user is not authorised");
                                 }
                             });

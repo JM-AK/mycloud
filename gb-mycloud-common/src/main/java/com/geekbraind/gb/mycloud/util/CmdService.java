@@ -52,9 +52,10 @@ public class CmdService {
                 System.out.println("STATE: Start command receiving");
             }
             if (currentState == State.COMMAND_LENGTH) {
-                if (buf.readableBytes() >= 4) {
+                if (buf.readableBytes() >= MIN_READ_BYTES) {
                     System.out.println("STATE: Get command length");
                     commandLength = buf.readInt();
+                    System.out.println(commandLength);
                     currentState = State.COMMAND;
                 }
             }
@@ -75,7 +76,7 @@ public class CmdService {
     public void sendCommand (String command, Channel channel, ChannelHandlerContext ctx, ChannelFutureListener commandListener){
         // 1 + 4 + commandLength
         int commandLength = command.getBytes().length;
-        ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + 4);
+        ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + MIN_READ_BYTES);
         buf.writeByte(ProtocolCode.TEXT_SIGNAL_BYTE);
         buf.writeInt(commandLength);
         if (channel == null) {

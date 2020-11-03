@@ -1,24 +1,24 @@
 
-U	java:S106B"9Replace this use of System.out or System.err by a logger.(›Åùš8”‚¥×.
-v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×Ó‚8ƒ€­„×.
-e
-java:S2095à"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8˜¼Ã…×.
-d
-java:S2095m"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8çşÊ…×.
-F
-java:S2115"")Add password protection to this database.(â×õ8ï¸„×.
+Z	java:S106%"9Replace this use of System.out or System.err by a logger.(Öë ¬ûÿÿÿÿ8Ú÷Í„×.
 e
 java:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8˜¼Ã…×.
-^	java:S125‹"<This block of commented-out lines of code should be removed.(…µáÚúÿÿÿÿ8àßŸ¦×.
-^	java:S125ü"<This block of commented-out lines of code should be removed.(»•ûÿÿÿÿ8àßŸ¦×.
-e
-java:S2095Ï"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8½¢Ù…×.
-v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Áò÷8Å¿£„×.
 U	java:S106]"9Replace this use of System.out or System.err by a logger.(îÍ·ÿ8¤ù«¥×.
-Z	java:S106%"9Replace this use of System.out or System.err by a logger.(Öë ¬ûÿÿÿÿ8Ú÷Í„×.
-[	java:S106»"9Replace this use of System.out or System.err by a logger.(òÏ…øÿÿÿÿ8â©¦×.
 V
 java:S1128
 "4Remove this unused import 'java.util.regex.Pattern'.(Ã•…Äúÿÿÿÿ8±Áé£Ø.
-Y	java:S125‚"<This block of commented-out lines of code should be removed.(á„¬8±Áé£Ø.
+d
+java:S2095m"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8çşÊ…×.
+[	java:S106»"9Replace this use of System.out or System.err by a logger.(òÏ…øÿÿÿÿ8â©¦×.
 ^	java:S125…"<This block of commented-out lines of code should be removed.(¬¶£ÿÿÿÿÿ8±Áé£Ø.
+^	java:S125‹"<This block of commented-out lines of code should be removed.(…µáÚúÿÿÿÿ8àßŸ¦×.
+e
+java:S2095à"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8˜¼Ã…×.
+Y	java:S125‚"<This block of commented-out lines of code should be removed.(á„¬8±Áé£Ø.
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Áò÷8Å¿£„×.
+F
+java:S2115"")Add password protection to this database.(â×õ8ï¸„×.
+v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×Ó‚8ƒ€­„×.
+e
+java:S2095Ï"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(·¦Ã…8½¢Ù…×.
+^	java:S125ü"<This block of commented-out lines of code should be removed.(»•ûÿÿÿÿ8àßŸ¦×.
+U	java:S106B"9Replace this use of System.out or System.err by a logger.(›Åùš8”‚¥×.

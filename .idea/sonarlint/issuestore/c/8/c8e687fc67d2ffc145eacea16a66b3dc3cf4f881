@@ -1,18 +1,18 @@
 
-V	java:S106"9Replace this use of System.out or System.err by a logger.(¨¦Ò­8ş¢ö—Ø.
+V	java:S106"9Replace this use of System.out or System.err by a logger.(¨¦Ò­8ş¢ö—Ø.
+F
+java:S1905a"*Remove this unnecessary cast to "FileMsg".(ÛÙ‰8”œñ£Ø.
 N
 java:S1612|",Replace this lambda with a method reference.(˜¯—Üıÿÿÿÿ8”œñ£Ø.
-L
-java:S1172@"*Remove this unused method parameter "ctx".(±¼Šûıÿÿÿÿ8”œñ£Ø.
-G
-java:S1172U"*Remove this unused method parameter "ctx".(ºªÓ«8”œñ£Ø.
 ^
 java:S1854X"<Remove this useless assignment to local variable "replyMsg".(¢Èšúÿÿÿÿ8”œñ£Ø.
 [
 java:S1854e">Remove this useless assignment to local variable "isFileList".(Øäô 8”œñ£Ø.
-F
-java:S1905a"*Remove this unnecessary cast to "FileMsg".(ÛÙ‰8”œñ£Ø.
-O
-java:S1481X"-Remove this unused "replyMsg" local variable.(¢Èšúÿÿÿÿ8”œñ£Ø.
+L
+java:S1172@"*Remove this unused method parameter "ctx".(±¼Šûıÿÿÿÿ8”œñ£Ø.
 L
 java:S1481e"/Remove this unused "isFileList" local variable.(Øäô 8”œñ£Ø.
+O
+java:S1481X"-Remove this unused "replyMsg" local variable.(¢Èšúÿÿÿÿ8”œñ£Ø.
+G
+java:S1172U"*Remove this unused method parameter "ctx".(ºªÓ«8”œñ£Ø.

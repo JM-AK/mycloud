@@ -1,22 +1,33 @@
 
-Z	java:S106e"9Replace this use of System.out or System.err by a logger.(«·Çóÿÿÿÿÿ8Û³€É×.
-M
-java:S1481í"/Remove this unused "isFileList" local variable.(Øäô 8ŒñË×.
-Z	java:S106p"9Replace this use of System.out or System.err by a logger.(Œâ€ëúÿÿÿÿ8Û³€É×.
-o
-java:S3776T"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(¿õô½8»¨±×.
+[	java:S106‹"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
 U	java:S106"9Replace this use of System.out or System.err by a logger.(Ì›òæ8é…´¦×.
-V	java:S106±"9Replace this use of System.out or System.err by a logger.(»æÛ8Û³€É×.
+[	java:S106ø"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
+V	java:S106¡"9Replace this use of System.out or System.err by a logger.(¯Ûù8 Î‚Ì×.
 \
-java:S1854í">Remove this useless assignment to local variable "isFileList".(Øäô 8ŒñË×.
-U	java:S106¸"9Replace this use of System.out or System.err by a logger.(Àˆ&8Û³€É×.
-V	java:S106ù"9Replace this use of System.out or System.err by a logger.(¨¦Ò­8 Î‚Ì×.
-O
-java:S1135y"2Complete the task associated to this TODO comment.(¼Õ¼È8Û³€É×.
-[	java:S106Ş"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
-T	java:S106"9Replace this use of System.out or System.err by a logger.(»²M8Û³€É×.
-[	java:S106Ë"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
-[	java:S106Š"9Replace this use of System.out or System.err by a logger.(¥‹â±ıÿÿÿÿ8Û³€É×.
-U	java:S106_"9Replace this use of System.out or System.err by a logger.(¢¸»¿8ÕÈè°×.
-V	java:S106ô"9Replace this use of System.out or System.err by a logger.(¯Ûù8 Î‚Ì×.
-V	java:S106À"9Replace this use of System.out or System.err by a logger.(Ü„°8Û³€É×.
+java:S1854š">Remove this useless assignment to local variable "isFileList".(Øäô 8ŒñË×.
+V	java:S106¦"9Replace this use of System.out or System.err by a logger.(¨¦Ò­8 Î‚Ì×.
+U	java:S106e"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8Û³€É×.
+P
+java:S1135"2Complete the task associated to this TODO comment.(¼Õ¼È8Û³€É×.
+M
+java:S1481š"/Remove this unused "isFileList" local variable.(Øäô 8ŒñË×.
+o
+java:S3776U"RRefactor this method to reduce its Cognitive Complexity from 70 to the 15 allowed.(¿õô½8»¨±×.
+Z	java:S106p"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8Û³€É×.
+V	java:S106í"9Replace this use of System.out or System.err by a logger.(Ü„°8Û³€É×.
+|
+java:S1192c"ZDefine a constant instead of duplicating this literal "Success sent - filelist -" 6 times.(Š¥¡šüÿÿÿÿ8–¥§Ø.
+v
+java:S1192e"YDefine a constant instead of duplicating this literal "Failed sent - filelist -" 6 times.(¡ØïÆ8–¥§Ø.
+U	java:S1066"9Replace this use of System.out or System.err by a logger.(ÅÃÎ½8–¥§Ø.
+Z	java:S106c"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
+U	java:S106r"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
+[	java:S106‚"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
+V	java:S106„"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
+[	java:S106˜"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
+V	java:S106š"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
+V	java:S106©"9Replace this use of System.out or System.err by a logger.(¡ìšÊ8–¥§Ø.
+[	java:S106Ó"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
+V	java:S106Õ"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
+[	java:S106á"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
+V	java:S106ã"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
