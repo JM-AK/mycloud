@@ -28,7 +28,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
     private State currentState = State.IDLE;
 
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("Client connected");
         ctx.write("Welcome to "+ InetAddress.getLocalHost().getHostAddress() + "!\r\n");
         ctx.write(new Date() + "\r\n");
@@ -63,11 +63,6 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 buf.release();
             }
         }
-    }
-
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.flush();
     }
 
     @Override

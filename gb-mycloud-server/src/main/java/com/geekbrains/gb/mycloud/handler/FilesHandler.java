@@ -15,10 +15,6 @@ public class FilesHandler extends ChannelInboundHandlerAdapter {
         FileService.getInstance().receiveFile((ByteBuf) msg);
     }
 
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.flush();
-    }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

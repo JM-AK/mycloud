@@ -48,6 +48,9 @@ public class CmdService {
     }
 
     public String receiveCommand(ByteBuf buf) {
+        if (buf == null) {
+            return null;
+        }
         int commandLength = 0;
         while (buf.readableBytes() > 0) {
             if (currentState == State.IDLE){
@@ -56,9 +59,8 @@ public class CmdService {
             }
             if (currentState == State.COMMAND_LENGTH) {
                 if (buf.readableBytes() >= MIN_READ_BYTES) {
-                    logger.info("STATE: Get command length");
                     commandLength = buf.readInt();
-                    logger.info("STATE: Command length received - " + commandLength);
+                    logger.info("STATE: " + currentState + " length received - " + commandLength);
                     System.out.println(commandLength);
                     currentState = State.COMMAND;
                 }
@@ -68,7 +70,7 @@ public class CmdService {
                     byte[] cmdArr = new byte[commandLength];
                     buf.readBytes(cmdArr);
                     String command = new String(cmdArr, StandardCharsets.UTF_8);
-                    logger.info("STATE: Command received - " + command);
+                    logger.info("STATE: " + currentState+ " command received - " + command);
                     currentState = State.IDLE;
                     return command;
                 }
@@ -80,18 +82,10 @@ public class CmdService {
     public void sendCommand (String command, Channel channel, ChannelHandlerContext ctx, ChannelFutureListener commandListener){
         // 1 + 4 + commandLength
         int commandLength = command.getBytes().length;
-        ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + MIN_READ_BYTES);
+        ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + MIN_READ_BYTES + commandLength);
         buf.writeByte(ProtocolCode.TEXT_SIGNAL_BYTE);
         buf.writeInt(commandLength);
-        logger.info(buf.toString());
-        if (channel == null) {
-            ctx.writeAndFlush(buf);
-        } else {
-            channel.writeAndFlush(buf);
-        }
-        buf = ByteBufAllocator.DEFAULT.directBuffer(commandLength);
         buf.writeBytes(command.getBytes(StandardCharsets.UTF_8));
-        logger.info(buf.toString());
         ChannelFuture transferOperationFuture = (channel == null)? ctx.writeAndFlush(buf) : channel.writeAndFlush(buf);
         if(commandListener != null) {
             transferOperationFuture.addListener(commandListener);

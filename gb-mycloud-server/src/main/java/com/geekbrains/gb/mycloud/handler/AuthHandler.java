@@ -154,10 +154,6 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.flush();
-    }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
