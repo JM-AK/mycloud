@@ -87,7 +87,7 @@ Ygb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/controller/LoginContr
 \gb-mycloud-client/src/main/java/com/geekbrains/gb/mycloud/util/FileListReceiverCallback.java,b\2\b2edd81b62da6cdaddd3fc3111aa6c97940f8dc0
 K
 storage_server/a@a.com/test,2\8\283d84724850b8a6718e177343765afd2808e104
-L
-storage_client/dir1/test.txt,b\7\b796625bc71349f560535b6ab8fe872c284390ae
-D
-storage_client/f.txt,b\3\b3977e8e1aed151d8ff4d07147bedc5fca458a1f
+F
+storage_client/f_1.txt,4\e\4ecc3be9530222da6d82eea6acb6fe38b0e14b9c
+v
+Fstorage_client/dir3/Новый текстовый документ.txt,f\3\f35622c580e1a01e8788b532bccd766cf1f79f40

@@ -14,6 +14,7 @@ import com.geekbrains.gb.mycloud.util.WindowManager;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import sun.applet.Main;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -24,6 +25,8 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
     public enum State {
         IDLE, FILE, COMMAND
     }
+
+    private MainController mainController;
 
     private State currentState = State.IDLE;
 
@@ -131,7 +134,7 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         if (sp.getRoot() == null) {
             sp.setRoot(path);
         }
-        cb.receiveFileListCallback();
+        if (ClientNetwork.getInstance().isAuthorised()) cb.receiveFileListCallback();
 
     }
 
@@ -139,6 +142,7 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         alertClient(replyMsg);
         if (replyMsg.getCommand().equals(Command.AUTHORISE) && replyMsg.isSuccess()) {
             WindowManager.showMain();
+            ClientNetwork.getInstance().setIsAuthorised(true);
 
         }
         if (replyMsg.getCommand().equals(Command.LOGOUT) && replyMsg.isSuccess()) {
@@ -158,6 +162,5 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         WindowManager.showInfoAlert(infoMsg.getMsg());
         System.out.println(infoMsg.toString());
     }
-
 
 }

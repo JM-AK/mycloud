@@ -1,33 +1,22 @@
 
-[	java:S106‹"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Ì›òæ8é…´¦×.
-[	java:S106ø"9Replace this use of System.out or System.err by a logger.(‰Ò´Åıÿÿÿÿ8Û³€É×.
-V	java:S106¡"9Replace this use of System.out or System.err by a logger.(¯Ûù8 Î‚Ì×.
-\
-java:S1854š">Remove this useless assignment to local variable "isFileList".(Øäô 8ŒñË×.
-V	java:S106¦"9Replace this use of System.out or System.err by a logger.(¨¦Ò­8 Î‚Ì×.
-U	java:S106e"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8Û³€É×.
-P
-java:S1135"2Complete the task associated to this TODO comment.(¼Õ¼È8Û³€É×.
-M
-java:S1481š"/Remove this unused "isFileList" local variable.(Øäô 8ŒñË×.
-o
-java:S3776U"RRefactor this method to reduce its Cognitive Complexity from 70 to the 15 allowed.(¿õô½8»¨±×.
-Z	java:S106p"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8Û³€É×.
-V	java:S106í"9Replace this use of System.out or System.err by a logger.(Ü„°8Û³€É×.
-|
-java:S1192c"ZDefine a constant instead of duplicating this literal "Success sent - filelist -" 6 times.(Š¥¡šüÿÿÿÿ8–¥§Ø.
+u
+java:S1192d"YDefine a constant instead of duplicating this literal "Failed sent - filelist -" 7 times.(”×“>8£¡‡öØ.
+q
+java:S1192÷"NDefine a constant instead of duplicating this literal "Failed sent -" 3 times.(ì½¢Èøÿÿÿÿ8Ô©½ùØ.
+r
+java:S1192õ"ODefine a constant instead of duplicating this literal "Success sent -" 3 times.(¯ÀÛ¿üÿÿÿÿ8œßøØ.
 v
-java:S1192e"YDefine a constant instead of duplicating this literal "Failed sent - filelist -" 6 times.(¡ØïÆ8–¥§Ø.
-U	java:S1066"9Replace this use of System.out or System.err by a logger.(ÅÃÎ½8–¥§Ø.
-Z	java:S106c"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
-U	java:S106r"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
-[	java:S106‚"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
-V	java:S106„"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
-[	java:S106˜"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
-V	java:S106š"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
-V	java:S106©"9Replace this use of System.out or System.err by a logger.(¡ìšÊ8–¥§Ø.
-[	java:S106Ó"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
-V	java:S106Õ"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
-[	java:S106á"9Replace this use of System.out or System.err by a logger.(Š¥¡šüÿÿÿÿ8–¥§Ø.
-V	java:S106ã"9Replace this use of System.out or System.err by a logger.(¡ØïÆ8–¥§Ø.
+java:S1192ª"XDefine a constant instead of duplicating this literal "Success sent filelist -" 3 times.(¢ìıä8ÑĞÕøØ.
+U	java:S106 "9Replace this use of System.out or System.err by a logger.(Ì›òæ8é…´¦×.
+V	java:S106¾"9Replace this use of System.out or System.err by a logger.(¨¦Ò­8›Î½ùØ.
+P
+java:S1135"2Complete the task associated to this TODO comment.(¼Õ¼È8£¡‡öØ.
+w
+java:S1192b"ZDefine a constant instead of duplicating this literal "Success sent - filelist -" 4 times.(¥Şğ£8£¡‡öØ.
+\
+java:S1854²">Remove this useless assignment to local variable "isFileList".(Øäô 8›Î½ùØ.
+o
+java:S3776T"RRefactor this method to reduce its Cognitive Complexity from 93 to the 15 allowed.(¿õô½8£¡‡öØ.
+M
+java:S1481²"/Remove this unused "isFileList" local variable.(Øäô 8›Î½ùØ.
+V	java:S106¹"9Replace this use of System.out or System.err by a logger.(¯Ûù8›Î½ùØ.

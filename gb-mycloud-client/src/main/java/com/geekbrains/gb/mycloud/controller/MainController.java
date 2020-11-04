@@ -4,21 +4,20 @@ import com.geekbraind.gb.mycloud.dictionary.Command;
 import com.geekbraind.gb.mycloud.message.CommandMsg;
 import com.geekbraind.gb.mycloud.message.FileMsg;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
+import com.geekbrains.gb.mycloud.handler.MainClientHandler;
 import com.geekbrains.gb.mycloud.util.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.awt.*;
 import java.io.File;
@@ -40,8 +39,9 @@ public class MainController implements Initializable, FileListReceiverCallback {
     private StoragePath spServer = ClientSettings.getInstance().getServerPath();
     private Queue<FileMsg> uploadQueue;
 
-    private static MainController instance = new MainController();
+    private static final Logger logger = LogManager.getLogger(MainController.class);
 
+    private static MainController instance = new MainController();
     public static MainController getInstance() {
         return instance;
     }
@@ -81,16 +81,13 @@ public class MainController implements Initializable, FileListReceiverCallback {
 
     @FXML
     public void refreshLocal(ActionEvent actionEvent) {
-        try {
-            fillFileTable(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fillFileTable(true);
     }
     @FXML
     public void refreshServer(ActionEvent actionEvent) {
-        CommandMsg cmdMsg = new CommandMsg(Command.REFRESH_FILELIST, spServer.toString());
-        ClientNetwork.getInstance().sendObject(cmdMsg);
+            CommandMsg cmdMsg = new CommandMsg(Command.REFRESH_FILELIST, spServer.toString());
+            ClientNetwork.getInstance().sendObject(cmdMsg);
+            fillFileTable(false);
     }
 
     @FXML
@@ -162,11 +159,7 @@ public class MainController implements Initializable, FileListReceiverCallback {
                 } else {
                     deleteFile(path);
                 }
-                try {
-                    fillFileTable(true);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                fillFileTable(true);
             }
         }
     }
@@ -262,7 +255,7 @@ public class MainController implements Initializable, FileListReceiverCallback {
     /*
     * Init GUI
     * */
-
+    @FXML
     private void initLocalTableGUI() {
         //set column name
         idColLocal.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -295,6 +288,7 @@ public class MainController implements Initializable, FileListReceiverCallback {
         });
     }
 
+    @FXML
     private void initServerTableGUI () {
         //set column name
         idColServer.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -330,46 +324,54 @@ public class MainController implements Initializable, FileListReceiverCallback {
     /*
     * Support methods
     * */
-
+    @FXML
     private void outsideDirLocal() {
         spLocal.outside();
-        try {
-            fillFileTable(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fillFileTable(true);
         updateText(true, spLocal, true);
     }
-
+    @FXML
     private void insideDirLocal(Path path) {
         spLocal.inside(path);
-        try {
-            fillFileTable(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fillFileTable(true);
         updateText(true, spLocal, true);
     }
+    @FXML
+    private void fillFileTable(boolean isLocal) {
+        if (Platform.isFxApplicationThread()) {
+            ObservableList<TableEntry> list = FXCollections.observableArrayList();;
+            StoragePath sp = isLocal ? this.spLocal : this.spServer;
 
-    private void fillFileTable(boolean isLocal) throws IOException {
-        ObservableList<TableEntry> list = FXCollections.observableArrayList();;
-        StoragePath sp = isLocal ? this.spLocal : this.spServer;
-
-        List<Path> files = null;
-        if (isLocal) files = Files.list(sp.getFullPath()).collect(Collectors.toList());
-        if (!isLocal) files = ClientSettings.getInstance().getServerFileList();
-        int rowsCount = (files != null) ? files.size() : 0;
-        if (!sp.isRoot()) list.add(new TableEntry());
-        for (Path file : files) {
-            rowsCount++;
-            list.add(new TableEntry(rowsCount, file));
+            List<Path> files = null;
+            if (isLocal) {
+                try {
+                    files = Files.list(sp.getFullPath()).collect(Collectors.toList());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (!isLocal) files = ClientSettings.getInstance().getServerFileList();
+            System.out.println(files);
+            int rowsCount = (files != null) ? files.size() : 0;
+            if (!sp.isRoot()) list.add(new TableEntry());
+            for (Path file : files) {
+                rowsCount++;
+                list.add(new TableEntry(rowsCount, file));
+            }
+            sortList(list, sp);
+            if (isLocal) {
+                listLocal.clear();
+                listLocal.addAll(list);
+            }
+            if (!isLocal) {
+                listServer.clear();
+                listServer.addAll(list);
+            }
+            this.updateText(isLocal, sp, true);
         }
-        sortList(list, sp);
-        if (isLocal) listLocal = list;
-        if (!isLocal) listServer = list;
-        updateText(isLocal, sp, true);
     }
 
+    @FXML
     private void updateText (boolean isLocal, StoragePath sp, boolean isAbsPath) {
         if (isAbsPath) {
             if ((isLocal)) {
@@ -447,7 +449,7 @@ public class MainController implements Initializable, FileListReceiverCallback {
             e.printStackTrace();
         }
     }
-
+    @FXML
     private void uploadFile(Path src, Path dst) {
         Thread uploadFileThread = new Thread(() -> {
             FileMsg fileMsg = new FileMsg(src, dst, false);
@@ -502,29 +504,18 @@ public class MainController implements Initializable, FileListReceiverCallback {
     }
 
     @Override
-    public void receiveFileListCallback() {
-//        try {
-//            fillFileTable(false);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-    }
-
-    @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            this.fillFileTable(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            this.fillFileTable(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        fillFileTable(true);
+        fillFileTable(false);
         initLocalTableGUI();
         initServerTableGUI();
     }
+
+    @Override
+    public void receiveFileListCallback() {
+        fillFileTable(false);
+    }
+
 }
 
 
