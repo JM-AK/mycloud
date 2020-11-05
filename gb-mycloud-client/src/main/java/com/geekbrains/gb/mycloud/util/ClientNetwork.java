@@ -1,11 +1,5 @@
 package com.geekbrains.gb.mycloud.util;
 
-import com.geekbraind.gb.mycloud.message.AbstractMsg;
-import com.geekbraind.gb.mycloud.message.CommandMsg;
-import com.geekbraind.gb.mycloud.message.FileMsg;
-import com.geekbraind.gb.mycloud.util.CmdService;
-import com.geekbraind.gb.mycloud.util.FileService;
-import com.geekbrains.gb.mycloud.controller.MainController;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.handler.MainClientHandler;
 import com.geekbrains.gb.mycloud.handler.OutClientHandler;
@@ -15,7 +9,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.concurrent.CountDownLatch;
 import java.util.logging.Logger;
@@ -26,6 +19,8 @@ public class ClientNetwork {
     private Channel currentChannel;
     private String rootDir;
     private boolean isAuthorised;
+    private MainClientHandler mainClientHandler = new MainClientHandler();
+
     private static ClientNetwork instance = new ClientNetwork();
 
     private static final Logger logger = Logger.getLogger(ClientNetwork.class.getSimpleName());
@@ -43,6 +38,10 @@ public class ClientNetwork {
 
     public Channel getCurrentChannel() {
         return currentChannel;
+    }
+
+    public MainClientHandler getMainClientHandler() {
+        return mainClientHandler;
     }
 
     public boolean isAuthorised () {
@@ -64,7 +63,7 @@ public class ClientNetwork {
             b.handler(new ChannelInitializer<SocketChannel>() {
                 @Override
                 public void initChannel(SocketChannel socketChannel) throws Exception {
-                    socketChannel.pipeline().addLast(new OutClientHandler(), new MainClientHandler());
+                    socketChannel.pipeline().addLast(new OutClientHandler(), mainClientHandler);
                     currentChannel = socketChannel;
                 }
             });

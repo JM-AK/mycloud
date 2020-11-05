@@ -5,16 +5,11 @@ import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
 import com.geekbraind.gb.mycloud.message.*;
 import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbraind.gb.mycloud.util.FileService;
-import com.geekbrains.gb.mycloud.controller.MainController;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
-import com.geekbrains.gb.mycloud.util.ClientNetwork;
-import com.geekbrains.gb.mycloud.util.FileListReceiverCallback;
-import com.geekbrains.gb.mycloud.util.StoragePath;
-import com.geekbrains.gb.mycloud.util.WindowManager;
+import com.geekbrains.gb.mycloud.util.*;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import sun.applet.Main;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -26,9 +21,35 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         IDLE, FILE, COMMAND
     }
 
-    private MainController mainController;
-
     private State currentState = State.IDLE;
+    private AuthCallback authCallback;
+    private RegistrationCallback registrationCallback;
+    private FileListReceiverCallback fileListReceiverCallback;
+    private LogoutCallback logoutCallback;
+    private ChangePassCallback changePassCallback;
+
+    public MainClientHandler() {
+    }
+
+    public void setAuthCallback(AuthCallback authCallback) {
+        this.authCallback = authCallback;
+    }
+
+    public void setRegistrationCallback(RegistrationCallback registrationCallback) {
+        this.registrationCallback = registrationCallback;
+    }
+
+    public void setFileListReceiverCallback(FileListReceiverCallback fileListReceiverCallback) {
+        this.fileListReceiverCallback = fileListReceiverCallback;
+    }
+
+    public void setLogoutCallback(LogoutCallback logoutCallback) {
+        this.logoutCallback = logoutCallback;
+    }
+
+    public void setChangePassCallback(ChangePassCallback changePassCallback) {
+        this.changePassCallback = changePassCallback;
+    }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -76,7 +97,7 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
             cmdMsgHandler((CommandMsg) msg);
         }
         if (msg instanceof FileListMsg) {
-            fileListHandler((FileListMsg) msg, MainController.getInstance());
+            fileListHandler((FileListMsg) msg);
         }
         if (msg instanceof ReplyMsg) {
             replyMsgHandler((ReplyMsg) msg);
@@ -122,7 +143,7 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
-    private void fileListHandler(FileListMsg msg, FileListReceiverCallback cb) {
+    private void fileListHandler(FileListMsg msg) {
         ClientSettings.getInstance().setServerFileList(
                 msg.getFiles().stream()
                 .map(path -> Paths.get(path))
@@ -134,20 +155,34 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         if (sp.getRoot() == null) {
             sp.setRoot(path);
         }
-        if (ClientNetwork.getInstance().isAuthorised()) cb.receiveFileListCallback();
+        if (ClientNetwork.getInstance().isAuthorised()) {
+            if (fileListReceiverCallback != null) {
+                fileListReceiverCallback.receiveFileListCallback(true);
+            }
+        }
 
     }
 
     private void replyMsgHandler (ReplyMsg replyMsg){
         alertClient(replyMsg);
         if (replyMsg.getCommand().equals(Command.AUTHORISE) && replyMsg.isSuccess()) {
-            WindowManager.showMain();
             ClientNetwork.getInstance().setIsAuthorised(true);
+            authCallback.authCallback(true);
+        }
 
-        }
         if (replyMsg.getCommand().equals(Command.LOGOUT) && replyMsg.isSuccess()) {
-            WindowManager.showLogin();
+            if (logoutCallback != null) {
+                logoutCallback.logoutCallback(true);
+            }
         }
+
+        if (replyMsg.getCommand().equals(Command.CHANGEPASS) && replyMsg.isSuccess()) {
+            if (changePassCallback != null) {
+                changePassCallback.changePassCallback(true);
+            }
+        }
+
+
     }
 
     private void alertClient(ReplyMsg replyMsg) {

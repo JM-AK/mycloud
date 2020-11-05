@@ -4,15 +4,20 @@ import com.geekbraind.gb.mycloud.dictionary.Command;
 import com.geekbraind.gb.mycloud.message.CommandMsg;
 import com.geekbraind.gb.mycloud.util.CheckEmail;
 import com.geekbrains.gb.mycloud.data.ClientMsgLib;
-import com.geekbrains.gb.mycloud.service.AuthService;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
+import com.geekbrains.gb.mycloud.util.FileListReceiverCallback;
+import com.geekbrains.gb.mycloud.util.RegistrationCallback;
 import com.geekbrains.gb.mycloud.util.WindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class RegisterController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class RegisterController implements Initializable, RegistrationCallback {
 
     @FXML
     public TextField nameField;
@@ -45,5 +50,19 @@ public class RegisterController {
 
         CommandMsg cmdMsg = new CommandMsg(Command.REGISTER, loginField.getText(), passFieldPrimary.getText(), nameField.getText());
         ClientNetwork.getInstance().sendObject(cmdMsg);
+
+
+    }
+
+    @Override
+    public void registrationCallback(boolean result) {
+        if (result) {
+            WindowManager.showLogin();
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ClientNetwork.getInstance().getMainClientHandler().setRegistrationCallback(this);
     }
 }

@@ -15,10 +15,8 @@ public class ClientApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        ClientSettings.getInstance().setStage(primaryStage);
+    public void init() throws Exception {
         applyClientSetting();
-
         CountDownLatch networkStarter = new CountDownLatch(1);
         new Thread(() -> {
             try {
@@ -28,6 +26,11 @@ public class ClientApp extends Application {
             }
         }).start();
         networkStarter.await();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        ClientSettings.getInstance().setStage(primaryStage);
         WindowManager.showLogin();
     }
 

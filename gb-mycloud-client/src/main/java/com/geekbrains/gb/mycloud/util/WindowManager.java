@@ -23,15 +23,8 @@ import java.util.Optional;
 
 public class WindowManager {
     private static Stage stage = ClientSettings.getInstance().getStage();
-//    private static Stage progressStage = new Stage();
-
-//    public static Stage getProgressStage() {
-//        return progressStage;
-//    }
 
     public static void showLogin() {
-        Platform.runLater(() -> {
-            stage.close();
             try {
                 Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_login.fxml"));
                 stage.setTitle("MyCloud - Authorization");
@@ -42,27 +35,21 @@ public class WindowManager {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
     }
 
     public static void showRegister() {
-        Platform.runLater(() -> {
-            stage.close();
-            try {
-                Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_Register.fxml"));
-                stage.setTitle("MyCloud - Register new user");
-                stage.setScene(new Scene(root, 400, 250));
-                stage.setResizable(false);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        try {
+            Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_Register.fxml"));
+            stage.setTitle("MyCloud - Register new user");
+            stage.setScene(new Scene(root, 400, 250));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void showChangePassword() {
-        Platform.runLater(() -> {
-            stage.close();
             try {
                 Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_changepass.fxml"));
                 stage.setTitle("MyCloud - Change password");
@@ -72,44 +59,20 @@ public class WindowManager {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
     }
 
     public static void showMain() {
-        Platform.runLater(() -> {
-            stage.close();
             try {
                 Parent root = FXMLLoader.load(WindowManager.class.getResource("/client_main.fxml"));
                 stage.setTitle("MyCloud client");
                 stage.setScene(new Scene(root, 1024, 768));
                 stage.setResizable(false);
                 stage.show();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
-
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            CommandMsg cmdMsg = new CommandMsg(Command.LOGOUT, false);
-            ClientNetwork.getInstance().sendObject(cmdMsg);
-        }));
     }
-
-//    public static void showProgress(boolean upload) {
-//        Platform.runLater(() -> {
-//            try {
-//                Parent root = FXMLLoader.load(WindowManager.class.getResource("/configProgress.fxml"));
-//                if (upload)
-//                    progressStage.setTitle("Uploading in progress... Please, wait...");
-//                else progressStage.setTitle("Downloading in progress... Please, wait...");
-//                progressStage.setScene(new Scene(root, 300, 50));
-//                progressStage.setResizable(false);
-//                progressStage.show();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
 
     public static List<Path> addFilesDialog() {
         FileChooser fileChooser = new FileChooser();

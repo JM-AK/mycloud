@@ -3,14 +3,18 @@ package com.geekbrains.gb.mycloud.controller;
 import com.geekbraind.gb.mycloud.message.AuthRequestMsg;
 import com.geekbrains.gb.mycloud.data.ClientMsgLib;
 import com.geekbrains.gb.mycloud.service.AuthService;
-import com.geekbrains.gb.mycloud.util.ClientNetwork;
-import com.geekbrains.gb.mycloud.util.WindowManager;
+import com.geekbrains.gb.mycloud.util.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginController {
+
+public class LoginController implements Initializable, AuthCallback {
 
     @FXML
     private TextField loginField;
@@ -18,9 +22,9 @@ public class LoginController {
     @FXML
     private PasswordField passField;
 
-    private void initialize() {
-        loginField.setText("alex@example.com");
-        passField.setText("123");
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ClientNetwork.getInstance().getMainClientHandler().setAuthCallback(this);
     }
 
     @FXML
@@ -43,9 +47,17 @@ public class LoginController {
             WindowManager.showWarningAlert(ClientMsgLib.WRNG_LOGIN_TYPING);
             return;
         }
-
         AuthRequestMsg msg = new AuthRequestMsg(loginField.getText(), passField.getText());
         ClientNetwork.getInstance().sendObject(msg);
+    }
+
+    @Override
+    public void authCallback(boolean result) {
+        if (result) {
+            Platform.runLater(()->{
+                WindowManager.showMain();
+            });
+        }
     }
 }
 
