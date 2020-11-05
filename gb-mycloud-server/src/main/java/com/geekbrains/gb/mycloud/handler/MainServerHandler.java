@@ -138,23 +138,18 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
             //
             if (cmdMsg.equalsCmd(Command.CREATE_DIR)) {
                 Path newPath = Paths.get((String) cmdMsg.getAttachment()[0]);
-                boolean isRequestFileList = false;
                 //ToDO подумать над логикой еще раз, мб убрать избыточную логику отправки дерева
-                if (cmdMsg.getAttachment().length == 1) isRequestFileList = true;
-                if (cmdMsg.getAttachment().length == 2) isRequestFileList = (boolean) cmdMsg.getAttachment()[1];
-                Files.createDirectory(newPath);
-
-                if (isRequestFileList) {
-                    FileListMsg fileListMsg = new FileListMsg(newPath);
-                    CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
-                        if (future.isSuccess()) {
-                            logger.info("Success sent - filelist -" + fileListMsg);
-                        } else {
-                            logger.warning("Failed sent - filelist -" + fileListMsg);
-                        }
-                    });
+                if (!Files.exists(newPath)) {
+                    Files.createDirectory(newPath);
                 }
                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.CREATE_DIR, true, newPath.toString()).toString(), null, ctx, null);
+            }
+            //
+            if (cmdMsg.equalsCmd(Command.CREATE_FILE)) {
+                Path newPath = Paths.get((String) cmdMsg.getAttachment()[0]);
+                //ToDO подумать над логикой еще раз, мб убрать избыточную логику отправки дерева
+                Files.deleteIfExists(newPath);
+                Files.createFile(newPath);
             }
 
             //
@@ -257,11 +252,14 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                 int bufferSize = ServerSettings.getInstance().getBuferSize();
                 if(!isDirectory) {
                     FileMsg fileMsg = new FileMsg(src, dst, false);
+                    CommandMsg repMsg = new CommandMsg(Command.CREATE_FILE, Paths.get(fileMsg.getDestination(), fileMsg.getFileName()).toString(), false);
+                    CmdService.getInstance().sendCommand(repMsg.toString(), null, ctx, null);
+
                     FileService.getInstance().sendFile(fileMsg, bufferSize, null, ctx, future -> {
                         if (future.isSuccess()) {
-                            logger.info("Success sent -" + fileMsg.getFileName());
+                            logger.info("Success sent file - " + fileMsg.getFileName());
                         } else {
-                            logger.warning("Failed sent -" + fileMsg.getFileName());
+                            logger.warning("Failed sent file - " + fileMsg.getFileName());
                         }
                     });
                 }
@@ -272,7 +270,7 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                             Path path = src.getParent();
                             Path relPath = path.relativize(dir);
                             Path clientPath = Paths.get(dst.toString(), relPath.toString());
-                            CommandMsg repCmd = new CommandMsg(Command.CREATE_DIR, clientPath.toString(), false);
+                            CommandMsg repCmd = new CommandMsg(Command.CREATE_DIR, clientPath.toString(), true);
                             CmdService.getInstance().sendCommand(repCmd.toString(), null, ctx, null);
                             return FileVisitResult.CONTINUE;
                         }
@@ -282,11 +280,13 @@ public class MainServerHandler extends ChannelInboundHandlerAdapter {
                             Path subFile = src.getParent().relativize(file);
                             Path clientPath = Paths.get(dst.toString(), subFile.toString()).getParent();
                             FileMsg fileMsg = new FileMsg(file, clientPath, false);
+                            CommandMsg repMsg = new CommandMsg(Command.CREATE_FILE, Paths.get(fileMsg.getDestination(), fileMsg.getFileName()).toString(), false);
+                            CmdService.getInstance().sendCommand(repMsg.toString(), null, ctx, null);
                             FileService.getInstance().sendFile(fileMsg, bufferSize, null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    logger.info("Success sent -" + fileMsg.getFileName());
+                                    logger.info("Success sent file -" + fileMsg.getFileName());
                                 } else {
-                                    logger.warning("Failed sent -" + fileMsg.getFileName());
+                                    logger.warning("Failed sent file -" + fileMsg.getFileName());
                                 }
                             });
                             return FileVisitResult.CONTINUE;

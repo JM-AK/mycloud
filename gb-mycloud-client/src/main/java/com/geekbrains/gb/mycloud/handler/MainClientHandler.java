@@ -136,11 +136,24 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         if (cmdMsg.equalsCmd(Command.CREATE_DIR)) {
             Path newDir = Paths.get((String) cmdMsg.getAttachment()[0]);
             try {
-                Files.createFile(newDir);
+                if (!Files.exists(newDir)) {
+                    Files.createDirectory(newDir);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
+        if (cmdMsg.equalsCmd(Command.CREATE_FILE)) {
+            Path newFile = Paths.get((String) cmdMsg.getAttachment()[0]);
+            try {
+                Files.deleteIfExists(newFile);
+                Files.createFile(newFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     private void fileListHandler(FileListMsg msg) {

@@ -185,7 +185,7 @@ public class MainController implements Initializable, FileListReceiverCallback, 
     public void renameAtServer(ActionEvent actionEvent) {
         TableEntry selectedEntry = serverTable.getSelectionModel().getSelectedItem();
         if (selectedEntry != null) {
-            Path file = selectedEntry.getFullPath();
+            Path file = Paths.get(selectedEntry.getShortPath(), selectedEntry.getFullFileName());
             Optional<String> btn = WindowManager.showInputRename(file);
             if (btn.isPresent()) {
                 String newName = btn.get();
@@ -218,7 +218,9 @@ public class MainController implements Initializable, FileListReceiverCallback, 
         if (selectedEntry != null) {
             Optional<ButtonType> btn = WindowManager.showDeleteConfirmation(selectedEntry.getFullPath());
             if (btn.isPresent() && btn.get() == ButtonType.OK) {
-                Path path = selectedEntry.getFullPath();
+
+                Path path = Paths.get(selectedEntry.getShortPath(), selectedEntry.getFullFileName());
+                System.out.println(path.toString());
                 CommandMsg cmdMsg = null;
                 if (Files.isDirectory(path)) {
                     cmdMsg = new CommandMsg(Command.DELETE_DIR, path.toString());
@@ -226,6 +228,7 @@ public class MainController implements Initializable, FileListReceiverCallback, 
                     cmdMsg = new CommandMsg(Command.DELETE_FILE, path.toString());
                 }
                 ClientNetwork.getInstance().sendObject(cmdMsg);
+                System.out.println(cmdMsg);
             }
         }
     }
@@ -258,29 +261,11 @@ public class MainController implements Initializable, FileListReceiverCallback, 
     }
 
     @FXML
-    public void uploadToServer(ActionEvent actionEvent) {
-        TableEntry selectedEntry = localTable.getSelectionModel().getSelectedItem();
-        if (selectedEntry != null) {
-            btnUpload.setDisable(true);
-            Path src = selectedEntry.getFullPath();
-            Path dst = spServer.getFullPath();
-            if (!Files.exists(src)) return;
-
-            if (Files.isDirectory(src)) {
-                uploadDirectory(src, dst);
-            } else {
-                uploadFile(src, dst);
-            }
-            btnUpload.setDisable(false);
-        }
-    }
-
-    @FXML
     public void downloadFromServer(ActionEvent actionEvent) {
         TableEntry selectedEntry = serverTable.getSelectionModel().getSelectedItem();
         if (selectedEntry != null) {
             btnDownload.setDisable(true);
-            Path src = selectedEntry.getFullPath();
+            Path src = Paths.get(selectedEntry.getShortPath(), selectedEntry.getFullFileName());
             Path dst = spLocal.getFullPath();
 
             boolean isDirectory = false;
@@ -463,6 +448,24 @@ public class MainController implements Initializable, FileListReceiverCallback, 
             });
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void uploadToServer(ActionEvent actionEvent) {
+        TableEntry selectedEntry = localTable.getSelectionModel().getSelectedItem();
+        if (selectedEntry != null) {
+            btnUpload.setDisable(true);
+            Path src = selectedEntry.getFullPath();
+            Path dst = spServer.getFullPath();
+            if (!Files.exists(src)) return;
+
+            if (Files.isDirectory(src)) {
+                uploadDirectory(src, dst);
+            } else {
+                uploadFile(src, dst);
+            }
+            btnUpload.setDisable(false);
         }
     }
 

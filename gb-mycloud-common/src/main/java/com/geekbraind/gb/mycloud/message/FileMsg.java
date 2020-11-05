@@ -20,7 +20,7 @@ public class FileMsg extends AbstractMsg {
     private boolean isRequestFileList;
 
     public FileMsg(Path src, Path dst, boolean isFileList) {
-        this.source = src.toString();
+        this.source = src.getParent().toString();
         this.destination = dst.toString();
         this.fileName = src.subpath(src.getNameCount() - 1, src.getNameCount()).toString();
         this.isRequestFileList = isRequestFileList;
