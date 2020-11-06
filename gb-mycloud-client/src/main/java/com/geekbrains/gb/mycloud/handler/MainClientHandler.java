@@ -51,7 +51,6 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         this.changePassCallback = changePassCallback;
     }
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (msg == null) return;
         ByteBuf buf = ((ByteBuf) msg);
@@ -123,7 +122,6 @@ public class MainClientHandler extends ChannelInboundHandlerAdapter {
         String fileName = fileMsg.getFileName();
         Path dstFolder = Paths.get(fileMsg.getDestination());
         Path dstFile = Paths.get(dstFolder.toString(), fileName);
-        boolean isFileList = fileMsg.isFileList();
 
         if (Files.exists(dstFile)) Files.deleteIfExists(dstFile);
         Files.createFile(dstFile);

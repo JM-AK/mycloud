@@ -64,6 +64,7 @@ public class FileMsg extends AbstractMsg {
         StringBuilder sb = new StringBuilder();
         sb.append(MsgLib.DELIMITER).append(source);
         sb.append(MsgLib.DELIMITER).append(destination);
+        sb.append(MsgLib.DELIMITER).append(fileName);
         sb.append(MsgLib.DELIMITER).append(isRequestFileList);
         return MsgType.FILE +  sb.toString();
     }

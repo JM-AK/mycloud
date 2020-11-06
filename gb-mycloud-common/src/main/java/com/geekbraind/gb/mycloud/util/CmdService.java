@@ -134,7 +134,7 @@ public class CmdService {
         }
 
         if (msgArr[0].equals(MsgType.FILE.toString())){
-            return new FileMsg(Paths.get(msgArr[1]),Paths.get(msgArr[2]), Boolean.parseBoolean(msgArr[3]));
+            return new FileMsg(Paths.get(msgArr[1], msgArr[3]),Paths.get(msgArr[2]), Boolean.parseBoolean(msgArr[4]));
         }
 
         if (msgArr[0].equals(MsgType.INFO.toString())){
