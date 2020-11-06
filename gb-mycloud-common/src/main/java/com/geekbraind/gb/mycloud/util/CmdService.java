@@ -18,6 +18,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import static com.geekbraind.gb.mycloud.dictionary.Command.*;
@@ -34,6 +35,8 @@ public class CmdService {
         IDLE, COMMAND_LENGTH, COMMAND
     }
 
+    private static final Logger logger = Logger.getLogger(CmdService.class.getSimpleName());
+
     private static final int MIN_READ_BYTES = 4;
     private State currentState = State.IDLE;
     private static CmdService instance = new CmdService();
@@ -45,16 +48,20 @@ public class CmdService {
     }
 
     public String receiveCommand(ByteBuf buf) {
+        if (buf == null) {
+            return null;
+        }
         int commandLength = 0;
         while (buf.readableBytes() > 0) {
             if (currentState == State.IDLE){
                 currentState = State.COMMAND_LENGTH;
-                System.out.println("STATE: Start command receiving");
+                logger.info("STATE: Start command receiving");
             }
             if (currentState == State.COMMAND_LENGTH) {
-                if (buf.readableBytes() >= 4) {
-                    System.out.println("STATE: Get command length");
+                if (buf.readableBytes() >= MIN_READ_BYTES) {
                     commandLength = buf.readInt();
+                    logger.info("STATE: " + currentState + " length received - " + commandLength);
+                    System.out.println(commandLength);
                     currentState = State.COMMAND;
                 }
             }
@@ -63,7 +70,7 @@ public class CmdService {
                     byte[] cmdArr = new byte[commandLength];
                     buf.readBytes(cmdArr);
                     String command = new String(cmdArr, StandardCharsets.UTF_8);
-                    System.out.println("STATE: Command received - " + command);
+                    logger.info("STATE: " + currentState+ " command received - " + command);
                     currentState = State.IDLE;
                     return command;
                 }
@@ -75,17 +82,10 @@ public class CmdService {
     public void sendCommand (String command, Channel channel, ChannelHandlerContext ctx, ChannelFutureListener commandListener){
         // 1 + 4 + commandLength
         int commandLength = command.getBytes().length;
-        ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + 4);
+        ByteBuf buf = ByteBufAllocator.DEFAULT.directBuffer(1 + MIN_READ_BYTES + commandLength);
         buf.writeByte(ProtocolCode.TEXT_SIGNAL_BYTE);
         buf.writeInt(commandLength);
-        if (channel == null) {
-            ctx.writeAndFlush(buf);
-        } else {
-            channel.writeAndFlush(buf);
-        }
-        buf = ByteBufAllocator.DEFAULT.directBuffer(commandLength);
         buf.writeBytes(command.getBytes(StandardCharsets.UTF_8));
-
         ChannelFuture transferOperationFuture = (channel == null)? ctx.writeAndFlush(buf) : channel.writeAndFlush(buf);
         if(commandListener != null) {
             transferOperationFuture.addListener(commandListener);
@@ -126,7 +126,7 @@ public class CmdService {
         }
 
         if (msgArr[0].equals(MsgType.REPLY.toString())){
-            if (msgArr.length > 2) {
+            if (msgArr.length > 3) {
                 return new ReplyMsg(getCmd(msgArr[1]), Boolean.parseBoolean(msgArr[2]), msgArr[3]);
             } else {
                 return new ReplyMsg(getCmd(msgArr[1]), Boolean.parseBoolean(msgArr[2]));
@@ -134,7 +134,7 @@ public class CmdService {
         }
 
         if (msgArr[0].equals(MsgType.FILE.toString())){
-            return new FileMsg(Paths.get(msgArr[1]),Paths.get(msgArr[2]), Boolean.parseBoolean(msgArr[3]));
+            return new FileMsg(Paths.get(msgArr[1], msgArr[3]),Paths.get(msgArr[2]), Boolean.parseBoolean(msgArr[4]));
         }
 
         if (msgArr[0].equals(MsgType.INFO.toString())){

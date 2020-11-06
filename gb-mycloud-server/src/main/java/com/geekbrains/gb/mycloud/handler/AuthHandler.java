@@ -3,10 +3,7 @@ package com.geekbrains.gb.mycloud.handler;
 
 import com.geekbraind.gb.mycloud.dictionary.Command;
 import com.geekbraind.gb.mycloud.dictionary.ProtocolCode;
-import com.geekbraind.gb.mycloud.message.AbstractMsg;
-import com.geekbraind.gb.mycloud.message.AuthResponeMsg;
-import com.geekbraind.gb.mycloud.message.CommandMsg;
-import com.geekbraind.gb.mycloud.message.ReplyMsg;
+import com.geekbraind.gb.mycloud.message.*;
 import com.geekbraind.gb.mycloud.util.CmdService;
 import com.geekbrains.gb.mycloud.data.ServerSettings;
 import com.geekbrains.gb.mycloud.service.AuthService;
@@ -17,6 +14,7 @@ import io.netty.util.ReferenceCountUtil;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
 /*
  * /cmd##/authorise_client##login##password
@@ -25,6 +23,8 @@ import java.nio.file.Paths;
 
 
 public class AuthHandler extends ChannelInboundHandlerAdapter {
+    private static final Logger logger = Logger.getLogger(AuthHandler.class.getSimpleName());
+
     private static boolean isAuthorised = false;
 
     public static void setAuthorised(boolean authorised) {
@@ -55,18 +55,19 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                             isAuthorised = true;
                             //ToDo заменить на чтение из файла properties
                             Path path = Paths.get(ServerSettings.getInstance().getServerPath().toString(), login);
-                            CmdService.getInstance().sendFileList(path, null, ctx, future -> {
+                            FileListMsg fileListMsg = new FileListMsg(path);
+                            CmdService.getInstance().sendCommand(fileListMsg.toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - filelist");
+                                    logger.info("Success sent - filelist -" + fileListMsg);
                                 } else {
-                                    System.out.println("Failed sent - filelist");
+                                    logger.warning("Failed sent - filelist -" + fileListMsg);
                                 }
                             });
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - user is authorised");
+                                    logger.info("Success sent - auth result");
                                 } else {
-                                    System.out.println("Failed sent - user is authorised");
+                                    logger.warning("Failed sent - auth result");
                                 }
                             });
                             ctx.pipeline().remove(this);
@@ -75,9 +76,9 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                         } else {
                             CmdService.getInstance().sendCommand(new AuthResponeMsg(isAuthorised).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - user is not authorised");
+                                    logger.info("Success sent - user not authorised");
                                 } else {
-                                    System.out.println("Failed sent - user is not authorised");
+                                    logger.info("Success sent - user not authorised");
                                 }
                             });
                         }
@@ -94,30 +95,31 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                                 Files.createDirectory(Paths.get(ssp.toString(), login));
                                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, true).toString(), null, ctx, future -> {
                                     if (future.isSuccess()) {
-                                        System.out.println("Success sent - user registered");
+                                        logger.info("Success sent - user registered");
                                     } else {
-                                        System.out.println("Failed sent - user is authorised");
+                                        logger.warning("Failed sent - user registered");
                                     }
                                 });
                             } else {
                                 CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false).toString(), null, ctx, future -> {
                                     if (future.isSuccess()) {
-                                        System.out.println("Success sent - user is not registered");
+                                        logger.info("Success sent - user is notregistered");
                                     } else {
-                                        System.out.println("Failed sent - user is not registered");
+                                        logger.warning("Failed sent - user is not registered");
                                     }
                                 });
                             }
                         } else {
                             CmdService.getInstance().sendCommand(new ReplyMsg(Command.REGISTER, false, "Login incorrect").toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - incorrect login");
+                                    logger.info("Success sent - incorrect login");
                                 } else {
-                                    System.out.println("Failed sent - incorrect login");
+                                    logger.warning("Failed sent - incorrect login");
                                 }
                             });
                         }
                     }
+
                     if (cmdMsg.equalsCmd(Command.CHANGEPASS)) {
                         String login = cmdMsg.getAttachment()[0].toString();
                         String oldPass = cmdMsg.getAttachment()[1].toString();
@@ -125,17 +127,17 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
                         if (authService.changePassword(login, oldPass, newPass)) {
                             CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, true).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - Change pass OK");
+                                    logger.info("Success sent - Change pass OK");
                                 } else {
-                                    System.out.println("Failed sent - Change pass OK");
+                                    logger.warning("Failed sent - Change pass OK");
                                 }
                             });
                         } else {
                             CmdService.getInstance().sendCommand(new ReplyMsg(Command.CHANGEPASS, false).toString(), null, ctx, future -> {
                                 if (future.isSuccess()) {
-                                    System.out.println("Success sent - Change pass WRONG");
+                                    logger.info("Success sent - Change pass WRONG");
                                 } else {
-                                    System.out.println("Failed sent - Change pass WRONG");
+                                    logger.warning("Failed sent - Change pass WRONG");
                                 }
                             });
                         }
@@ -143,6 +145,7 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
 
                 } else {
                     ReferenceCountUtil.release(msg);
+                    buf.release();
                 }
             }
         } else {
@@ -151,10 +154,6 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
         }
     }
 
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.flush();
-    }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {

@@ -1,12 +1,12 @@
 
-U	java:S1063"9Replace this use of System.out or System.err by a logger.(Äéµ„8¬¾³şÕ.
+Y
+java:S2629?"7Use the built-in formatting to construct this argument.(öğıÿÿÿÿ8ê©äùØ.
 f
-java:S2095a"DUse try-with-resources or close this "Stream" in a "finally" clause.(ßõÒ±ùÿÿÿÿ8Œ«²××.
-Z	java:S1067"9Replace this use of System.out or System.err by a logger.(Èû´öøÿÿÿÿ8¬¾³şÕ.
+java:S2095d"DUse try-with-resources or close this "Stream" in a "finally" clause.(ßõÒ±ùÿÿÿÿ8Àô×ùØ.
+Z	java:S106@"9Replace this use of System.out or System.err by a logger.(Ìøîóüÿÿÿÿ8Àô×ùØ.
 Q
-java:S10666"/Merge this if statement with the enclosing one.(Üê‡Šúÿÿÿÿ8¬¾³şÕ.
-c
-java:S2142Y"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8Œ«²××.
+java:S1066E"/Merge this if statement with the enclosing one.(Æå½–şÿÿÿÿ8Àô×ùØ.
 Q
-java:S1066="/Merge this if statement with the enclosing one.(Æå½–şÿÿÿÿ8¬¾³şÕ.
-Z	java:S106A"9Replace this use of System.out or System.err by a logger.(Çê–ùÿÿÿÿ8¬¾³şÕ.
+java:S1066="/Merge this if statement with the enclosing one.(çæë‡ÿÿÿÿÿ8Àô×ùØ.
+T
+java:S2629I"7Use the built-in formatting to construct this argument.(è²8§óÿùØ.

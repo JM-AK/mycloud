@@ -15,6 +15,7 @@ public enum Command {
     DELETE_FILE("/delete_file"),
 
     CREATE_DIR("/create_dir"),
+    CREATE_FILE("/create_file"),
     OPEN_DIR("/open_dir"),
     DELETE_DIR("/delete_dir"),
 

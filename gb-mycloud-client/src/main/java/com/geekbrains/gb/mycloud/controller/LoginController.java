@@ -2,14 +2,19 @@ package com.geekbrains.gb.mycloud.controller;
 
 import com.geekbraind.gb.mycloud.message.AuthRequestMsg;
 import com.geekbrains.gb.mycloud.data.ClientMsgLib;
-import com.geekbrains.gb.mycloud.util.ClientNetwork;
-import com.geekbrains.gb.mycloud.util.WindowManager;
+import com.geekbrains.gb.mycloud.service.AuthService;
+import com.geekbrains.gb.mycloud.util.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LoginController {
+
+public class LoginController implements Initializable, AuthCallback {
 
     @FXML
     private TextField loginField;
@@ -17,27 +22,42 @@ public class LoginController {
     @FXML
     private PasswordField passField;
 
-    @FXML
-    private void initialize() {
-        loginField.setText("alex@example.com");
-        passField.setText("123");
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ClientNetwork.getInstance().getMainClientHandler().setAuthCallback(this);
     }
 
-    public void btnSignUp() {
+    @FXML
+    public void btnRegister() {
         WindowManager.showRegister();
     }
 
+    @FXML
     public void btnChangePassword() {
         WindowManager.showChangePassword();
     }
 
+    @FXML
     public void sendAuthMsg() {
         if (loginField.getText().isEmpty() || passField.getText().isEmpty()) {
             WindowManager.showWarningAlert(ClientMsgLib.WRNG_NOT_ALL_DATA);
             return;
         }
+        if (!AuthService.getInstance().isLoginValid(loginField.getText())) {
+            WindowManager.showWarningAlert(ClientMsgLib.WRNG_LOGIN_TYPING);
+            return;
+        }
         AuthRequestMsg msg = new AuthRequestMsg(loginField.getText(), passField.getText());
-        ClientNetwork.getInstance().sendMsg(msg);
+        ClientNetwork.getInstance().sendObject(msg);
+    }
+
+    @Override
+    public void authCallback(boolean result) {
+        if (result) {
+            Platform.runLater(()->{
+                WindowManager.showMain();
+            });
+        }
     }
 }
 

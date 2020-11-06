@@ -1,11 +1,11 @@
 package com.geekbrains.gb.mycloud;
 
+import com.geekbrains.gb.mycloud.controller.MainController;
 import com.geekbrains.gb.mycloud.data.ClientSettings;
 import com.geekbrains.gb.mycloud.util.ClientNetwork;
 import com.geekbrains.gb.mycloud.util.WindowManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
 import java.util.concurrent.CountDownLatch;
 
 public class ClientApp extends Application {
@@ -15,10 +15,8 @@ public class ClientApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        ClientSettings.getInstance().setStage(primaryStage);
+    public void init() throws Exception {
         applyClientSetting();
-
         CountDownLatch networkStarter = new CountDownLatch(1);
         new Thread(() -> {
             try {
@@ -28,6 +26,11 @@ public class ClientApp extends Application {
             }
         }).start();
         networkStarter.await();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        ClientSettings.getInstance().setStage(primaryStage);
         WindowManager.showLogin();
     }
 

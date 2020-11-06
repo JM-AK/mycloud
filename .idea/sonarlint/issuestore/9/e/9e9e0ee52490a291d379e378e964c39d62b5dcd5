@@ -1,15 +1,9 @@
 
-U	java:S106O"9Replace this use of System.out or System.err by a logger.(ÅÔ±é8Ğ÷ÆÌ×.
+x
+java:S3923N"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ÿ¥äÑ8É›ÀùØ.
 O
-java:S11355"2Complete the task associated to this TODO comment.(Åæ¹Ô8¹‚†×.
-U	java:S106="9Replace this use of System.out or System.err by a logger.(éñãÕ8¹‚†×.
-U	java:S106J"9Replace this use of System.out or System.err by a logger.(ÑÚ§ä8¹½Ì×.
-U	java:S106Y"9Replace this use of System.out or System.err by a logger.(€€‹¥8ÁõÚÌ×.
+java:S11358"2Complete the task associated to this TODO comment.(Åæ¹Ô8¹‚†×.
+p
+java:S3776#"SRefactor this method to reduce its Cognitive Complexity from 112 to the 15 allowed.(²¨üã8ûÛ“Ì×.
 S
-java:S26964"6Make the enclosing method "static" or remove this set.(ê©—¦8¹‚†×.
-o
-java:S3776""RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(²¨üã8ûÛ“Ì×.
-U	java:S1067"9Replace this use of System.out or System.err by a logger.(¡«ú±8¹‚†×.
-U	java:S106L"9Replace this use of System.out or System.err by a logger.(üı×Ğ8Ê•ÃÌ×.
-Z	java:S106W"9Replace this use of System.out or System.err by a logger.(§óùœùÿÿÿÿ8ÿ‡ÚÌ×.
-Z	java:S1068"9Replace this use of System.out or System.err by a logger.(€Ş‘¨ûÿÿÿÿ8€Íâ«Ö.
+java:S26967"6Make the enclosing method "static" or remove this set.(ê©—¦8¹‚†×.

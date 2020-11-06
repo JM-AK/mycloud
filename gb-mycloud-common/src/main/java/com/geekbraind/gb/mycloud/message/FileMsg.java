@@ -20,7 +20,7 @@ public class FileMsg extends AbstractMsg {
     private boolean isRequestFileList;
 
     public FileMsg(Path src, Path dst, boolean isFileList) {
-        this.source = src.toString();
+        this.source = src.getParent().toString();
         this.destination = dst.toString();
         this.fileName = src.subpath(src.getNameCount() - 1, src.getNameCount()).toString();
         this.isRequestFileList = isRequestFileList;
@@ -64,6 +64,7 @@ public class FileMsg extends AbstractMsg {
         StringBuilder sb = new StringBuilder();
         sb.append(MsgLib.DELIMITER).append(source);
         sb.append(MsgLib.DELIMITER).append(destination);
+        sb.append(MsgLib.DELIMITER).append(fileName);
         sb.append(MsgLib.DELIMITER).append(isRequestFileList);
         return MsgType.FILE +  sb.toString();
     }

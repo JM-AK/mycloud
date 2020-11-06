@@ -1,3 +1,21 @@
 
-X
-java:S2094"BRemove this empty class, write its code or make it an "interface".(Ø•Õ½
+d
+java:S2142õ"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8¶÷·şØ.
+P
+java:S1135Ÿ"2Complete the task associated to this TODO comment.(¨Àâ…8¶÷·şØ.
+N
+java:S1481‚"+Remove this unused "cmdMsg" local variable.(‡¨šòúÿÿÿÿ8™³ô£Ø.
+b
+java:S2095è"DUse try-with-resources or close this "Stream" in a "finally" clause.(à‹Ï¨8ö•©Ø.
+Z
+java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8¦ÍÄûØ.
+?
+java:S1116ä"Remove this empty statement.(”ááûÿÿÿÿ8ú¬µşØ.
+U
+java:S1135ò"2Complete the task associated to this TODO comment.(ƒ°à¿ûÿÿÿÿ8¶÷·şØ.
+o
+java:S3776Œ"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ì¬¿V8¶÷·şØ.
+]
+java:S1854‚":Remove this useless assignment to local variable "cmdMsg".(‡¨šòúÿÿÿÿ8™³ô£Ø.
+G
+java:S1068)"*Remove this unused "logger" private field.(ßşÌø8¦¾™ıØ.

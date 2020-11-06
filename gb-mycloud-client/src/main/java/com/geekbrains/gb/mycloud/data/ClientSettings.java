@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class ClientSettings {
 
@@ -21,7 +22,8 @@ public class ClientSettings {
     private int bufferSize;
     private int serverPort;
     private String serverIp;
-//    private ProgressController progressController;
+    private List<Path> clientFileList;
+    private List<Path> serverFileList;
 
     public Stage getStage() {
         return stage;
@@ -51,13 +53,13 @@ public class ClientSettings {
         return serverIp;
     }
 
-//    public ProgressController getProgressController() {
-//        return progressController;
-//    }
+    public List<Path> getClientFileList() {
+        return clientFileList;
+    }
 
-//    public void setProgressController(ProgressController progressController) {
-//        this.progressController = progressController;
-//    }
+    public List<Path> getServerFileList() {
+        return serverFileList;
+    }
 
     public void setBufferSize(int bufferSize) {
         this.bufferSize = bufferSize;
@@ -78,6 +80,13 @@ public class ClientSettings {
 
     public void setServerIp(String serverIp) {
         this.serverIp = serverIp;
+    }
+
+    public void setClientFileList (List<Path> clientFileList) {
+        this.clientFileList = clientFileList;
+    }
+    public void setServerFileList (List<Path> serverFileList) {
+        this.serverFileList = serverFileList;
     }
 
     private ClientSettings() {
